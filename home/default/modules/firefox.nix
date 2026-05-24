@@ -14,6 +14,15 @@ in
   programs.firefox = {
     enable = true;
 
+    policies = {
+      Preferences = {
+        "browser.download.manager.retention" = {
+          Value = 0;
+          Status = "locked";
+        };
+      };
+    };
+
     profiles = {
       default = {
         id = 0;
@@ -34,15 +43,6 @@ in
           search-by-image
           auto-tab-discard
         ];
-
-        policies = {
-          Preferences = {
-            "browser.download.manager.retention" = {
-              Value = 0;
-              Status = "locked";
-            };
-          };
-        };
 
         settings = {
           # Enable custom CSS and SVG properties for the theme
