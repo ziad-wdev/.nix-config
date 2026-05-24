@@ -10,7 +10,7 @@ in
     layout = [
       {
         label = "logout";
-        action = "sleep 0.5; hyprctl dispatch exit";
+        action = "sleep 0.5; pkill -u $USER";
         keybind = "l";
       }
       {
@@ -31,7 +31,7 @@ in
       {
         label = "shutdown";
         action = "sleep 0.5; systemctl poweroff";
-        keybind = "s";
+        keybind = "h";
       }
     ];
 

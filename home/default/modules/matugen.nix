@@ -76,7 +76,7 @@
     post_hook = "spicetify apply --no-restart || true"
 
     [templates.vesktop]
-    input_path = "${toPathStr ./templates/discord.css}"
+    input_path = "${toPathStr ./templates/vesktop.css}"
     output_path = "${config.xdg.configHome}/matugen/output/vesktop.css"
 
     [templates.firefox]

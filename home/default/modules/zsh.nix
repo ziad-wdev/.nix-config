@@ -13,7 +13,7 @@
     shellAliases = {
       nix-rebuild = "sudo nixos-rebuild switch --flake /etc/nixos#default";
       nix-update = "sudo nix-channel --update && sudo nixos-rebuild switch --flake /etc/nixos#default";
-      nix-gc = "sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +5 && nix-collect-garbage";
+      nix-gc = "sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +10 && nix-collect-garbage";
     };
 
     oh-my-zsh = {

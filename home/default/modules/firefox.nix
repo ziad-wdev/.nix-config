@@ -25,14 +25,12 @@ in
           force = true;
         };
 
-        extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
+        extensions.packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
           stylus
           bitwarden
           clearurls
           sponsorblock
-          languagetool
           ublock-origin
-          tree-style-tab
           search-by-image
           auto-tab-discard
         ];

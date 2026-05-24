@@ -1,36 +1,26 @@
-{ config, pkgs, username, ... }:
+{ username, config, lib, pkgs, ... }:
 
 {
-  # Configure the system state version.
+  # Configure the system state version
   system.stateVersion = "26.05";
 
-  # Configure Nix settings.
+  # Configure Nix settings
   nix.settings = {
     experimental-features = ["nix-command" "flakes"];
     use-xdg-base-directories = true;
     auto-optimise-store = true;
-    keep-derivations = true;
-    keep-outputs = true;
   };
 
-  system.autoUpgrade = {
-    enable = true;
-    dates = "04:00";
-    allowReboot = false;
-    runGarbageCollection = true;
-    flake = "/etc/nixos#default";
-    flags = [ "--update-input" "nixpkgs" "--commit-lock-file" ];
-  };
-
-  # Configure the network.
+  # Configure the network
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
 
-  # Configure bluetooth.
+  # Configure bluetooth
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
+  services.blueman.enable = true;
 
-  # Enable sound with pipewire.
+  # Enable sound with pipewire
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -40,26 +30,26 @@
     jack.enable = true;
   };
 
-  # Set the time zone to Cairo.
+  # Set the time zone to Cairo
   time.timeZone = "Africa/Cairo";
 
-  # Create the user.
+  # Create the user
   users.users.${username} = {
     isNormalUser = true;
     description = "${username}";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = [ "networkmanager" "wheel" "video" "audio" ];
   };
 
-  # Configure the boot loader.
+  # Configure the boot loader
   boot.loader = {
     systemd-boot.enable = false;
     grub.enable = false;
     efi.canTouchEfiVariables = true;
     limine = {
       enable = true;
-      efiInstallAsRemovable = true;
-      maxGenerations = 5;
+      maxGenerations = 10;
       enableEditor = true;
+      efiInstallAsRemovable = true;
       style = {
         wallpapers = [
           (pkgs.fetchurl {
@@ -72,49 +62,72 @@
     };
   };
 
-  # Enable sddm.
+  # Enable sddm
   services.displayManager.sddm = {
     enable = true;
     wayland = {
       enable = true;
       compositor = "kwin";
     };
-    extraPackages = [ pkgs.bibata-cursors ];
+    settings = {
+      Theme = {
+        CursorTheme = "Bibata-Modern-Ice";
+        CursorSize = 24;
+      };
+    };
   };
-  environment.sessionVariables = {
-    XCURSOR_THEME = "Bibata-Modern-Ice";
-    XCURSOR_SIZE = "24";
-  };
+  environment.systemPackages = [ pkgs.bibata-cursors ];
 
-  # Enable hyprland and setup the environment.
+  # Enable hyprland and setup the environment
   programs.hyprland = {
     enable = true;
     withUWSM = false;
   };
-
-  environment.sessionVariables = {
-    WLR_NO_HARDWARE_CURSORS = "1";
-    NIXOS_OZONE_WL = "1";
-    MOZ_ENABLE_WAYLAND = "1";
-    QT_QPA_PLATFORM = "wayland";
-    GDK_BACKEND = "wayland";
-    SDL_VIDEODRIVER = "wayland";
-    CLUTTER_BACKEND = "wayland";
-  };
-
-  hardware = {
-    graphics.enable = true;
-    nvidia.modesetting.enable = true;
-  };
-
   xdg.portal = {
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
   };
 
-  # Enable gnome-keyring for password management.
+  # Enable gnome-keyring for password management
   services.gnome.gnome-keyring.enable = true;
 
-  # Enable polkit for system-wide policy management.
+  # Enable polkit for system-wide policy management
   security.polkit.enable = true;
+
+  # Enable essential graphics hardware settings
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware = {
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
+    nvidia = {
+      prime = {
+        offload = {
+          enable = true;
+          enableOffloadCmd = true;
+        };
+        intelBusId = "PCI:0:2:0";
+        nvidiaBusId = "PCI:1:0:0";
+      };
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      powerManagement.finegrained = true;
+      powerManagement.enable = true;
+      modesetting.enable = true;
+      open = false;
+    };
+  };
+
+  specialisation = {
+    Gaming.configuration = {
+      hardware.nvidia = {
+        prime.sync.enable = lib.mkForce true;
+        prime.offload = {
+          enable = lib.mkForce false;
+          enableOffloadCmd = lib.mkForce false;
+        };
+        powerManagement.finegrained = lib.mkForce false;
+      };
+    };
+  };
 }

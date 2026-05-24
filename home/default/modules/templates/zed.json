@@ -213,6 +213,11 @@
             "font_style": null,
             "font_weight": null
           },
+          "string": {
+            "color": "{{colors.navy.dark.hex}}",
+            "font_style": null,
+            "font_weight": null
+          },
           "operator": {
             "color": "{{colors.cyan.dark.hex}}",
             "font_style": null,
@@ -407,102 +412,107 @@
         ],
         "syntax": {
           "attribute": {
-            "color": "{{colors.fuchsia.dark.hex}}",
+            "color": "{{colors.fuchsia.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "boolean": {
-            "color": "{{colors.orange.dark.hex}}",
+            "color": "{{colors.orange.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "comment": {
-            "color": "{{colors.surface_variant.dark.hex}}",
+            "color": "{{colors.surface_variant.light.hex}}",
             "font_style": "italic",
             "font_weight": 600
           },
           "comment.doc": {
-            "color": "{{colors.surface_variant.dark.hex}}",
+            "color": "{{colors.surface_variant.light.hex}}",
             "font_style": "italic",
             "font_weight": 600
           },
           "constant": {
-            "color": "{{colors.pink.dark.hex}}",
+            "color": "{{colors.pink.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "constructor": {
-            "color": "{{colors.surface_variant.dark.hex}}",
+            "color": "{{colors.surface_variant.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "function": {
-            "color": "{{colors.sky.dark.hex}}",
+            "color": "{{colors.sky.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "keyword": {
-            "color": "{{colors.purple.dark.hex}}",
+            "color": "{{colors.purple.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "label": {
-            "color": "{{colors.indigo.dark.hex}}",
+            "color": "{{colors.indigo.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "link_text": {
-            "color": "{{colors.blue.dark.hex}}",
+            "color": "{{colors.blue.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "link_uri": {
-            "color": "{{colors.teal.dark.hex}}",
+            "color": "{{colors.teal.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "number": {
-            "color": "{{colors.orange.dark.hex}}",
+            "color": "{{colors.orange.light.hex}}",
+            "font_style": null,
+            "font_weight": null
+          },
+          "string": {
+            "color": "{{colors.navy.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "operator": {
-            "color": "{{colors.cyan.dark.hex}}",
+            "color": "{{colors.cyan.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "property": {
-            "color": "{{colors.emerald.dark.hex}}",
+            "color": "{{colors.emerald.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "punctuation": {
-            "color": "{{colors.on_surface_variant.dark.hex}}",
+            "color": "{{colors.on_surface_variant.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "tag": {
-            "color": "{{colors.rose.dark.hex}}",
+            "color": "{{colors.rose.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "title": {
-            "color": "{{colors.amber.dark.hex}}",
+            "color": "{{colors.amber.light.hex}}",
             "font_style": null,
             "font_weight": 700
           },
           "type": {
-            "color": "{{colors.pink.dark.hex}}",
+            "color": "{{colors.pink.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "variable": {
-            "color": "{{colors.on_surface.dark.hex}}",
+            "color": "{{colors.on_surface.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "variable.special": {
-            "color": "{{colors.red.dark.hex}}",
+            "color": "{{colors.red.light.hex}}",
             "font_style": null,
             "font_weight": 700
           }

@@ -221,12 +221,10 @@ in
         };
 
         bluetooth = {
-          format-on = "󰂯";
-          format-off = "󰂲";
-          format-disabled = "󰂲";
+          format = "";
           format-connected = "󰂯   {device_alias}";
           format-connected-battery = "   {device_alias} {device_battery_percentage}%";
-          on-click = "~/.config/rofi/scripts/rofi-bluetooth.sh";
+          on-click = "${pkgs.blueman}/bin/blueman-manager";
           tooltip = false;
         };
 
@@ -236,7 +234,7 @@ in
           format-disabled = "󰤭     Disabled";
           format-disconnected = "󰤭    Disconnected";
           format-icons = [ "󰤯 " "󰤟 " "󰤢 " "󰤥 " "󰤨 " ];
-          on-click = "~/.config/rofi/scripts/rofi-network.sh";
+          on-click = "${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
           tooltip = false;
         };
 

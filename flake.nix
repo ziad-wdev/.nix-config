@@ -12,9 +12,19 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    qylock.url  = "github:Greeenman999/qylock-nix";
+    qylock.url = "github:Greeenman999/qylock-nix";
 
-    firefox-addons.url = "github:ryantm/firefox-addons";
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
+
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { nixpkgs, disko, home-manager, ... }@inputs:
@@ -41,9 +51,10 @@
         ./hosts/default/configuration.nix
         ./hosts/default/packages.nix
 
+        inputs.qylock.nixosModules.default # sddm qylock theme
+
         # Home Manager and sddm theme configuration
         home-manager.nixosModules.home-manager
-        inputs.qylock.nixosModules.default # sddm qylock theme
         {
           programs.qylock = {
               enable = true;

@@ -1,45 +1,26 @@
-{ username, pkgs, ... }:
+{ username, lib, ... }:
 
 let
-  dotFiles = ./modules;
+  # Get all files in ./modules
+  dir = ./modules;
+  files = builtins.readDir dir;
+
+  # Filter for .nix files and exclude this current file if necessary
+  nixFiles = lib.filterAttrs (name: type:
+    type == "regular" && lib.hasSuffix ".nix" name
+  ) files;
+
+  # Create a list of full paths
+  importList = lib.mapAttrsToList (name: _: dir + "/${name}") nixFiles;
 in
 {
-  imports = [
-    ./modules/git.nix
-    ./modules/zsh.nix
-    ./modules/fastfetch.nix
-
-    ./modules/hyprland.nix
-    ./modules/hyprlock.nix
-    ./modules/hypridle.nix
-
-    ./modules/theme.nix
-    ./modules/waybar.nix
-    ./modules/rofi.nix
-    ./modules/wlogout.nix
-    ./modules/ghostty.nix
-    ./modules/nautilus.nix
-    ./modules/matugen.nix
-
-    ./modules/zed.nix
-    ./modules/firefox.nix
-  ];
+  imports = importList;
 
   home = {
     homeDirectory = "/home/${username}";
     stateVersion = "26.05";
     username = "${username}";
   };
+
   programs.home-manager.enable = true;
-
-  home.packages = with pkgs; [
-    rofi
-  ];
-
-  xdg.configFile = {
-    "rofi" = {
-      source = "${dotFiles}/rofi";
-      recursive = true;
-    };
-  };
 }

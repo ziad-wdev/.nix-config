@@ -81,10 +81,11 @@
         xray =  true,
       })
 
-      -- Center floating windows (Note: hl.window_rule and floating = true)
+      -- Center floating windows and fix their size
       hl.window_rule({
         match = { class = ".*", float = true },
         center = true,
+        size = "800 600",
       })
 
       -- Float generic utility windows
@@ -95,13 +96,13 @@
       hl.window_rule({ match = { title = "^(Library)(.*)$" }, float = true })
 
       -- App-specific float rules
-      hl.window_rule({ match = { class = "xfce4-taskmanager" }, float = true })
-      hl.window_rule({ match = { class = "pavucontrol" }, float = true })
-      hl.window_rule({ match = { class = "blueman-manager" }, float = true })
-      hl.window_rule({ match = { class = "nm-connection-editor" }, float = true })
-      hl.window_rule({ match = { class = "file-roller" }, float = true })
+      hl.window_rule({ match = { class = "^(xfce4-taskmanager)$" }, float = true })
+      hl.window_rule({ match = { class = "^(pavucontrol)$" }, float = true })
+      hl.window_rule({ match = { class = "^(blueman-manager)$" }, float = true })
+      hl.window_rule({ match = { class = "^(nm-connection-editor)$" }, float = true })
+      hl.window_rule({ match = { class = "^(file-roller)$" }, float = true })
       hl.window_rule({ match = { title = "^([Pp]icture-in-[Pp]icture)$" }, float = true })
-      hl.window_rule({ match = { class = "loupe" }, float = true })
+      hl.window_rule({ match = { class = "^(loupe)$" }, float = true })
 
       -- Configuration
       hl.config({
