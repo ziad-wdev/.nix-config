@@ -39,17 +39,15 @@
     gh
     git
     curl
-    unzip
-    unrar
-
+    ouch # Archive extraction and compression utility
     resources # Resource management
-    # Image utilities
+    wl-clipboard # Wayland clipboard utility
+    brightnessctl # Brightness control
+
+    showtime # video player
     loupe # Image viewer
+
     imagemagick # Image processing
-    # Wayland clipboard utility
-    wl-clipboard
-    # Brightness control
-    brightnessctl
   ];
 
   # Configure zsh shell.
