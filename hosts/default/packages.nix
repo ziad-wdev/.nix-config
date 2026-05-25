@@ -15,8 +15,8 @@
     packages = [
       "com.github.tchx84.Flatseal"
       "com.rtosta.zapzap" # WhatsApp
-      "org.localsend.localsend_app" # Local file sharing
       "com.obsproject.Studio" # OBS Studio
+      "org.localsend.localsend_app" # Local file sharing
       "org.polymc.PolyMC" # Minecraft launcher
     ];
   };
@@ -61,6 +61,9 @@
 
   # Enable fwupd for firmware updates
   services.fwupd.enable = true;
+
+  # Environment variable management
+  services.envs.enable = true;
 
   # Enable GVFS for file system access. (for nautilus)
   services.gvfs.enable = true;
