@@ -14,21 +14,30 @@
     };
     packages = [
       "com.github.tchx84.Flatseal"
-      "org.polymc.PolyMC"
+      "org.polymc.PolyMC" # Minecraft launcher
     ];
   };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  nixpkgs.overlays = [
+    (final: prev: {
+      openldap = prev.openldap.overrideAttrs (old: { doCheck = false; });
+    })
+  ];
+
   environment.systemPackages = with pkgs; [
+    protonup-ng # Proton Updater for steam
+    lutris # Game launcher
+
     # System utilities
+    nodejs
     gh
     git
     curl
     unzip
     unrar
-    protonup-ng # Proton Updater for steam
 
     resources # Resource management
     # Image utilities
@@ -43,12 +52,6 @@
   # Configure zsh shell.
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
-
-  # Enable AppImage support
-  programs.appimage = {
-    enable = true;
-    binfmt = true;
-  };
 
   # Enable Steam
   programs.steam.enable = true;

@@ -11,6 +11,9 @@ let
     $primary: #{"@primary"};
     $primary-hover: #{"darker(@primary)"};
 
+    $tertiary: #{"@tertiary"};
+    $tertiary-hover: #{"darker(@tertiary)"};
+
     $bg: #{"@surface"};
     $bg-darker: #{"@surface_container_lowest"};
     $bg-lighter: #{"@surface_container_low"};
@@ -99,11 +102,21 @@ let
         background-color: $primary-hover;
       }
 
+      button:not(.visible):not(.empty) {
+        background-color: $tertiary;
+        border: 1px solid transparent;
+      }
+
+      button:not(.visible):not(.empty):hover {
+        background-color: $tertiary-hover;
+      }
+
       label {
         color: transparent;
       }
 
-      button.visible label {
+      button.visible label,
+      button:not(.visible):not(.empty) label {
         color: $fg-primary;
       }
     }
