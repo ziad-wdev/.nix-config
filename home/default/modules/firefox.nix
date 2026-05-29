@@ -29,21 +29,6 @@ in
         name = "default";
         isDefault = true;
 
-        search = {
-          default = "ddg";
-          force = true;
-        };
-
-        extensions.packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
-          stylus
-          bitwarden
-          clearurls
-          sponsorblock
-          ublock-origin
-          search-by-image
-          auto-tab-discard
-        ];
-
         settings = {
           # Enable custom CSS and SVG properties for the theme
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true;

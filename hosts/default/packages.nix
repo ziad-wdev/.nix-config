@@ -35,20 +35,19 @@
     protonup-ng # Proton Updater for steam
     lutris # Game launcher
 
+    resources # Resource management
+    showtime # video player
+    loupe # Image viewer
+
     # System utilities
     nodejs
     gh
     git
     curl
     ouch # Archive extraction and compression utility
-    resources # Resource management
+    imagemagick # Image processing
     wl-clipboard # Wayland clipboard utility
     brightnessctl # Brightness control
-
-    showtime # video player
-    loupe # Image viewer
-
-    imagemagick # Image processing
   ];
 
   # Configure zsh shell.
@@ -59,12 +58,6 @@
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;
   programs.gamemode.enable = true;
-
-  # Fix file system environment variables
-  services.envfs.enable = true;
-
-  # Enable fwupd for firmware updates
-  services.fwupd.enable = true;
 
   # Enable GVFS for file system access. (for nautilus)
   services.gvfs.enable = true;

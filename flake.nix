@@ -16,8 +16,8 @@
 
     nix-flatpak.url = "github:gmodena/nix-flatpak";
 
-    firefox-addons = {
-      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -29,7 +29,6 @@
 
   outputs = { nixpkgs, disko, home-manager, ... }@inputs:
   let
-    system = "x86_64-linux";
     username = "ziad";
     sharedArgs = {
       username = username;
@@ -38,7 +37,7 @@
   in
   {
     nixosConfigurations.default = nixpkgs.lib.nixosSystem {
-      system = system;
+      system = "x86_64-linux";
 
       # Pass sharedArg to NixOS configuration
       specialArgs = sharedArgs;
