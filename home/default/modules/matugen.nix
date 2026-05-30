@@ -79,14 +79,9 @@
     input_path = "${toPathStr ./templates/vesktop.css}"
     output_path = "${config.xdg.configHome}/matugen/output/vesktop.css"
 
-    [templates.firefox]
-    input_path = "${toPathStr ./templates/firefox.css}"
-    output_path = "${config.xdg.configHome}/matugen/output/firefox.css"
-
-    [templates.pywalfox]
-    input_path = "${toPathStr ./templates/pywalfox.json}"
-    output_path = "${config.xdg.configHome}/matugen/output/pywalfox.json"
-    post_hook = "pywalfox update || true"
+    [templates.zen]
+    input_path = "${toPathStr ./templates/zen.css}"
+    output_path = "${config.xdg.configHome}/matugen/output/zen.css"
 
     [templates.steam]
     input_path = "${toPathStr ./templates/steam.css}"

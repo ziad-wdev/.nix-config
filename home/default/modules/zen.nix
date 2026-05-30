@@ -3,33 +3,9 @@
 {
   imports = [ inputs.zen-browser.homeModules.default ];
 
-  home.packages = [ pkgs.pywalfox-native ];
-
-  xdg.cacheFile."wal/colors.json".source =
-    config.lib.file.mkOutOfStoreSymlink "${config.xdg.configHome}/matugen/output/pywalfox.json";
-
-  home.file.".mozilla/native-messaging-hosts/pywalfox.json".text = builtins.toJSON {
-    name = "pywalfox";
-    description = "Pywalfox native app";
-    path = "${pkgs.pywalfox-native}/bin/pywalfox";
-    type = "stdio";
-    allowed_extensions = [ "pywalfox@frewacom.org" ];
-  };
-
   programs.zen-browser = {
     enable = true;
     setAsDefaultBrowser = true;
-
-    nativeMessagingHosts = [ pkgs.pywalfox-native ];
-
-    policies = {
-      ExtensionSettings = {
-        "pywalfox@frewacom.org" = {
-          install_url = "https://addons.mozilla.org/firefox/downloads/latest/pywalfox/latest.xpi";
-          installation_mode = "force_installed";
-        };
-      };
-    };
 
     profiles.default = {
       id = 0;
@@ -37,13 +13,14 @@
       isDefault = true;
 
       userChrome = ''
-        @import url("https://raw.githubusercontent.com/Axenide/PywalZen/main/chrome.css");
+        @import url("file://${config.xdg.configHome}/matugen/output/zen.css");
+
+        :root {
+          --zen-primary-color: var(--color-primary);
+        }
       '';
 
       settings = {
-        # Pywalzen (darkness mode)
-        "uc-pywalzen-darkness" = "default";
-
         # Enable custom CSS and SVG properties for the theme
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
         "widget.gtk.rounded-bottom-corners.enabled" = true;
