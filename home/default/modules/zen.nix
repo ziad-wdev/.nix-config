@@ -24,6 +24,16 @@
         Cryptomining = true;
         Fingerprinting = true;
       };
+      SanitizeOnShutdown = {
+        OfflineApps = true;
+        Downloads = true;
+        FormData = true;
+        Cache = true;
+        SiteSettings = false;
+        Sessions = false;
+        Cookies = false;
+        History = false;
+      };
       Preferences = {
         "browser.startup.homepage" = {
           Value = "about:blank";
