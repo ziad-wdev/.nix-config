@@ -45,6 +45,7 @@
     gh
     git
     curl
+    _7zz-rar
     ouch # Archive extraction and compression utility
     imagemagick # Image processing
     wl-clipboard # Wayland clipboard utility
