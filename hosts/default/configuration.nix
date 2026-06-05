@@ -38,7 +38,7 @@
   users.users.${username} = {
     isNormalUser = true;
     description = "${username}";
-    extraGroups = [ "networkmanager" "wheel" "video" "audio" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "audio" "docker" ];
   };
 
   # Configure the boot loader

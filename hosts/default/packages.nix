@@ -66,6 +66,9 @@ in
     brightnessctl # Brightness control
   ];
 
+  # Enable Docker for containerization.
+  virtualisation.docker.enable = true;
+
   # Configure zsh shell.
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
