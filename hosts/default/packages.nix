@@ -52,7 +52,6 @@ in
 
     # Node.js stable runtime and global tools
     pkgs-stable.nodejs
-    typescript
     pnpm
 
     # System utilities
