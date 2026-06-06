@@ -207,20 +207,16 @@ in
           persistent-workspaces = {
             "*" = [ 1 2 3 4 5 ];
           };
-          format-icons = {
-            "1" = "1";
-            "2" = "2";
-            "3" = "3";
-            "4" = "4";
-            "5" = "5";
-            default = "";
-          };
           tooltip = false;
         };
 
         clock = {
           format = "{:%m %a %I:%M %p}";
           tooltip = false;
+        };
+
+        tray = {
+          spacing = 8;
         };
 
         wireplumber = {
