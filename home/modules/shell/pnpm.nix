@@ -8,6 +8,6 @@
   };
 
   home.sessionPath = [
-    "${config.xdg.dataHome}/pnpm"
+    "${config.xdg.dataHome}/pnpm/bin"
   ];
 }
