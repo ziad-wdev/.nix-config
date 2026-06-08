@@ -1,10 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  programs.pnpm = {
-    enable = true;
-    package = pkgs.pnpm;
-  };
+  home.packages = [ pkgs.pnpm ];
 
   home.sessionVariables = {
     PNPM_HOME = "${config.xdg.dataHome}/pnpm";
