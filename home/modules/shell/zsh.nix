@@ -1,5 +1,8 @@
-{ config, ... }:
+{ inputs, config, ... }:
 
+let
+  flakePath = inputs.self.outPath;
+in
 {
   programs.zsh = {
     enable = true;
@@ -11,8 +14,8 @@
     historySubstringSearch.enable = true;
 
     shellAliases = {
-      nix-rebuild = "sudo nixos-rebuild switch --flake /etc/nixos#default";
-      nix-update = "sudo nix-channel --update && sudo nixos-rebuild switch --flake /etc/nixos#default";
+      nix-rebuild = "sudo nixos-rebuild switch --flake ${flakePath}#default";
+      nix-update = "sudo nix-channel --update && sudo nixos-rebuild switch --flake ${flakePath}#default";
       nix-gc = "sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +10 && nix-collect-garbage";
     };
 
@@ -21,12 +24,15 @@
       theme = "robbyrussell";
     };
 
-    sessionVariables = {
-      NPM_CONFIG_PREFIX = "$HOME/.npm-global";
+    home.sessionVariables = {
+      PNPM_HOME = "${config.xdg.dataHome}/pnpm";
     };
 
+    home.sessionPath = [
+      "${config.xdg.dataHome}/pnpm"
+    ];
+
     initContent = ''
-      export PATH="$HOME/.npm-global/bin:$PATH"
       fastfetch
     '';
   };
