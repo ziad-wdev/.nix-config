@@ -21,35 +21,27 @@
     };
   };
 
-  outputs = { nixpkgs, disko, home-manager, ... }@inputs:
+  outputs = { nixpkgs, home-manager, ... }@inputs:
   let
     username = "ziad";
+    stateVersion = "26.05";
     sharedArgs = {
       username = username;
+      stateVersion = stateVersion;
       inherit inputs;
     };
   in
   {
     nixosConfigurations.default = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-
-      # Pass sharedArg to NixOS configuration
       specialArgs = sharedArgs;
 
       modules = [
-        # Main configuration modules
-        disko.nixosModules.disko
-        ./hosts/default/disko.nix
-        ./hosts/default/hardware-configuration.nix
-        ./hosts/default/configuration.nix
-        ./hosts/default/packages.nix
-        ./hosts/default/sddm.nix
+        ./configuration.nix
 
-        # Home Manager and sddm theme configuration
         home-manager.nixosModules.home-manager
         {
           home-manager = {
-            # Pass sharedArg to Home Manager configuration
             extraSpecialArgs = sharedArgs;
 
             backupFileExtension = "hm-backup";
@@ -57,7 +49,7 @@
             useUserPackages = true;
             users.${username} = {
               imports = [
-                ./home/default/home.nix
+                ./home/home.nix
               ];
             };
           };
