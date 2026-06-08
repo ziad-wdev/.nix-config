@@ -25,6 +25,7 @@ in
     };
 
     initContent = ''
+      export PATH="${config.xdg.dataHome}/pnpm/bin:$PATH"
       fastfetch
     '';
   };
