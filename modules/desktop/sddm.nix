@@ -9,7 +9,7 @@ let
       owner = "Darkkal44";
       repo = "qylock";
       rev = "main";
-      hash = "sha256-JnE2Jg991S7EpzlWHGGZVTZmzk3P3Ge/UL1RTppvjLo=";
+      hash = "sha256-jVNBiyhdA0lU2CapcgoWO9WlnEF/EBg+JfpPf/G/CzQ=";
     };
 
     dontBuild = true;
