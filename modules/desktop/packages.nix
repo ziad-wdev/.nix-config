@@ -40,6 +40,8 @@
     loupe # Image viewer
 
     # System utilities
+    python3
+    python3Packages.pip
     nodejs_24
     gh
     git
