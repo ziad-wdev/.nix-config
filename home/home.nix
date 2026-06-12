@@ -21,6 +21,7 @@ let
       "hyprlock"
       "matugen"
       "nautilus"
+      "quickshell"
       "rofi"
       "theme"
       "waybar"
