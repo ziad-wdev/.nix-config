@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ flakePath, config, pkgs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -23,5 +23,5 @@
   # };
 
   xdg.configFile."quickshell".source =
-    config.lib.file.mkOutOfStoreSymlink ../../assets/config/quickshell;
+    config.lib.file.mkOutOfStoreSymlink "${flakePath}/home/assets/config/quickshell";
 }

@@ -1,13 +1,13 @@
 { flakePath, config, pkgs, ... }:
 
 let
-  templatesPath = flakePath + "/home/assets/templates";
+  templatesPath = "${flakePath}/home/assets/templates";
   outputPath = "${config.xdg.dataHome}/themes";
 in
 {
   home.packages = [ pkgs.matugen ];
 
-  xdg.configFile."matugen/output/.keep".text = "";
+  home.file."${outputPath}/.keep".text = "";
 
   xdg.configFile."matugen/config.toml".source = (pkgs.formats.toml {}).generate "config" {
     config = {
@@ -45,7 +45,7 @@ in
       hyprland = {
         input_path = "${templatesPath}/hyprland.lua";
         output_path = "${outputPath}/hyprland.lua";
-        post_hook = "hyprctl reload &> /dev/null";
+        post_hook = "hyprctl reload || true";
       };
 
       hyprlock = {
@@ -66,7 +66,7 @@ in
       waybar = {
         input_path = "${templatesPath}/colors.css";
         output_path = "${outputPath}/waybar.css";
-        post_hook = "pkill -SIGUSR2 waybar";
+        post_hook = "systemctl --user reload-or-restart waybar || true";
       };
 
       rofi = {
@@ -77,7 +77,7 @@ in
       ghostty = {
         input_path = "${templatesPath}/ghostty";
         output_path = "${outputPath}/ghostty";
-        post_hook = "pkill -SIGUSR2 ghostty";
+        post_hook = "pkill -SIGUSR2 ghostty || true";
       };
 
       zed = {
