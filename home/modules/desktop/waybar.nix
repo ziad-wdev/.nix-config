@@ -2,7 +2,7 @@
 
 let
   sassContent = pkgs.writeText "style.scss" ''
-    @import url("file://${config.xdg.configHome}/matugen/output/waybar.css");
+    @import url("file://${config.xdg.dataHome}/themes/waybar.css");
 
     $rounding: 24px;
     $padding: 4px;

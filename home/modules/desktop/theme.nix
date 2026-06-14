@@ -36,12 +36,14 @@
       package = pkgs.adw-gtk3;
       name = "adw-gtk3-dark";
     };
+
     gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
+
     gtk3.extraCss = ''
-      @import url("file://${config.xdg.configHome}/matugen/output/gtk.css");
+      @import url("file://${config.xdg.dataHome}/themes/gtk.css");
     '';
     gtk4.extraCss = ''
-      @import url("file://${config.xdg.configHome}/matugen/output/gtk.css");
+      @import url("file://${config.xdg.dataHome}/themes/gtk.css");
     '';
   };
 

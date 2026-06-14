@@ -2,6 +2,7 @@
 
 let
   templatesPath = flakePath + "/home/assets/templates";
+  outputPath = "${config.xdg.dataHome}/themes";
 in
 {
   home.packages = [ pkgs.matugen ];
@@ -37,67 +38,61 @@ in
     templates = {
       gtk = {
         input_path = "${templatesPath}/gtk.css";
-        output_path = "${config.xdg.configHome}/matugen/output/gtk.css";
+        output_path = "${outputPath}/gtk.css";
         post_hook = "${pkgs.glib}/bin/gsettings set org.gnome.desktop.interface gtk-theme none; sleep 0.05; ${pkgs.glib}/bin/gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark'";
       };
 
       hyprland = {
         input_path = "${templatesPath}/hyprland.lua";
-        output_path = "${config.xdg.configHome}/matugen/output/hyprland.lua";
+        output_path = "${outputPath}/hyprland.lua";
         post_hook = "hyprctl reload &> /dev/null";
       };
 
       hyprlock = {
         input_path = "${templatesPath}/hyprlock.conf";
-        output_path = "${config.xdg.configHome}/matugen/output/hyprlock.conf";
+        output_path = "${outputPath}/hyprlock.conf";
+      };
+
+      quickshell = {
+        input_path = "${templatesPath}/quickshell.qml";
+        output_path = "${outputPath}/Quickshell.qml";
       };
 
       wlogout = {
         input_path = "${templatesPath}/colors.css";
-        output_path = "${config.xdg.configHome}/matugen/output/wlogout.css";
+        output_path = "${outputPath}/wlogout.css";
       };
 
       waybar = {
         input_path = "${templatesPath}/colors.css";
-        output_path = "${config.xdg.configHome}/matugen/output/waybar.css";
+        output_path = "${outputPath}/waybar.css";
         post_hook = "pkill -SIGUSR2 waybar";
       };
 
       rofi = {
         input_path = "${templatesPath}/rofi.rasi";
-        output_path = "${config.xdg.configHome}/matugen/output/rofi.rasi";
+        output_path = "${outputPath}/rofi.rasi";
       };
 
       ghostty = {
         input_path = "${templatesPath}/ghostty";
-        output_path = "${config.xdg.configHome}/matugen/output/ghostty";
+        output_path = "${outputPath}/ghostty";
         post_hook = "pkill -SIGUSR2 ghostty";
       };
 
       zed = {
         input_path = "${templatesPath}/zed.json";
-        output_path = "${config.xdg.configHome}/matugen/output/zed.json";
-      };
-
-      spicetify = {
-        input_path = "${templatesPath}/spicetify.ini";
-        output_path = "${config.xdg.configHome}/matugen/output/spicetify.ini";
-        post_hook = "spicetify apply --no-restart || true";
+        output_path = "${outputPath}/zed.json";
       };
 
       vesktop = {
         input_path = "${templatesPath}/vesktop.css";
-        output_path = "${config.xdg.configHome}/matugen/output/vesktop.css";
-      };
-
-      steam = {
-        input_path = "${templatesPath}/steam.css";
-        output_path = "${config.xdg.configHome}/matugen/output/steam.css";
+        output_path = "${outputPath}/vesktop.css";
       };
 
       obs = {
         input_path = "${templatesPath}/obs.obt";
-        output_path = "${config.xdg.configHome}/matugen/output/obs.obt";
+        output_path = "${outputPath}/obs.obt";
       };
     };
   };

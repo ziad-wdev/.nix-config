@@ -2,7 +2,7 @@
 
 {
   xdg.configFile."ghostty/themes/custom".source =
-    config.lib.file.mkOutOfStoreSymlink "${config.xdg.configHome}/matugen/output/ghostty";
+    config.lib.file.mkOutOfStoreSymlink "${config.xdg.dataHome}/themes/ghostty";
 
   programs.ghostty = {
     enable = true;

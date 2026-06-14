@@ -6,7 +6,7 @@
   ];
 
   xdg.configFile."vesktop/themes/custom.css".source =
-    config.lib.file.mkOutOfStoreSymlink "${config.xdg.configHome}/matugen/output/vesktop.css";
+    config.lib.file.mkOutOfStoreSymlink "${config.xdg.dataHome}/themes/vesktop.css";
 
   # Directly manage the Vesktop config file in the XDG config directory
   xdg.configFile."vesktop/settings.json".text = builtins.toJSON {

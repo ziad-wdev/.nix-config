@@ -3,6 +3,7 @@
 {
   nixpkgs.config.allowUnfree = true;
 
+  # Disable tests for openldap to avoid build failures for lutris
   nixpkgs.overlays = [
     (final: prev: {
       openldap = prev.openldap.overrideAttrs (old: { doCheck = false; });
@@ -32,11 +33,13 @@
     brightnessctl # Brightness control
   ];
 
+  # Configure zsh shell.
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
+
   # Enable Docker for containerization and NVIDIA container toolkit.
   hardware.nvidia-container-toolkit.enable = true;
-  virtualisation.docker = {
-    enable = true;
-  };
+  virtualisation.docker.enable = true;
 
   # Enable Steam
   programs.steam = {
@@ -44,10 +47,6 @@
     gamescopeSession.enable = true;
   };
   programs.gamemode.enable = true;
-
-  # Configure zsh shell.
-  programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
 
   # Enable GVFS for file system access. (for nautilus)
   services.gvfs.enable = true;

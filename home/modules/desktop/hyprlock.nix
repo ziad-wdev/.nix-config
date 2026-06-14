@@ -4,7 +4,7 @@
   programs.hyprlock = {
     enable = true;
     settings = {
-      source = [ "${config.xdg.configHome}/matugen/output/hyprlock.conf" ];
+      source = [ "${config.xdg.dataHome}/themes/hyprlock.conf" ];
 
       background = [{
         monitor = "";

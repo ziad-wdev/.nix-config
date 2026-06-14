@@ -36,7 +36,7 @@ in
     ];
 
     style = ''
-      @import url("file://${config.xdg.configHome}/matugen/output/wlogout.css");
+      @import url("file://${config.xdg.dataHome}/themes/wlogout.css");
 
       window {
         background: rgba(0, 0, 0, 0.5);

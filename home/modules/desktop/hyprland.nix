@@ -8,7 +8,7 @@
   ];
 
   xdg.configFile."hypr/colors.lua".source =
-    config.lib.file.mkOutOfStoreSymlink "${config.xdg.configHome}/matugen/output/hyprland.lua";
+    config.lib.file.mkOutOfStoreSymlink "${config.xdg.dataHome}/themes/hyprland.lua";
 
   wayland.windowManager.hyprland = {
     enable = true;

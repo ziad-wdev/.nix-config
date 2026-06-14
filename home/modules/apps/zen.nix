@@ -89,14 +89,6 @@
         "extensions.pocket.enabled" = false;
         "privacy.donate.urls" = "";
 
-        # Privacy & Fingerprinting (FPP enabled, RFP disabled for Dark Mode websites)
-        "privacy.donottrackheader.enabled" = true;
-        "privacy.trackingprotection.enabled" = true;
-        "privacy.trackingprotection.socialtracking.enabled" = true;
-        "privacy.resistFingerprinting" = false;
-        "privacy.fingerprintingProtection" = true;
-        "privacy.fingerprintingProtection.overrides" = "+AllTargets,-CSSPrefersColorScheme,-CanvasRandomization,-EfficientCanvasRandomization,-WebGLRenderCapability";
-
         # Security & HTTPS
         "dom.security.https_only_mode" = true;
         "dom.security.https_only_mode_ever_enabled" = true;

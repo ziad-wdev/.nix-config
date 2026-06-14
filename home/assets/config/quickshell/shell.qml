@@ -1,9 +1,14 @@
 //@ pragma ShellId MyDesktopShell
+import ~/.local/share/themes
 import QtQuick
 import Quickshell
 import Quickshell.Wayland
 
 ShellRoot {
+  QuickShell {
+    id: colors
+  }
+
   Variants {
     model: Quickshell.screens
 
@@ -22,12 +27,12 @@ ShellRoot {
 
         Rectangle {
           anchors.fill: parent
-          color: "#1a1b26"
+          color: colors.background
 
           Text {
             anchors.centerIn: parent
             text: "Hello from Quickshell!"
-            color: "#c0caf5"
+            color: colors.primary
             font.pixelSize: 16
           }
         }

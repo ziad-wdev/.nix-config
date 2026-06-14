@@ -2,7 +2,7 @@
 
 {
   xdg.configFile."zed/themes/custom.json".source =
-    config.lib.file.mkOutOfStoreSymlink "${config.xdg.configHome}/matugen/output/zed.json";
+    config.lib.file.mkOutOfStoreSymlink "${config.xdg.dataHome}/themes/zed.json";
 
   programs.zed-editor = {
     enable = true;
