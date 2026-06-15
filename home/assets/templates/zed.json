@@ -154,12 +154,12 @@
         ],
         "syntax": {
           "attribute": {
-            "color": "#{{colors.base09.dark.hex}}",
+            "color": "{{colors.base09.dark.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "boolean": {
-            "color": "#{{colors.base09.dark.hex}}",
+            "color": "{{colors.base09.dark.hex}}",
             "font_style": null,
             "font_weight": null
           },
@@ -174,37 +174,37 @@
             "font_weight": 600
           },
           "constant": {
-            "color": "#{{colors.base09.dark.hex}}",
+            "color": "{{colors.base09.dark.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "constructor": {
-            "color": "#{{colors.base0D.dark.hex}}",
+            "color": "{{colors.base0D.dark.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "embedded": {
-            "color": "#{{colors.base0F.dark.hex}}",
+            "color": "{{colors.base0F.dark.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "emphasis": {
-            "color": "#{{colors.base0E.dark.hex}}",
+            "color": "{{colors.base0E.dark.hex}}",
             "font_style": "italic",
             "font_weight": null
           },
           "emphasis.strong": {
-            "color": "#{{colors.base0A.dark.hex}}",
+            "color": "{{colors.base0A.dark.hex}}",
             "font_style": null,
             "font_weight": 700
           },
           "enum": {
-            "color": "#{{colors.base0C.dark.hex}}",
+            "color": "{{colors.base0C.dark.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "function": {
-            "color": "#{{colors.base0D.dark.hex}}",
+            "color": "{{colors.base0D.dark.hex}}",
             "font_style": null,
             "font_weight": null
           },
@@ -214,32 +214,32 @@
             "font_weight": null
           },
           "keyword": {
-            "color": "#{{colors.base0E.dark.hex}}",
+            "color": "{{colors.base0E.dark.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "label": {
-            "color": "#{{colors.base08.dark.hex}}",
+            "color": "{{colors.base08.dark.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "link_text": {
-            "color": "#{{colors.base08.dark.hex}}",
+            "color": "{{colors.base08.dark.hex}}",
             "font_style": "normal",
             "font_weight": null
           },
           "link_uri": {
-            "color": "#{{colors.base09.dark.hex}}",
+            "color": "{{colors.base09.dark.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "namespace": {
-            "color": "#{{colors.base0A.dark.hex}}",
+            "color": "{{colors.base0A.dark.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "number": {
-            "color": "#{{colors.base09.dark.hex}}",
+            "color": "{{colors.base09.dark.hex}}",
             "font_style": null,
             "font_weight": null
           },
@@ -254,7 +254,7 @@
             "font_weight": null
           },
           "preproc": {
-            "color": "#{{colors.base0F.dark.hex}}",
+            "color": "{{colors.base0F.dark.hex}}",
             "font_style": null,
             "font_weight": null
           },
@@ -264,7 +264,7 @@
             "font_weight": null
           },
           "property": {
-            "color": "#{{colors.base08.dark.hex}}",
+            "color": "{{colors.base08.dark.hex}}",
             "font_style": null,
             "font_weight": null
           },
@@ -284,87 +284,87 @@
             "font_weight": null
           },
           "punctuation.list_marker": {
-            "color": "#{{colors.base08.dark.hex}}",
+            "color": "{{colors.base08.dark.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "punctuation.markup": {
-            "color": "#{{colors.base08.dark.hex}}",
+            "color": "{{colors.base08.dark.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "punctuation.special": {
-            "color": "#{{colors.base0F.dark.hex}}",
+            "color": "{{colors.base0F.dark.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "selector": {
-            "color": "#{{colors.base0E.dark.hex}}",
+            "color": "{{colors.base0E.dark.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "selector.pseudo": {
-            "color": "#{{colors.base0C.dark.hex}}",
+            "color": "{{colors.base0C.dark.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "string": {
-            "color": "#{{colors.base0B.dark.hex}}",
+            "color": "{{colors.base0B.dark.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "string.escape": {
-            "color": "#{{colors.base0C.dark.hex}}",
+            "color": "{{colors.base0C.dark.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "string.regex": {
-            "color": "#{{colors.base0C.dark.hex}}",
+            "color": "{{colors.base0C.dark.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "string.special": {
-            "color": "#{{colors.base0C.dark.hex}}",
+            "color": "{{colors.base0C.dark.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "string.special.symbol": {
-            "color": "#{{colors.base0B.dark.hex}}",
+            "color": "{{colors.base0B.dark.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "tag": {
-            "color": "#{{colors.base08.dark.hex}}",
+            "color": "{{colors.base08.dark.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "text.literal": {
-            "color": "#{{colors.base0B.dark.hex}}",
+            "color": "{{colors.base0B.dark.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "title": {
-            "color": "#{{colors.base0D.dark.hex}}",
+            "color": "{{colors.base0D.dark.hex}}",
             "font_style": null,
             "font_weight": 700
           },
           "type": {
-            "color": "#{{colors.base0A.dark.hex}}",
+            "color": "{{colors.base0A.dark.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "variable": {
-            "color": "#{{colors.base08.dark.hex}}",
+            "color": "{{colors.base08.dark.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "variable.special": {
-            "color": "#{{colors.base09.dark.hex}}",
+            "color": "{{colors.base09.dark.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "variant": {
-            "color": "#{{colors.base0D.dark.hex}}",
+            "color": "{{colors.base0D.dark.hex}}",
             "font_style": null,
             "font_weight": null
           }
@@ -522,12 +522,12 @@
         ],
         "syntax": {
           "attribute": {
-            "color": "#{{colors.base09.light.hex}}",
+            "color": "{{colors.base09.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "boolean": {
-            "color": "#{{colors.base09.light.hex}}",
+            "color": "{{colors.base09.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
@@ -542,37 +542,37 @@
             "font_weight": 600
           },
           "constant": {
-            "color": "#{{colors.base09.light.hex}}",
+            "color": "{{colors.base09.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "constructor": {
-            "color": "#{{colors.base0D.light.hex}}",
+            "color": "{{colors.base0D.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "embedded": {
-            "color": "#{{colors.base0F.light.hex}}",
+            "color": "{{colors.base0F.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "emphasis": {
-            "color": "#{{colors.base0E.light.hex}}",
+            "color": "{{colors.base0E.light.hex}}",
             "font_style": "italic",
             "font_weight": null
           },
           "emphasis.strong": {
-            "color": "#{{colors.base0A.light.hex}}",
+            "color": "{{colors.base0A.light.hex}}",
             "font_style": null,
             "font_weight": 700
           },
           "enum": {
-            "color": "#{{colors.base0C.light.hex}}",
+            "color": "{{colors.base0C.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "function": {
-            "color": "#{{colors.base0D.light.hex}}",
+            "color": "{{colors.base0D.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
@@ -582,32 +582,32 @@
             "font_weight": null
           },
           "keyword": {
-            "color": "#{{colors.base0E.light.hex}}",
+            "color": "{{colors.base0E.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "label": {
-            "color": "#{{colors.base08.light.hex}}",
+            "color": "{{colors.base08.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "link_text": {
-            "color": "#{{colors.base08.light.hex}}",
+            "color": "{{colors.base08.light.hex}}",
             "font_style": "normal",
             "font_weight": null
           },
           "link_uri": {
-            "color": "#{{colors.base09.light.hex}}",
+            "color": "{{colors.base09.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "namespace": {
-            "color": "#{{colors.base0A.light.hex}}",
+            "color": "{{colors.base0A.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "number": {
-            "color": "#{{colors.base09.light.hex}}",
+            "color": "{{colors.base09.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
@@ -622,7 +622,7 @@
             "font_weight": null
           },
           "preproc": {
-            "color": "#{{colors.base0F.light.hex}}",
+            "color": "{{colors.base0F.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
@@ -632,7 +632,7 @@
             "font_weight": null
           },
           "property": {
-            "color": "#{{colors.base08.light.hex}}",
+            "color": "{{colors.base08.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
@@ -652,87 +652,87 @@
             "font_weight": null
           },
           "punctuation.list_marker": {
-            "color": "#{{colors.base08.light.hex}}",
+            "color": "{{colors.base08.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "punctuation.markup": {
-            "color": "#{{colors.base08.light.hex}}",
+            "color": "{{colors.base08.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "punctuation.special": {
-            "color": "#{{colors.base0F.light.hex}}",
+            "color": "{{colors.base0F.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "selector": {
-            "color": "#{{colors.base0E.light.hex}}",
+            "color": "{{colors.base0E.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "selector.pseudo": {
-            "color": "#{{colors.base0C.light.hex}}",
+            "color": "{{colors.base0C.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "string": {
-            "color": "#{{colors.base0B.light.hex}}",
+            "color": "{{colors.base0B.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "string.escape": {
-            "color": "#{{colors.base0C.light.hex}}",
+            "color": "{{colors.base0C.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "string.regex": {
-            "color": "#{{colors.base0C.light.hex}}",
+            "color": "{{colors.base0C.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "string.special": {
-            "color": "#{{colors.base0C.light.hex}}",
+            "color": "{{colors.base0C.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "string.special.symbol": {
-            "color": "#{{colors.base0B.light.hex}}",
+            "color": "{{colors.base0B.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "tag": {
-            "color": "#{{colors.base08.light.hex}}",
+            "color": "{{colors.base08.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "text.literal": {
-            "color": "#{{colors.base0B.light.hex}}",
+            "color": "{{colors.base0B.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "title": {
-            "color": "#{{colors.base0D.light.hex}}",
+            "color": "{{colors.base0D.light.hex}}",
             "font_style": null,
             "font_weight": 700
           },
           "type": {
-            "color": "#{{colors.base0A.light.hex}}",
+            "color": "{{colors.base0A.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "variable": {
-            "color": "#{{colors.base08.light.hex}}",
+            "color": "{{colors.base08.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "variable.special": {
-            "color": "#{{colors.base09.light.hex}}",
+            "color": "{{colors.base09.light.hex}}",
             "font_style": null,
             "font_weight": null
           },
           "variant": {
-            "color": "#{{colors.base0D.light.hex}}",
+            "color": "{{colors.base0D.light.hex}}",
             "font_style": null,
             "font_weight": null
           }

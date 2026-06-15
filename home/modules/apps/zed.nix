@@ -13,6 +13,46 @@
       "charmed-icons"
       "git-firefly"
       "emmet"
+
+      # Web & Markup
+      "html"
+      "vue"
+      "svelte"
+      "astro"
+      "scss"
+      "xml"
+
+      # Backend & Systems
+      "java"
+      "php"
+      "ruby"
+      "csharp"
+      "zig"
+      "elixir"
+      "kotlin"
+      "swift"
+      "dart"
+
+      # Scripting, Config & Infra
+      "lua"
+      "toml"
+      "nix"
+      "terraform"
+      "dockerfile"
+      "sql"
+      "make"
+      "log"
+      "prisma"
+
+      # Functional & Other
+      "latex"
+      "haskell"
+      "ocaml"
+      "scala"
+      "gleam"
+      "clojure"
+      "elm"
+      "erlang"
     ];
 
     # Your keymaps.json configuration

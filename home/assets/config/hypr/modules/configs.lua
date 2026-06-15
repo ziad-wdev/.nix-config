@@ -6,12 +6,12 @@ hl.config({
   },
   general = {
     border_size = 2,
-    gaps_in = 8,
-    gaps_out = 16,
+    gaps_in = 6,
+    gaps_out = 12,
     layout = "scrolling",
   },
   decoration = {
-    rounding = 16,
+    rounding = 2,
     rounding_power = 10.0,
     active_opacity = 1.0,
     inactive_opacity = 0.85,

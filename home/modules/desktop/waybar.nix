@@ -21,10 +21,10 @@ let
     $fg: #{"@on_surface"};
     $fg-primary: #{"@on_primary"};
 
-    $green: #{"@green"};
-    $red: #{"@red"};
-    $blue: #{"@blue"};
-    $orange: #{"@orange"};
+    $green: #{"@base0B"};
+    $red: #{"@base08"};
+    $blue: #{"@base0D"};
+    $orange: #{"@base09"};
 
     * {
       color: $fg;
