@@ -13,8 +13,7 @@ let
     );
 
   modulePaths = loadModules {
-    "modules/desktop" = [
-      "desktop-env"
+    "modules/apps" = [
       "flatpaks"
       "packages"
       "sddm"

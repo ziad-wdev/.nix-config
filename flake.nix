@@ -51,6 +51,7 @@
           ./configuration.nix
 
           home-manager.nixosModules.home-manager
+          ./home/prerequisites.nix
           {
             home-manager = {
               extraSpecialArgs = sharedArgs;

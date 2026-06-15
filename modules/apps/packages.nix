@@ -20,24 +20,17 @@
     baobab # Disk usage analyzer
     showtime # video player
     loupe # Image viewer
+    icon-library # GNOME Icon Library
 
     # System utilities
     python3
     python3Packages.pip
     nodejs_24
-    gh
-    git
     curl
     _7zz-rar
     ouch # Archive extraction and compression utility
     imagemagick # Image processing
-    wl-clipboard # Wayland clipboard utility
-    brightnessctl # Brightness control
   ];
-
-  # Configure zsh shell.
-  programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
 
   # Enable Docker for containerization and NVIDIA container toolkit.
   hardware.nvidia-container-toolkit.enable = true;
@@ -49,19 +42,4 @@
     gamescopeSession.enable = true;
   };
   programs.gamemode.enable = true;
-
-  # Enable GVFS for file system access. (for nautilus)
-  services.gvfs.enable = true;
-
-  # Library for rendering SVG icons
-  programs.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
-
-  # Compatibility layer for unpatched dynamic binaries (e.g. Copilot)
-  programs.nix-ld = {
-    enable = true;
-    libraries = with pkgs; [
-      libsecret
-      glib
-    ];
-  };
 }

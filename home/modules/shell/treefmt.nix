@@ -41,6 +41,16 @@ let
     };
 
     settings.formatter = {
+      "qmlformat" = {
+        command = "${pkgs.qt6.qtdeclarative}/bin/qmlformat";
+        options = [
+          "--inplace"
+          "--indent-width"
+          "2"
+        ];
+        includes = [ "*.qml" ];
+      };
+
       "prettier" = {
         command = "${pkgs.prettier}/bin/prettier";
         options = [
@@ -59,16 +69,6 @@ let
           "*.json"
           "*.md"
         ];
-      };
-
-      "qmlformat" = {
-        command = "${pkgs.qt6.qtdeclarative}/bin/qmlformat";
-        options = [
-          "--inplace"
-          "--indent-width"
-          "2"
-        ];
-        includes = [ "*.qml" ];
       };
     };
   };

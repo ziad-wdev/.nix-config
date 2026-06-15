@@ -10,6 +10,8 @@
     awww
     hyprshot
     hyprpicker
+    wl-clipboard
+    brightnessctl
   ];
 
   xdg.configFile = {
