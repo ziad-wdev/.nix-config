@@ -6,17 +6,19 @@ import Quickshell.Wayland
 
 ShellRoot {
   id: root
+  readonly property int radius: 12
+  readonly property int padding: 16
+
   Colors {
     id: colors
   }
-  readonly property int radius: 16
-  readonly property int padding: 16
 
   Variants {
     model: Quickshell.screens
 
     delegate: PanelWindow {
       screen: modelData
+      color: "transparent"
       anchors {
         top: true
         left: true

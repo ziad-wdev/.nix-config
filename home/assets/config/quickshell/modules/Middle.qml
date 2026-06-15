@@ -30,13 +30,25 @@ RowLayout {
       model: 5
 
       delegate: Rectangle {
+        id: wsButton
         property var wsId: index + 1
-        property bool isActive: Hyprland.focusedWorkspace?.id === wsId
-        property var notEmpty: Hyprland.workspaces.values.find(w => w.id === wsId)
+        property bool isActive: Hyprland.focusedWorkspace.id === wsId
+        property bool isOccupied: Hyprland.workspaces.values.some(w => w.id === wsId)
         width: isActive ? 30 : 20
         height: 6
-        radius: 20
-        color: isActive ? colors.primary : notEmpty ? colors.tertiary : colors.surface_container
+        radius: root.radius
+
+        property color baseColor: isActive ? colors.primary : isOccupied ? colors.tertiary : Qt.alpha(colors.primary, 0.1)
+        color: baseColor
+
+        states: State {
+          name: "hovered"
+          when: mouseArea.containsMouse
+          PropertyChanges {
+            target: wsButton
+            color: Qt.lighter(baseColor, 1.3)
+          }
+        }
 
         Behavior on color {
           ColorAnimation {
@@ -50,7 +62,9 @@ RowLayout {
         }
 
         MouseArea {
+          id: mouseArea
           anchors.fill: parent
+          hoverEnabled: true
           onClicked: Hyprland.dispatch(`hl.dsp.focus({ workspace = ${wsId} })`)
         }
       }

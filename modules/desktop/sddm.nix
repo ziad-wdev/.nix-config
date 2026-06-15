@@ -3,6 +3,8 @@
 {
   imports = [ inputs.qylock.nixosModules.default ];
 
+  environment.systemPackages = with pkgs; [ bibata-cursors ];
+
   services.displayManager.sddm = {
     enable = true;
     wayland = {
@@ -16,8 +18,6 @@
         CursorSize = 24;
       };
     };
-
-    extraPackages = with pkgs; [ bibata-cursors ];
   };
 
   programs.qylock =
@@ -61,7 +61,7 @@
         "women-umbrella" # 35
         "wuwa" # 36
       ];
-      theme = builtins.elemAt themes 36;
+      theme = builtins.elemAt themes 25;
     in
     {
       enable = true;
