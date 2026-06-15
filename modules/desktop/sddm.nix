@@ -68,13 +68,10 @@ in
       "women-umbrella"     # 37
       "wuwa"               # 38
     ];
-    theme = builtins.elemAt themes 1;
+    theme = builtins.elemAt themes 0;
   in {
     enable = true;
-    wayland = {
-      enable = true;
-      compositor = "kwin";
-    };
+    wayland.enable = true;
 
     theme = theme;
 

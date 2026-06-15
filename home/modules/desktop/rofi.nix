@@ -6,7 +6,7 @@
   xdg.configFile."rofi/scripts".source = ../../assets/rofi-scripts;
 
   xdg.configFile."rofi/colors.rasi".source =
-    config.lib.file.mkOutOfStoreSymlink "${config.xdg.configHome}/matugen/output/rofi.rasi";
+    config.lib.file.mkOutOfStoreSymlink "${config.xdg.dataHome}/themes/rofi.rasi";
 
   # Grid theme
   xdg.configFile."rofi/grid-theme.rasi".text = ''

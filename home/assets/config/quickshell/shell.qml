@@ -1,11 +1,15 @@
 //@ pragma ShellId MyDesktopShell
-import ~/.local/share/themes
+import "./modules"
 import QtQuick
 import Quickshell
 import Quickshell.Wayland
 
 ShellRoot {
-  QuickShell {
+  id: root
+  readonly property int radius: 16
+  readonly property int padding: 16
+
+  Colors {
     id: colors
   }
 
@@ -18,24 +22,15 @@ ShellRoot {
       PanelWindow {
         screen: modelData
         anchors.top: true
-        anchors.left: true
-        anchors.right: true
+        margins.top: 8
+        color: "transparent"
+        width: modelData.width * (40/100)
         height: 40
 
         WlrLayershell.layer: WlrLayer.Top
         WlrLayershell.namespace: "quickshell:bar"
 
-        Rectangle {
-          anchors.fill: parent
-          color: colors.background
-
-          Text {
-            anchors.centerIn: parent
-            text: "Hello from Quickshell!"
-            color: colors.primary
-            font.pixelSize: 16
-          }
-        }
+        TopBar { anchors.fill: parent }
       }
     }
   }

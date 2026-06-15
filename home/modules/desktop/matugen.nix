@@ -55,7 +55,7 @@ in
 
       quickshell = {
         input_path = "${templatesPath}/quickshell.qml";
-        output_path = "${outputPath}/Quickshell.qml";
+        output_path = "${outputPath}/quickshell.qml";
       };
 
       wlogout = {
@@ -66,7 +66,7 @@ in
       waybar = {
         input_path = "${templatesPath}/colors.css";
         output_path = "${outputPath}/waybar.css";
-        post_hook = "systemctl --user reload-or-restart waybar || true";
+        post_hook = "command -v waybar &>/dev/null && (pkill -SIGUSR2 waybar || waybar &) || true";
       };
 
       rofi = {

@@ -1,1 +1,0 @@
-/home/ziad/.config/matugen/output/hyprland.lua

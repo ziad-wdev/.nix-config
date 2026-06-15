@@ -4,7 +4,7 @@ local image = "{{image}}"
 local {{name}} = "rgb({{value.default.hex_stripped}})"
 <* endfor *>
 
-return {
+hl.config({
   general = {
     col = {
       active_border = primary,
@@ -27,5 +27,5 @@ return {
   },
   misc = {
     background_color = background,
-  },
-}
+  }
+})
