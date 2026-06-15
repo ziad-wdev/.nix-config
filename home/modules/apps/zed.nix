@@ -14,45 +14,17 @@
       "git-firefly"
       "emmet"
 
-      # Web & Markup
-      "html"
-      "vue"
-      "svelte"
-      "astro"
-      "scss"
-      "xml"
-
-      # Backend & Systems
-      "java"
-      "php"
-      "ruby"
-      "csharp"
-      "zig"
-      "elixir"
-      "kotlin"
-      "swift"
-      "dart"
-
-      # Scripting, Config & Infra
+      # Languages served by LSP
+      "nix"
+      "qml"
+      "ini"
       "lua"
       "toml"
-      "nix"
-      "terraform"
       "dockerfile"
-      "sql"
-      "make"
-      "log"
       "prisma"
-
-      # Functional & Other
-      "latex"
-      "haskell"
-      "ocaml"
-      "scala"
-      "gleam"
-      "clojure"
-      "elm"
-      "erlang"
+      "sql"
+      "html"
+      "scss"
     ];
 
     # Your keymaps.json configuration
