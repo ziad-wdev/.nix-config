@@ -84,9 +84,9 @@ in
             outputHashAlgo = "sha256";
             outputHashMode = "recursive";
             outputHash = "sha256-TMWcifer5LSNUloLEXyBrSWdxUxeUtz5TBlqdCco2SI=";
-            nativeBuildInputs = [
-              pkgs.nodejs-slim
-              pkgs.cacert
+            nativeBuildInputs = with pkgs; [
+              nodejs-slim
+              cacert
             ];
           }
           ''

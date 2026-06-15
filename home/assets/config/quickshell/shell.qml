@@ -1,5 +1,6 @@
 //@ pragma ShellId MyDesktopShell
-import "./modules"
+import "./modules/PolkitAgent"
+import "./modules/Bar"
 import QtQuick
 import Quickshell
 import Quickshell.Wayland
@@ -13,25 +14,26 @@ ShellRoot {
     id: colors
   }
 
+  // PolkitAgent {}
+
   Variants {
     model: Quickshell.screens
 
     delegate: PanelWindow {
+      property var modelData
       screen: modelData
-      color: "transparent"
       anchors {
         top: true
         left: true
         right: true
       }
-      height: 32
+      color: "transparent"
+      implicitHeight: 32
 
       WlrLayershell.layer: WlrLayer.Top
       WlrLayershell.namespace: "quickshell:bar"
 
-      TopBar {
-        anchors.fill: parent
-      }
+      Bar {}
     }
   }
 }

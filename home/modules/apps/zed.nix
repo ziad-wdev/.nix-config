@@ -1,24 +1,33 @@
-{ config, ... }:
+{
+  config,
+  pkgs,
+  ...
+}:
 
 {
+  # Dependencies of nix lsp
+  home.packages = with pkgs; [
+    nil
+    nixd
+  ];
+
   xdg.configFile."zed/themes/custom.json".source =
     config.lib.file.mkOutOfStoreSymlink "${config.xdg.dataHome}/themes/zed.json";
 
   programs.zed-editor = {
     enable = true;
 
-    # Extensions to install
     extensions = [
       "react-snippets-es7"
       "charmed-icons"
       "git-firefly"
       "emmet"
 
-      # Languages served by LSP
+      # LSP's
       "nix"
+      "lua"
       "qml"
       "ini"
-      "lua"
       "toml"
       "dockerfile"
       "prisma"
@@ -27,49 +36,6 @@
       "scss"
     ];
 
-    # Your keymaps.json configuration
-    userKeymaps = [
-      {
-        context = "Editor";
-        bindings = {
-          "alt-d" = [
-            "editor::SelectNext"
-            { "replace_newest" = false; }
-          ];
-          "alt-shift-f" = "editor::Format";
-          "ctrl-alt-shift-down" = null;
-          "ctrl-d" = "editor::DuplicateLineDown";
-          "ctrl-shift-i" = null;
-        };
-      }
-      {
-        context = "(Editor && mode == full)";
-        bindings = {
-          "ctrl-enter" = "editor::NewlineBelow";
-        };
-      }
-      {
-        bindings = {
-          "ctrl-alt-w" = "workspace::CloseProject";
-        };
-      }
-      {
-        context = "Workspace";
-        bindings = {
-          "ctrl-alt-b" = "workspace::ToggleLeftDock";
-          "ctrl-b" = "workspace::ToggleRightDock";
-        };
-      }
-      {
-        context = "Workspace";
-        unbind = {
-          "ctrl-b" = "workspace::ToggleLeftDock";
-          "ctrl-alt-b" = "workspace::ToggleRightDock";
-        };
-      }
-    ];
-
-    # Your settings.json configuration
     userSettings = {
       theme = "Matugen Dark";
       agent = {
@@ -174,5 +140,46 @@
       ui_font_size = 16;
       load_direnv = "direct";
     };
+
+    userKeymaps = [
+      {
+        context = "Editor";
+        bindings = {
+          "alt-d" = [
+            "editor::SelectNext"
+            { "replace_newest" = false; }
+          ];
+          "alt-shift-f" = "editor::Format";
+          "ctrl-alt-shift-down" = null;
+          "ctrl-d" = "editor::DuplicateLineDown";
+          "ctrl-shift-i" = null;
+        };
+      }
+      {
+        context = "(Editor && mode == full)";
+        bindings = {
+          "ctrl-enter" = "editor::NewlineBelow";
+        };
+      }
+      {
+        bindings = {
+          "ctrl-alt-w" = "workspace::CloseProject";
+        };
+      }
+      {
+        context = "Workspace";
+        bindings = {
+          "ctrl-alt-b" = "workspace::ToggleLeftDock";
+          "ctrl-b" = "workspace::ToggleRightDock";
+        };
+      }
+      {
+        context = "Workspace";
+        unbind = {
+          "ctrl-b" = "workspace::ToggleLeftDock";
+          "ctrl-alt-b" = "workspace::ToggleRightDock";
+        };
+      }
+    ];
   };
 }

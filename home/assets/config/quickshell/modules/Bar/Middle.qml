@@ -20,7 +20,6 @@ RowLayout {
 
     text: "00:00 AM"
     color: colors.primary
-    font.pixelSize: 16
   }
 
   Row {
@@ -32,7 +31,7 @@ RowLayout {
       delegate: Rectangle {
         id: wsButton
         property var wsId: index + 1
-        property bool isActive: Hyprland.focusedWorkspace.id === wsId
+        property bool isActive: Hyprland.focusedWorkspace?.id === wsId
         property bool isOccupied: Hyprland.workspaces.values.some(w => w.id === wsId)
         width: isActive ? 30 : 20
         height: 6

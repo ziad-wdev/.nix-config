@@ -3,6 +3,7 @@ import QtQuick.Layouts
 import Quickshell
 
 Rectangle {
+  anchors.fill: parent
   color: colors.surface_container_lowest
 
   RowLayout {
