@@ -5,8 +5,10 @@
 
   # Disable tests for openldap to avoid build failures for lutris
   nixpkgs.overlays = [
-    (final: prev: {
-      openldap = prev.openldap.overrideAttrs (old: { doCheck = false; });
+    (_final: prev: {
+      openldap = prev.openldap.overrideAttrs (_old: {
+        doCheck = false;
+      });
     })
   ];
 

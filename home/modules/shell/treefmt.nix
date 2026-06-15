@@ -14,22 +14,22 @@ let
     ];
 
     programs = {
-      nixfmt.enable = true;   # Nix
-      deadnix.enable = true;  # Deletes dead Nix code
-      statix.enable = true;   # Nix static analysis
+      nixfmt.enable = true; # Nix
+      deadnix.enable = true; # Deletes dead Nix code
+      statix.enable = true; # Nix static analysis
 
       prettier.enable = true; # Frontend & Web (handles: JS, TS, JSX, TSX, CSS, SCSS, SASS, JSON, HTML, and Markdown)
 
-      ruff.enable = true;     # Python (replaces black, flake8, and isort)
+      ruff.enable = true; # Python (replaces black, flake8, and isort)
 
-      rustfmt.enable = true;  # Rust
-      gofmt.enable = true;    # Go
+      rustfmt.enable = true; # Rust
+      gofmt.enable = true; # Go
 
-      shfmt.enable = true;    # Shell scripts
+      shfmt.enable = true; # Shell scripts
 
-      yamlfmt.enable = true;  # YAML
-      stylua.enable = true;   # Lua
-      taplo.enable = true;    # TOML
+      yamlfmt.enable = true; # YAML
+      stylua.enable = true; # Lua
+      taplo.enable = true; # TOML
     };
 
     # QML (Qt6 declarative tools)

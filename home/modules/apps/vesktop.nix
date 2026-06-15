@@ -38,10 +38,18 @@
 
     # Toggle Vencord plugins on (true) or off (false)
     plugins = {
-      FakeNitro = { enabled = true; };
-      ClearURLs = { enabled = true; };
-      VolumeBooster = { enabled = true; };
-      PlatformIndicators = { enabled = true; };
+      FakeNitro = {
+        enabled = true;
+      };
+      ClearURLs = {
+        enabled = true;
+      };
+      VolumeBooster = {
+        enabled = true;
+      };
+      PlatformIndicators = {
+        enabled = true;
+      };
       MessageLogger = {
         enabled = true;
         ignoreSelf = true;

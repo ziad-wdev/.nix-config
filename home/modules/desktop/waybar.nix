@@ -168,11 +168,14 @@ let
     }
   '';
 
-  waybarStyle = pkgs.runCommand "style.css" {
-    buildInputs = [ pkgs.dart-sass ];
-  } ''
-    sass ${sassContent} $out
-  '';
+  waybarStyle =
+    pkgs.runCommand "style.css"
+      {
+        buildInputs = [ pkgs.dart-sass ];
+      }
+      ''
+        sass ${sassContent} $out
+      '';
 in
 {
   programs.waybar = {
@@ -191,9 +194,18 @@ in
         "margin-bottom" = 0;
         reload_style_on_change = true;
 
-        modules-left = [ "custom/menu" "hyprland/workspaces" ];
+        modules-left = [
+          "custom/menu"
+          "hyprland/workspaces"
+        ];
         modules-center = [ "clock" ];
-        modules-right = [ "tray" "wireplumber" "bluetooth" "network" "battery" ];
+        modules-right = [
+          "tray"
+          "wireplumber"
+          "bluetooth"
+          "network"
+          "battery"
+        ];
 
         "custom/menu" = {
           format = "";
@@ -205,7 +217,13 @@ in
           format = "{icon}";
           all-outputs = true;
           persistent-workspaces = {
-            "*" = [ 1 2 3 4 5 ];
+            "*" = [
+              1
+              2
+              3
+              4
+              5
+            ];
           };
           tooltip = false;
         };
@@ -222,7 +240,11 @@ in
         wireplumber = {
           format = "{icon}   {volume}%";
           format-muted = "󰝟";
-          format-icons = [ "󰕿" "󰖀" "󰕾" ];
+          format-icons = [
+            "󰕿"
+            "󰖀"
+            "󰕾"
+          ];
           on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
           max-volume = 200;
           scroll-step = 5;
@@ -242,7 +264,13 @@ in
           format-ethernet = "󰈀    Ethernet";
           format-disabled = "󰤭     Disabled";
           format-disconnected = "󰤭    Disconnected";
-          format-icons = [ "󰤯 " "󰤟 " "󰤢 " "󰤥 " "󰤨 " ];
+          format-icons = [
+            "󰤯 "
+            "󰤟 "
+            "󰤢 "
+            "󰤥 "
+            "󰤨 "
+          ];
           on-click = "${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
           tooltip = false;
         };
@@ -250,8 +278,20 @@ in
         battery = {
           format = "{icon}   {capacity}%";
           format-icons = {
-            default = [ " " " " " " " " " " ];
-            charging = [ "  " "  " "  " "  " "  " ];
+            default = [
+              " "
+              " "
+              " "
+              " "
+              " "
+            ];
+            charging = [
+              "  "
+              "  "
+              "  "
+              "  "
+              "  "
+            ];
           };
           states = {
             warning = 30;

@@ -7,7 +7,11 @@
       "name": "Matugen Dark",
       "appearance": "dark",
       "style": {
-        "accents": ["{{colors.primary.dark.hex}}", "{{colors.secondary.dark.hex}}", "{{colors.tertiary.dark.hex}}"],
+        "accents": [
+          "{{colors.primary.dark.hex}}",
+          "{{colors.secondary.dark.hex}}",
+          "{{colors.tertiary.dark.hex}}"
+        ],
         "background.appearance": "opaque",
         "border": "{{colors.outline_variant.dark.hex}}",
         "border.variant": "{{colors.surface_container_low.dark.hex}}",
@@ -375,7 +379,11 @@
       "name": "Matugen Light",
       "appearance": "light",
       "style": {
-        "accents": ["{{colors.primary.light.hex}}", "{{colors.secondary.light.hex}}", "{{colors.tertiary.light.hex}}"],
+        "accents": [
+          "{{colors.primary.light.hex}}",
+          "{{colors.secondary.light.hex}}",
+          "{{colors.tertiary.light.hex}}"
+        ],
         "background.appearance": "opaque",
         "border": "{{colors.outline_variant.light.hex}}",
         "border.variant": "{{colors.surface_container_low.light.hex}}",

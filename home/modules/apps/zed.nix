@@ -60,7 +60,10 @@
       {
         context = "Editor";
         bindings = {
-          "alt-d" = [ "editor::SelectNext" { "replace_newest" = false; } ];
+          "alt-d" = [
+            "editor::SelectNext"
+            { "replace_newest" = false; }
+          ];
           "alt-shift-f" = "editor::Format";
           "ctrl-alt-shift-down" = null;
           "ctrl-d" = "editor::DuplicateLineDown";
@@ -146,12 +149,15 @@
         };
       };
       preferred_line_length = 120;
-      prettier = {
-        allowed = true;
-        plugins = [
-          "@ianvs/prettier-plugin-sort-imports"
-          "prettier-plugin-tailwindcss"
-        ];
+      format_on_save = "on";
+      formatter = {
+        external = {
+          command = "treefmt";
+          arguments = [
+            "--stdin"
+            "{buffer_path}"
+          ];
+        };
       };
       project_panel = {
         auto_fold_dirs = false;
@@ -194,6 +200,7 @@
       };
       ui_font_family = builtins.head config.fonts.fontconfig.defaultFonts.sansSerif;
       ui_font_size = 16;
+      load_direnv = "direct";
     };
   };
 }

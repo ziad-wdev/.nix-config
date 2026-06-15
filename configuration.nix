@@ -1,12 +1,16 @@
-{ inputs, username, flakePath, stateVersion, ... }:
+{
+  username,
+  flakePath,
+  stateVersion,
+  ...
+}:
 
 let
-  loadModules = attrs:
-    builtins.concatMap
-      (key:
-        map (val: ./. + "/${key}/${val}.nix") attrs.${key}
-      )
-      (builtins.attrNames attrs);
+  loadModules =
+    attrs:
+    builtins.concatMap (key: map (val: ./. + "/${key}/${val}.nix") attrs.${key}) (
+      builtins.attrNames attrs
+    );
 
   modulePaths = loadModules {
     "modules/desktop" = [
@@ -32,7 +36,10 @@ in
   time.timeZone = "Africa/Cairo";
 
   nix.settings = {
-    experimental-features = ["nix-command" "flakes"];
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
     use-xdg-base-directories = true;
     auto-optimise-store = true;
   };
@@ -58,6 +65,12 @@ in
   users.users.${username} = {
     isNormalUser = true;
     description = "${username}";
-    extraGroups = [ "networkmanager" "wheel" "video" "audio" "docker" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "video"
+      "audio"
+      "docker"
+    ];
   };
 }

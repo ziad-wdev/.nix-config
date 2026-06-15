@@ -30,7 +30,11 @@
     };
 
     "org/gnome/nautilus/icon-view" = {
-      captions = [ "size" "none" "none" ];
+      captions = [
+        "size"
+        "none"
+        "none"
+      ];
     };
   };
 

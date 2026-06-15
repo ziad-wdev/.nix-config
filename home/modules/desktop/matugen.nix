@@ -1,4 +1,9 @@
-{ flakePath, config, pkgs, ... }:
+{
+  flakePath,
+  config,
+  pkgs,
+  ...
+}:
 
 let
   templatesPath = "${flakePath}/home/assets/templates";
@@ -9,19 +14,43 @@ in
 
   home.file."${outputPath}/.keep".text = "";
 
-  xdg.configFile."matugen/config.toml".source = (pkgs.formats.toml {}).generate "config" {
+  xdg.configFile."matugen/config.toml".source = (pkgs.formats.toml { }).generate "config" {
     config = {
       wallpaper.command = "awww img --transition-type random --transition-fps 60 \"{{image}}\"";
 
       custom_colors = {
-        base08 = { color = "#cc241d"; blend = true; }; # red
-        base09 = { color = "#d65d0e"; blend = true; }; # orange
-        base0A = { color = "#d79921"; blend = true; }; # yellow
-        base0B = { color = "#98971a"; blend = true; }; # green
-        base0C = { color = "#689d6a"; blend = true; }; # aqua
-        base0D = { color = "#458588"; blend = true; }; # blue
-        base0E = { color = "#b16286"; blend = true; }; # purple
-        base0F = { color = "#9d0006"; blend = true; }; # pink
+        base08 = {
+          color = "#cc241d";
+          blend = true;
+        }; # red
+        base09 = {
+          color = "#d65d0e";
+          blend = true;
+        }; # orange
+        base0A = {
+          color = "#d79921";
+          blend = true;
+        }; # yellow
+        base0B = {
+          color = "#98971a";
+          blend = true;
+        }; # green
+        base0C = {
+          color = "#689d6a";
+          blend = true;
+        }; # aqua
+        base0D = {
+          color = "#458588";
+          blend = true;
+        }; # blue
+        base0E = {
+          color = "#b16286";
+          blend = true;
+        }; # purple
+        base0F = {
+          color = "#9d0006";
+          blend = true;
+        }; # pink
       };
     };
 

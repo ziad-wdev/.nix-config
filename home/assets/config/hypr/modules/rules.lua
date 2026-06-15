@@ -1,8 +1,8 @@
 -- Layer Rules (Only for shell elements matching a namespace)
 hl.layer_rule({
-  match = { namespace = "logout_dialog" },
-  blur = true,
-  xray =  true,
+	match = { namespace = "logout_dialog" },
+	blur = true,
+	xray = true,
 })
 
 -- Float generic utility windows

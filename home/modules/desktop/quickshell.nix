@@ -1,4 +1,9 @@
-{ flakePath, config, pkgs, ... }:
+{
+  flakePath,
+  config,
+  pkgs,
+  ...
+}:
 
 {
   home.packages = with pkgs; [

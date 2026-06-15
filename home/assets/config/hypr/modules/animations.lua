@@ -1,10 +1,10 @@
 -- Curves
-hl.curve("smoothOut", { type = "bezier", points = { {0.36, 0}, {0.66, -0.56} } })
-hl.curve("smoothIn", { type = "bezier", points = { {0.25, 1}, {0.5, 1} } })
-hl.curve("overshot", { type = "bezier", points = { {0.05, 0.9}, {0.1, 1.05} } })
-hl.curve("softSnap", { type = "bezier", points = { {0.4, 0}, {0.2, 1} } })
-hl.curve("fluent", { type = "bezier", points = { {0.0, 0.0}, {0.2, 1.0} } })
-hl.curve("easeInOutExpo", { type = "bezier", points = { {0.87, 0}, {0.13, 1} } })
+hl.curve("smoothOut", { type = "bezier", points = { { 0.36, 0 }, { 0.66, -0.56 } } })
+hl.curve("smoothIn", { type = "bezier", points = { { 0.25, 1 }, { 0.5, 1 } } })
+hl.curve("overshot", { type = "bezier", points = { { 0.05, 0.9 }, { 0.1, 1.05 } } })
+hl.curve("softSnap", { type = "bezier", points = { { 0.4, 0 }, { 0.2, 1 } } })
+hl.curve("fluent", { type = "bezier", points = { { 0.0, 0.0 }, { 0.2, 1.0 } } })
+hl.curve("easeInOutExpo", { type = "bezier", points = { { 0.87, 0 }, { 0.13, 1 } } })
 
 -- Windows
 hl.animation({ leaf = "windows", enabled = true, speed = 5, bezier = "overshot", style = "popin 80%" })
