@@ -262,19 +262,4 @@ in
       };
     };
   };
-
-  systemd.user.services.waybar = {
-    Unit = {
-      Description = "Waybar Status Bar";
-      After = [ "graphical-session.target" ];
-      PartOf = [ "graphical-session.target" ];
-    };
-    Service = {
-      ExecStart = "${pkgs.waybar}/bin/waybar";
-      Restart = "on-failure";
-    };
-    Install = {
-      WantedBy = [ "graphical-session.target" ];
-    };
-  };
 }

@@ -3,11 +3,14 @@
 ---@meta hl
 
 -- Startup Commands
-hl.exec("once", "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
-hl.exec("once", "systemctl --user start graphical-session.target")
+hl.on("hyprland.start", function ()
+  hl.exec_cmd("awww-daemon")
+  hl.exec_cmd("waybar")
+end)
+
 
 -- Variables
-local cmds = {
+cmds = {
   screenshot       = "pkill slurp || hyprshot -z -m region -o ~/Pictures/screenshots",
   windowScreenshot = "pkill slurp || hyprshot -z -m window -o ~/Pictures/screenshots",
   colorPicker      = "pkill hyprpicker || hyprpicker",

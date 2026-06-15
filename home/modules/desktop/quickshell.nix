@@ -17,19 +17,4 @@
     "quickshell/Colors.qml".source =
       config.lib.file.mkOutOfStoreSymlink "${config.xdg.dataHome}/themes/quickshell.qml";
   };
-
-  # systemd.user.services.quickshell = {
-  #   Unit = {
-  #     Description = "Quickshell Desktop Components";
-  #     After = [ "graphical-session.target" ];
-  #     PartOf = [ "graphical-session.target" ];
-  #   };
-  #   Service = {
-  #     ExecStart = "${pkgs.quickshell}/bin/quickshell";
-  #     Restart = "on-failure";
-  #   };
-  #   Install = {
-  #     WantedBy = [ "graphical-session.target" ];
-  #   };
-  # };
 }

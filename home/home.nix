@@ -28,7 +28,6 @@ let
       "wlogout"
     ];
     "modules/shell" = [
-      "awww"
       "fastfetch"
       "git"
       "pnpm"

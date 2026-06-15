@@ -2,11 +2,10 @@
 
 {
   home.packages = with pkgs; [
+    awww
     hyprshot
     hyprpicker
   ];
-
-  xdg.configFile.
 
   xdg.configFile = {
     "hypr/hyprland.lua".source =
