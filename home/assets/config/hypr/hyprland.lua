@@ -2,6 +2,8 @@
 -- or specifically for just 'hl':
 ---@meta hl
 
+-- Remove update notifications
+
 -- Startup Commands
 hl.on("hyprland.start", function()
 	hl.exec_cmd("awww-daemon")

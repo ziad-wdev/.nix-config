@@ -1,5 +1,8 @@
 -- Configuration
 hl.config({
+	ecosystem = {
+		no_update_news = true,
+	},
 	debug = {
 		disable_logs = false,
 		gl_debugging = true,
