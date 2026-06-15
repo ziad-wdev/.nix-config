@@ -2,7 +2,13 @@
 
 let
   treefmtConfig = inputs.treefmt-nix.lib.evalModule pkgs {
-    projectRootFile = "flake.nix";
+    projectRootFile = ".git/HEAD";
+
+    settings.global = {
+      on_unmatched = "ignore";
+      indent_type = "spaces";
+      indent_size = 2;
+    };
 
     settings.global.excludes = [
       "*.patch"
@@ -18,10 +24,7 @@ let
       deadnix.enable = true; # Deletes dead Nix code
       statix.enable = true; # Nix static analysis
 
-      prettier.enable = true; # Frontend & Web (handles: JS, TS, JSX, TSX, CSS, SCSS, SASS, JSON, HTML, and Markdown)
-
       ruff.enable = true; # Python (replaces black, flake8, and isort)
-
       rustfmt.enable = true; # Rust
       gofmt.enable = true; # Go
 
@@ -30,6 +33,16 @@ let
       yamlfmt.enable = true; # YAML
       stylua.enable = true; # Lua
       taplo.enable = true; # TOML
+
+      # Frontend & Web (handles: JS, TS, JSX, TSX, CSS, SCSS, SASS, JSON, HTML, and Markdown)
+      prettier = {
+        enable = true;
+
+        settings = {
+          singleQuote = true;
+          tabWidth = 2;
+        };
+      };
     };
 
     # QML (Qt6 declarative tools)
@@ -45,7 +58,5 @@ let
   };
 in
 {
-  home.packages = [
-    treefmtConfig.config.build.wrapper
-  ];
+  home.packages = [ treefmtConfig.config.build.wrapper ];
 }
