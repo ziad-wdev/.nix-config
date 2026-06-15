@@ -6,34 +6,26 @@ import Quickshell.Wayland
 
 ShellRoot {
     id: root
-    readonly property int radius: 16
-    readonly property int padding: 16
-
     Colors {
         id: colors
     }
+    readonly property int radius: 16
+    readonly property int padding: 16
 
-    Variants {
-        model: Quickshell.screens
+    PanelWindow {
+        screen: modelData
+        anchors {
+            top: true
+            left: true
+            right: true
+        }
+        height: 32
 
-        Scope {
-            property var modelData
+        WlrLayershell.layer: WlrLayer.Top
+        WlrLayershell.namespace: "quickshell:bar"
 
-            PanelWindow {
-                screen: modelData
-                anchors.top: true
-                margins.top: 8
-                color: "transparent"
-                width: modelData.width * (40 / 100)
-                height: 40
-
-                WlrLayershell.layer: WlrLayer.Top
-                WlrLayershell.namespace: "quickshell:bar"
-
-                TopBar {
-                    anchors.fill: parent
-                }
-            }
+        TopBar {
+            anchors.fill: parent
         }
     }
 }

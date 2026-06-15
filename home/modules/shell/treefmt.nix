@@ -63,7 +63,11 @@ let
 
       "qmlformat" = {
         command = "${pkgs.qt6.qtdeclarative}/bin/qmlformat";
-        options = [ "--inplace" ];
+        options = [
+          "--inplace"
+          "--indent"
+          "2"
+        ];
         includes = [ "*.qml" ];
       };
     };
