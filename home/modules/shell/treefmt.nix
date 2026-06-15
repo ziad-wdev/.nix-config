@@ -1,4 +1,10 @@
-{ pkgs, inputs, ... }:
+{
+  inputs,
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   treefmtConfig = inputs.treefmt-nix.lib.evalModule pkgs {
@@ -33,24 +39,31 @@ let
       yamlfmt.enable = true; # YAML
       stylua.enable = true; # Lua
       taplo.enable = true; # TOML
-
-      # Frontend & Web (handles: JS, TS, JSX, TSX, CSS, SCSS, SASS, JSON, HTML, and Markdown)
-      prettier = {
-        enable = true;
-
-        settings = {
-          singleQuote = true;
-          tabWidth = 2;
-        };
-      };
     };
 
-    # QML (Qt6 declarative tools)
     settings.formatter = {
+      "prettier" = {
+        command = "${pkgs.prettier}/bin/prettier";
+        options = [
+          "--write"
+          "--plugin-search-dir"
+          "$(ls -d ${config.xdg.dataHome}/pnpm/global/v* | tail -n 1)/node_modules"
+        ];
+        includes = [
+          "*.js"
+          "*.jsx"
+          "*.ts"
+          "*.tsx"
+          "*.css"
+          "*.scss"
+          "*.html"
+          "*.json"
+          "*.md"
+        ];
+      };
+
       "qmlformat" = {
-        # Extracts qmlformat from Qt6 declarative tools
         command = "${pkgs.qt6.qtdeclarative}/bin/qmlformat";
-        # Arguments to format targets in-place
         options = [ "--inplace" ];
         includes = [ "*.qml" ];
       };
@@ -59,4 +72,40 @@ let
 in
 {
   home.packages = [ treefmtConfig.config.build.wrapper ];
+
+  home.file.".prettierrc".text = builtins.toJSON {
+    tabWidth = 2;
+    printWidth = 100;
+    semi = false;
+    singleQuote = true;
+
+    importOrder = [
+      "^react"
+      "<THIRD_PARTY_MODULES>"
+      "^@/(.*)$"
+      "^[./]"
+    ];
+    importOrderSeparation = true;
+    importOrderSortSpecifiers = true;
+
+    tailwindFunctions = [
+      "cn"
+      "clsx"
+      "tw"
+    ];
+
+    # CRITICAL: prettier-plugin-tailwindcss MUST be the absolute last plugin in this list
+    plugins = [
+      "prettier-plugin-sort-json"
+      "@trivago/prettier-plugin-sort-imports"
+      "prettier-plugin-tailwindcss"
+    ];
+  };
+
+  home.activation.installGlobalPrettierPlugins = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    ${pkgs.pnpm}/bin/pnpm add -g -D \
+      prettier-plugin-sort-json \
+      "@trivago/prettier-plugin-sort-imports" \
+      prettier-plugin-tailwindcss
+  '';
 }

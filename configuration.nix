@@ -1,7 +1,7 @@
 {
-  username,
   flakePath,
   stateVersion,
+  username,
   ...
 }:
 

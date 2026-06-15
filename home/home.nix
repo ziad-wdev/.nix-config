@@ -1,4 +1,4 @@
-{ username, stateVersion, ... }:
+{ stateVersion, username, ... }:
 
 let
   loadModules =

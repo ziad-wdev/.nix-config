@@ -33,10 +33,10 @@
       flakePath = "/home/${username}/.nix-config";
       sharedArgs = {
         inherit
-          username
-          stateVersion
-          flakePath
           inputs
+          flakePath
+          stateVersion
+          username
           ;
       };
     in
