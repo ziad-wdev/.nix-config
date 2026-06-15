@@ -65,7 +65,7 @@ let
         command = "${pkgs.qt6.qtdeclarative}/bin/qmlformat";
         options = [
           "--inplace"
-          "--indent"
+          "--indent-width"
           "2"
         ];
         includes = [ "*.qml" ];
