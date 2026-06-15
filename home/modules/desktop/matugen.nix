@@ -14,24 +14,14 @@ in
       wallpaper.command = "awww img --transition-type random --transition-fps 60 \"{{image}}\"";
 
       custom_colors = {
-        red     = { color = "#ff6467"; blend = true; };
-        orange  = { color = "#ff8904"; blend = true; };
-        amber   = { color = "#ffba00"; blend = true; };
-        yellow  = { color = "#fcc800"; blend = true; };
-        lime    = { color = "#9ae600"; blend = true; };
-        green   = { color = "#05df72"; blend = true; };
-        emerald = { color = "#00d492"; blend = true; };
-        teal    = { color = "#00d5be"; blend = true; };
-        cyan    = { color = "#00d3f2"; blend = true; };
-        sky     = { color = "#00bcff"; blend = true; };
-        blue    = { color = "#51a2ff"; blend = true; };
-        indigo  = { color = "#7c86ff"; blend = true; };
-        violet  = { color = "#a684ff"; blend = true; };
-        purple  = { color = "#c27aff"; blend = true; };
-        fuchsia = { color = "#ed6aff"; blend = true; };
-        pink    = { color = "#fb64b6"; blend = true; };
-        rose    = { color = "#ff637e"; blend = true; };
-        navy    = { color = "#193cb8"; blend = true; };
+        base08 = { color = "#cc241d"; blend = true; }; # red
+        base09 = { color = "#d65d0e"; blend = true; }; # orange
+        base0A = { color = "#d79921"; blend = true; }; # yellow
+        base0B = { color = "#98971a"; blend = true; }; # green
+        base0C = { color = "#689d6a"; blend = true; }; # aqua
+        base0D = { color = "#458588"; blend = true; }; # blue
+        base0E = { color = "#b16286"; blend = true; }; # purple
+        base0F = { color = "#9d0006"; blend = true; }; # pink
       };
     };
 
