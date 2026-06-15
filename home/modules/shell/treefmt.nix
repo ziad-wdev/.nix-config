@@ -1,7 +1,6 @@
 {
   inputs,
   config,
-  lib,
   pkgs,
   ...
 }:
@@ -46,8 +45,8 @@ let
         command = "${pkgs.prettier}/bin/prettier";
         options = [
           "--write"
-          "--plugin-search-dir"
-          "$(ls -d ${config.xdg.dataHome}/pnpm/global/v* | tail -n 1)/node_modules"
+          "--config"
+          "${config.xdg.dataHome}/prettier/.prettierrc"
         ];
         includes = [
           "*.js"
@@ -73,39 +72,59 @@ in
 {
   home.packages = [ treefmtConfig.config.build.wrapper ];
 
-  home.file.".prettierrc".text = builtins.toJSON {
-    tabWidth = 2;
-    printWidth = 100;
-    semi = false;
-    singleQuote = true;
+  xdg.dataFile =
+    let
+      prettierPlugins =
+        pkgs.runCommand "prettier-plugins"
+          {
+            outputHashAlgo = "sha256";
+            outputHashMode = "recursive";
+            outputHash = "sha256-TMWcifer5LSNUloLEXyBrSWdxUxeUtz5TBlqdCco2SI=";
+            nativeBuildInputs = [
+              pkgs.nodejs-slim
+              pkgs.cacert
+            ];
+          }
+          ''
+            export HOME=$TMPDIR
+            mkdir -p $out/lib/node_modules
+            cd $out/lib
+            npm install \
+              prettier-plugin-sort-json \
+              @trivago/prettier-plugin-sort-imports \
+              prettier-plugin-tailwindcss \
+              --no-save
+          '';
+    in
+    {
 
-    importOrder = [
-      "^react"
-      "<THIRD_PARTY_MODULES>"
-      "^@/(.*)$"
-      "^[./]"
-    ];
-    importOrderSeparation = true;
-    importOrderSortSpecifiers = true;
+      "prettier/.prettierrc".text = builtins.toJSON {
+        tabWidth = 2;
+        printWidth = 100;
+        semi = false;
+        singleQuote = true;
 
-    tailwindFunctions = [
-      "cn"
-      "clsx"
-      "tw"
-    ];
+        importOrder = [
+          "^react"
+          "<THIRD_PARTY_MODULES>"
+          "^@/(.*)$"
+          "^[./]"
+        ];
+        importOrderSeparation = true;
+        importOrderSortSpecifiers = true;
 
-    # CRITICAL: prettier-plugin-tailwindcss MUST be the absolute last plugin in this list
-    plugins = [
-      "prettier-plugin-sort-json"
-      "@trivago/prettier-plugin-sort-imports"
-      "prettier-plugin-tailwindcss"
-    ];
-  };
+        tailwindFunctions = [
+          "cn"
+          "clsx"
+          "tw"
+        ];
 
-  home.activation.installGlobalPrettierPlugins = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    ${pkgs.pnpm}/bin/pnpm add -g -D \
-      prettier-plugin-sort-json \
-      "@trivago/prettier-plugin-sort-imports" \
-      prettier-plugin-tailwindcss
-  '';
+        # CRITICAL: prettier-plugin-tailwindcss MUST be the absolute last plugin in this list
+        plugins = [
+          "${prettierPlugins}/lib/node_modules/prettier-plugin-sort-json/dist/index.js"
+          "${prettierPlugins}/lib/node_modules/@trivago/prettier-plugin-sort-imports/lib/src/index.js"
+          "${prettierPlugins}/lib/node_modules/prettier-plugin-tailwindcss/dist/index.mjs"
+        ];
+      };
+    };
 }
