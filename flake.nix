@@ -12,6 +12,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    qylock.url = "github:Darkkal44/qylock";
+
     nix-flatpak.url = "github:gmodena/nix-flatpak";
 
     zen-browser = {
