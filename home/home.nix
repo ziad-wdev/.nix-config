@@ -31,6 +31,7 @@ let
       "fastfetch"
       "git"
       "pnpm"
+      "treefmt"
       "zsh"
     ];
   };
