@@ -61,7 +61,7 @@
         "women-umbrella" # 35
         "wuwa" # 36
       ];
-      theme = builtins.elemAt themes 3;
+      theme = builtins.elemAt themes 7;
     in
     {
       enable = true;
