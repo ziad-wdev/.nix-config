@@ -27,14 +27,14 @@ PanelWindow {
   MouseArea {
     anchors.fill: parent
     onClicked: {
-      polkitAgent.flow?.cancelAuthenticationRequest();
+      polkitAgent.flow.cancelAuthenticationRequest();
     }
   }
 
   Shortcut {
     sequence: "Escape"
     onActivated: {
-      polkitAgent.flow?.cancelAuthenticationRequest();
+      polkitAgent.flow.cancelAuthenticationRequest();
     }
   }
 
@@ -88,22 +88,31 @@ PanelWindow {
       TextField {
         id: inputField
 
+        property int shakeOffset: 0
+
         Layout.fillWidth: true
         implicitHeight: 48
 
         horizontalAlignment: Qt.AlignHCenter
         verticalAlignment: Qt.AlignVCenter
 
+        placeholderText: "Password"
+        placeholderTextColor: colors.alphaForeground
+
+        echoMode: TextInput.Password
         cursorDelegate: Text {}
 
         background: Rectangle {
           radius: root.radius
           color: Qt.alpha(colors.primary, 0.1)
+          transform: Translate {
+            x: -inputField.shakeOffset
+          }
         }
 
-        placeholderText: polkitAgent.flow?.isSuccessful ? polkitAgent.flow?.inputPrompt : "Authentication failed"
-        placeholderTextColor: polkitAgent.flow?.isSuccessful ? colors.alphaForeground : Qt.alpha(colors.base08, 0.5)
-        echoMode: TextInput.Password
+        transform: Translate {
+          x: inputField.shakeOffset
+        }
 
         selectedTextColor: colors.base00
         selectionColor: colors.primary
@@ -111,8 +120,86 @@ PanelWindow {
         font.pixelSize: 20
 
         onAccepted: {
-          polkitAgent.flow?.submit(text);
-          !polkitAgent.flow?.isSuccessful && (inputField.text = "");
+          polkitAgent.flow.submit(text);
+          errorAnimation.start();
+        }
+
+        ParallelAnimation {
+          id: errorAnimation
+
+          readonly property int delay: 50
+
+          SequentialAnimation {
+            PauseAnimation {
+              duration: errorAnimation.delay
+            }
+            NumberAnimation {
+              target: inputField
+              property: "shakeOffset"
+              to: -8
+              duration: 50
+            }
+            NumberAnimation {
+              target: inputField
+              property: "shakeOffset"
+              to: 8
+              duration: 50
+            }
+            NumberAnimation {
+              target: inputField
+              property: "shakeOffset"
+              to: -5
+              duration: 50
+            }
+            NumberAnimation {
+              target: inputField
+              property: "shakeOffset"
+              to: 5
+              duration: 50
+            }
+            NumberAnimation {
+              target: inputField
+              property: "shakeOffset"
+              to: 0
+              duration: 50
+            }
+          }
+
+          SequentialAnimation {
+            PauseAnimation {
+              duration: errorAnimation.delay
+            }
+            ColorAnimation {
+              target: inputField
+              property: "selectionColor"
+              to: colors.base08
+              duration: 50
+            }
+            ColorAnimation {
+              target: inputField
+              property: "selectionColor"
+              to: colors.primary
+              duration: 200
+            }
+          }
+
+          SequentialAnimation {
+            PauseAnimation {
+              duration: errorAnimation.delay
+            }
+            ColorAnimation {
+              target: inputField
+              property: "color"
+              to: colors.base08
+              duration: 50
+            }
+            ColorAnimation {
+              target: inputField
+              property: "color"
+              to: colors.base07
+              duration: 200
+            }
+          }
         }
       }
     }
