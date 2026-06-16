@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   # Setup fonts system-wide
   home.packages = with pkgs; [
     inter
@@ -11,9 +13,9 @@
   fonts.fontconfig = {
     enable = true;
     defaultFonts = {
-      sansSerif = [ "Inter" ];
-      monospace = [ "JetBrainsMono Nerd Font" ];
-      emoji = [ "Noto Color Emoji" ];
+      sansSerif = ["Inter"];
+      monospace = ["JetBrainsMono Nerd Font"];
+      emoji = ["Noto Color Emoji"];
     };
   };
 

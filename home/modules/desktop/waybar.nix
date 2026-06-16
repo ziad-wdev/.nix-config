@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
-let
+{
+  config,
+  pkgs,
+  ...
+}: let
   sassContent = pkgs.writeText "style.scss" ''
     @import url("file://${config.xdg.dataHome}/themes/waybar.css");
 
@@ -170,14 +172,13 @@ let
 
   waybarStyle =
     pkgs.runCommand "style.css"
-      {
-        buildInputs = [ pkgs.dart-sass ];
-      }
-      ''
-        sass ${sassContent} $out
-      '';
-in
-{
+    {
+      buildInputs = [pkgs.dart-sass];
+    }
+    ''
+      sass ${sassContent} $out
+    '';
+in {
   programs.waybar = {
     enable = true;
 
@@ -198,7 +199,7 @@ in
           "custom/menu"
           "hyprland/workspaces"
         ];
-        modules-center = [ "clock" ];
+        modules-center = ["clock"];
         modules-right = [
           "tray"
           "wireplumber"

@@ -1,7 +1,5 @@
-{ inputs, ... }:
-
-{
-  imports = [ inputs.disko.nixosModules.disko ];
+{inputs, ...}: {
+  imports = [inputs.disko.nixosModules.disko];
 
   disko.devices = {
     disk = {
@@ -18,7 +16,7 @@
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
-                mountOptions = [ "umask=0077" ];
+                mountOptions = ["umask=0077"];
               };
             };
             swap = {

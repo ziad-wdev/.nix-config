@@ -1,8 +1,9 @@
-{ stateVersion, username, ... }:
-
-let
-  loadModules =
-    attrs:
+{
+  stateVersion,
+  username,
+  ...
+}: let
+  loadModules = attrs:
     builtins.concatMap (key: map (val: ./. + "/${key}/${val}.nix") attrs.${key}) (
       builtins.attrNames attrs
     );
@@ -34,8 +35,7 @@ let
       "zsh"
     ];
   };
-in
-{
+in {
   imports = modulePaths;
 
   home = {

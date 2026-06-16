@@ -3,11 +3,8 @@
   stateVersion,
   username,
   ...
-}:
-
-let
-  loadModules =
-    attrs:
+}: let
+  loadModules = attrs:
     builtins.concatMap (key: map (val: ./. + "/${key}/${val}.nix") attrs.${key}) (
       builtins.attrNames attrs
     );
@@ -27,8 +24,7 @@ let
       "sound"
     ];
   };
-in
-{
+in {
   imports = modulePaths;
 
   system.stateVersion = stateVersion;

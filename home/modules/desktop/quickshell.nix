@@ -3,9 +3,7 @@
   config,
   pkgs,
   ...
-}:
-
-{
+}: {
   home.packages = with pkgs; [
     quickshell
     qt6.qt5compat

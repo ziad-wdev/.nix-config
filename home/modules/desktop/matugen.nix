@@ -3,18 +3,15 @@
   config,
   pkgs,
   ...
-}:
-
-let
+}: let
   templatesPath = "${flakePath}/home/assets/templates";
   outputPath = "${config.xdg.dataHome}/themes";
-in
-{
-  home.packages = [ pkgs.matugen ];
+in {
+  home.packages = [pkgs.matugen];
 
   home.file."${outputPath}/.keep".text = "";
 
-  xdg.configFile."matugen/config.toml".source = (pkgs.formats.toml { }).generate "config" {
+  xdg.configFile."matugen/config.toml".source = (pkgs.formats.toml {}).generate "config" {
     config = {
       wallpaper.command = "awww img --transition-type random --transition-fps 60 \"{{image}}\"";
 

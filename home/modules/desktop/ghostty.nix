@@ -1,6 +1,4 @@
-{ config, ... }:
-
-{
+{config, ...}: {
   xdg.configFile."ghostty/themes/custom".source =
     config.lib.file.mkOutOfStoreSymlink "${config.xdg.dataHome}/themes/ghostty";
 

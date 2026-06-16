@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   nixpkgs.config.allowUnfree = true;
 
   # Disable tests for openldap to avoid build failures for lutris

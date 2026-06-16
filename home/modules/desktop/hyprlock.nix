@@ -1,10 +1,8 @@
-{ config, ... }:
-
-{
+{config, ...}: {
   programs.hyprlock = {
     enable = true;
     settings = {
-      source = [ "${config.xdg.dataHome}/themes/hyprlock.conf" ];
+      source = ["${config.xdg.dataHome}/themes/hyprlock.conf"];
 
       background = [
         {

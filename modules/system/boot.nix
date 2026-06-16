@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   boot.loader = {
     systemd-boot.enable = false;
     grub.enable = false;

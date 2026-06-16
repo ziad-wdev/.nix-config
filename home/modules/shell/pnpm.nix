@@ -1,7 +1,9 @@
-{ config, pkgs, ... }:
-
 {
-  home.packages = [ pkgs.pnpm ];
+  config,
+  pkgs,
+  ...
+}: {
+  home.packages = [pkgs.pnpm];
 
   home.sessionVariables = {
     PNPM_HOME = "${config.xdg.dataHome}/pnpm";

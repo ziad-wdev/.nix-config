@@ -2,9 +2,7 @@
   config,
   pkgs,
   ...
-}:
-
-{
+}: {
   # Dependencies of nix lsp
   home.packages = with pkgs; [
     nil
@@ -147,7 +145,7 @@
         bindings = {
           "alt-d" = [
             "editor::SelectNext"
-            { "replace_newest" = false; }
+            {"replace_newest" = false;}
           ];
           "alt-shift-f" = "editor::Format";
           "ctrl-alt-shift-down" = null;

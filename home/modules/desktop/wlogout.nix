@@ -1,9 +1,6 @@
-{ config, ... }:
-
-let
+{config, ...}: let
   iconDir = ../../assets/icons;
-in
-{
+in {
   programs.wlogout = {
     enable = true;
 

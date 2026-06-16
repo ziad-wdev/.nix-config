@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   # Required by hyprland.nix -> for Hyprland window manager
   programs.hyprland.enable = true;
   services.gnome.gnome-keyring.enable = true;
@@ -8,7 +6,7 @@
 
   xdg.portal = {
     enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+    extraPortals = [pkgs.xdg-desktop-portal-hyprland];
     config.common.default = "*";
   };
 
@@ -20,5 +18,5 @@
   services.gvfs.enable = true;
 
   # Required by wlogout.nix -> for svg icon rendering
-  programs.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
+  programs.gdk-pixbuf.modulePackages = [pkgs.librsvg];
 }

@@ -1,6 +1,4 @@
-{ config, ... }:
-
-{
+{config, ...}: {
   programs.rofi.enable = true;
 
   xdg.configFile."rofi/scripts".source = ../../assets/rofi-scripts;
