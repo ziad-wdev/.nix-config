@@ -12,9 +12,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    qylock.url = "github:Darkkal44/qylock";
-
     nix-flatpak.url = "github:gmodena/nix-flatpak";
+
+    silentSDDM = {
+      url = "github:uiriansan/SilentSDDM";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";

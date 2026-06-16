@@ -5,6 +5,11 @@ hl.layer_rule({
 	xray = true,
 })
 
+hl.layer_rule({
+	match = { namespace = "quickshell:polkitagent" },
+	blur = true,
+})
+
 -- Float generic utility windows
 hl.window_rule({ match = { title = "^(Open File)(.*)$" }, float = true })
 hl.window_rule({ match = { title = "^(Select a File)(.*)$" }, float = true })

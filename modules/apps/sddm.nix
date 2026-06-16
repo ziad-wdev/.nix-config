@@ -1,7 +1,29 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  username,
+  pkgs,
+  ...
+}:
 
 {
-  imports = [ inputs.qylock.nixosModules.default ];
+  imports = [ inputs.silentSDDM.nixosModules.default ];
+
+  programs.silentSDDM = {
+    enable = true;
+    theme = "catppuccin-mocha";
+  };
+
+  systemd.tmpfiles.rules =
+    let
+      avatar = pkgs.fetchurl {
+        url = "https://i.pinimg.com/736x/5e/58/41/5e5841627401c23e62b2ce6a4f2d4f04.jpg";
+        sha256 = "";
+      };
+    in
+    [
+      "f+ /var/lib/AccountsService/users/${username} 0600 root root - [User]\\nIcon=/var/lib/AccountsService/icons/${username}\\n"
+      "L+ /var/lib/AccountsService/icons/${username} - - - - ${avatar}"
+    ];
 
   environment.systemPackages = with pkgs; [ bibata-cursors ];
 
@@ -9,7 +31,7 @@
     enable = true;
     wayland = {
       enable = true;
-      compositor = "hyprland";
+      compositor = "kwin";
     };
 
     settings = {
@@ -19,52 +41,4 @@
       };
     };
   };
-
-  programs.qylock =
-    let
-      themes = [
-        "Genshin" # 0
-        "R1999_1" # 1
-        "R1999_2" # 2
-        "clockwork" # 3
-        "dog-samurai" # 4
-        "enfield" # 5
-        "field" # 6
-        "forest" # 7
-        "girl-coffee" # 8
-        "girl-pillow" # 9
-        "last-of-us" # 10
-        "man-bicycle" # 11
-        "material-you" # 12
-        "minecraft" # 13
-        "nier-automata" # 14
-        "ninja_gaiden" # 15
-        "nothing" # 16
-        "osu" # 17
-        "osumania" # 18
-        "pixel-coffee" # 19
-        "pixel-cyberpunk" # 20
-        "pixel-dusk-city" # 21
-        "pixel-emerald" # 22
-        "pixel-hollowknight" # 23
-        "pixel-munchlax" # 24
-        "pixel-night-city" # 25
-        "pixel-rainyroom" # 26
-        "pixel-sakura" # 27
-        "pixel-skyscrapers" # 28
-        "pixel-waterfall" # 29
-        "star-rail" # 30
-        "sword" # 31
-        "terraria" # 32
-        "windows_7" # 33
-        "winter" # 34
-        "women-umbrella" # 35
-        "wuwa" # 36
-      ];
-      theme = builtins.elemAt themes 23;
-    in
-    {
-      enable = true;
-      inherit theme;
-    };
 }

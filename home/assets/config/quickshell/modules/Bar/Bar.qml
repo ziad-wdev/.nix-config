@@ -1,26 +1,39 @@
+import "./Components"
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
 
 Rectangle {
+  id: bar
+  readonly property int spacing: 12
+
   anchors.fill: parent
-  color: colors.surface_container_lowest
+
+  color: colors.base00
 
   RowLayout {
-    anchors.fill: parent
+    anchors {
+      left: parent.left
+      leftMargin: root.padding
+      verticalCenter: parent.verticalCenter
+    }
+    spacing: bar.spacing
+  }
 
-    Left {
-      Layout.alignment: Qt.AlignLeft
-      Layout.leftMargin: root.padding
+  RowLayout {
+    anchors.centerIn: parent
+    spacing: bar.spacing
+
+    Clock {}
+    Workspaces {}
+  }
+
+  RowLayout {
+    anchors {
+      right: parent.right
+      rightMargin: root.padding
+      verticalCenter: parent.verticalCenter
     }
-    Middle {
-      Layout.alignment: Qt.AlignCenter
-      Layout.leftMargin: root.padding
-      Layout.rightMargin: root.padding
-    }
-    Right {
-      Layout.alignment: Qt.AlignRight
-      Layout.rightMargin: root.padding
-    }
+    spacing: bar.spacing
   }
 }
