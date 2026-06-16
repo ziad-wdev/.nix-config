@@ -9,7 +9,7 @@
     enable = true;
     wayland = {
       enable = true;
-      compositor = "kwin";
+      compositor = "hyprland";
     };
 
     settings = {
@@ -61,7 +61,7 @@
         "women-umbrella" # 35
         "wuwa" # 36
       ];
-      theme = builtins.elemAt themes 7;
+      theme = builtins.elemAt themes 23;
     in
     {
       enable = true;
