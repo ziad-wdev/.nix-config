@@ -17,7 +17,7 @@
     let
       avatar = pkgs.fetchurl {
         url = "https://i.pinimg.com/736x/5e/58/41/5e5841627401c23e62b2ce6a4f2d4f04.jpg";
-        sha256 = "";
+        sha256 = "sha256-ji3HmHcPUvPZeLboONdhN91vWKW4qkx7TW53P2RUiwM=";
       };
     in
     [
