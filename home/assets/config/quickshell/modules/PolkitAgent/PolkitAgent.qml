@@ -8,35 +8,9 @@ import Quickshell.Services.Polkit
 PanelWindow {
   WlrLayershell.layer: WlrLayer.Overlay
   WlrLayershell.namespace: "quickshell:polkitagent"
-
-  anchors {
-    top: true
-    left: true
-    right: true
-    bottom: true
-  }
-
   color: colors.alphaBackground
-  visible: polkitAgent.isActive
   focusable: true
-
-  PolkitAgent {
-    id: polkitAgent
-  }
-
-  MouseArea {
-    anchors.fill: parent
-    onClicked: {
-      polkitAgent.flow.cancelAuthenticationRequest();
-    }
-  }
-
-  Shortcut {
-    sequence: "Escape"
-    onActivated: {
-      polkitAgent.flow.cancelAuthenticationRequest();
-    }
-  }
+  visible: polkitAgent.isActive
 
   onVisibleChanged: {
     if (visible)
@@ -44,18 +18,39 @@ PanelWindow {
     inputField.text = null;
   }
 
+  anchors {
+    bottom: true
+    left: true
+    right: true
+    top: true
+  }
+  PolkitAgent {
+    id: polkitAgent
+  }
+  MouseArea {
+    anchors.fill: parent
+
+    onClicked: {
+      polkitAgent.flow.cancelAuthenticationRequest();
+    }
+  }
+  Shortcut {
+    sequence: "Escape"
+
+    onActivated: {
+      polkitAgent.flow.cancelAuthenticationRequest();
+    }
+  }
   Rectangle {
     anchors.centerIn: parent
-
-    implicitWidth: promptLayout.implicitWidth + root.padding * 4
-    implicitHeight: promptLayout.implicitHeight + root.padding * 4
     color: colors.base00
+    implicitHeight: promptLayout.implicitHeight + root.padding * 4
+    implicitWidth: promptLayout.implicitWidth + root.padding * 4
     radius: root.radius * 2
 
     MouseArea {
       anchors.fill: parent
     }
-
     ColumnLayout {
       id: promptLayout
 
@@ -64,60 +59,53 @@ PanelWindow {
 
       Text {
         Layout.alignment: Qt.AlignHCenter
-        text: "Authentication Required"
-        font.pixelSize: 24
         color: colors.base07
+        font.pixelSize: 24
+        text: "Authentication Required"
       }
-
       Text {
         Layout.alignment: Qt.AlignHCenter
-        text: polkitAgent.flow?.message || ""
-        font.pixelSize: 16
         color: colors.base07
+        font.pixelSize: 16
+        text: polkitAgent.flow?.message || ""
       }
-
       Rectangle {
         Layout.alignment: Qt.AlignHCenter
         Layout.preferredWidth: parent.width / 2
-        implicitHeight: 2
-
         color: Qt.alpha(colors.primary, 0.1)
+        implicitHeight: 2
         radius: root.radius
       }
-
       TextField {
         id: inputField
 
         property int shakeOffset: 0
 
         Layout.fillWidth: true
-        implicitHeight: 48
-
+        color: colors.base07
+        echoMode: TextInput.Password
+        font.pixelSize: 20
         horizontalAlignment: Qt.AlignHCenter
-        verticalAlignment: Qt.AlignVCenter
-
+        implicitHeight: 48
         placeholderText: "Password"
         placeholderTextColor: colors.alphaForeground
-
-        echoMode: TextInput.Password
-        cursorDelegate: Text {}
+        selectedTextColor: colors.base00
+        selectionColor: colors.primary
+        verticalAlignment: Qt.AlignVCenter
 
         background: Rectangle {
-          radius: root.radius
           color: Qt.alpha(colors.primary, 0.1)
+          radius: root.radius
+
           transform: Translate {
             x: -inputField.shakeOffset
           }
         }
-
+        cursorDelegate: Text {
+        }
         transform: Translate {
           x: inputField.shakeOffset
         }
-
-        selectedTextColor: colors.base00
-        selectionColor: colors.primary
-        color: colors.base07
-        font.pixelSize: 20
 
         onAccepted: {
           polkitAgent.flow.submit(text);
@@ -134,70 +122,68 @@ PanelWindow {
               duration: errorAnimation.delay
             }
             NumberAnimation {
-              target: inputField
+              duration: 50
               property: "shakeOffset"
+              target: inputField
               to: -8
-              duration: 50
             }
             NumberAnimation {
-              target: inputField
+              duration: 50
               property: "shakeOffset"
+              target: inputField
               to: 8
-              duration: 50
             }
             NumberAnimation {
-              target: inputField
+              duration: 50
               property: "shakeOffset"
+              target: inputField
               to: -5
-              duration: 50
             }
             NumberAnimation {
-              target: inputField
+              duration: 50
               property: "shakeOffset"
+              target: inputField
               to: 5
-              duration: 50
             }
             NumberAnimation {
-              target: inputField
+              duration: 50
               property: "shakeOffset"
+              target: inputField
               to: 0
-              duration: 50
             }
           }
-
           SequentialAnimation {
             PauseAnimation {
               duration: errorAnimation.delay
             }
             ColorAnimation {
-              target: inputField
-              property: "selectionColor"
-              to: colors.base08
               duration: 50
+              property: "selectionColor"
+              target: inputField
+              to: colors.base08
             }
             ColorAnimation {
-              target: inputField
+              duration: 200
               property: "selectionColor"
+              target: inputField
               to: colors.primary
-              duration: 200
             }
           }
-
           SequentialAnimation {
             PauseAnimation {
               duration: errorAnimation.delay
             }
             ColorAnimation {
-              target: inputField
-              property: "color"
-              to: colors.base08
               duration: 50
+              property: "color"
+              target: inputField
+              to: colors.base08
             }
             ColorAnimation {
-              target: inputField
-              property: "color"
-              to: colors.base07
               duration: 200
+              property: "color"
+              target: inputField
+              to: colors.base07
             }
           }
         }

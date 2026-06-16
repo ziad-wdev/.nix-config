@@ -44,7 +44,6 @@
         options = [
           "--inplace"
           "--normalize"
-          "--group-attributes"
           "--indent-width"
           "2"
         ];

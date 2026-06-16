@@ -8,35 +8,33 @@ import Quickshell.Wayland
 ShellRoot {
   id: root
 
-  readonly property int radius: 12
   readonly property int padding: 16
+  readonly property int radius: 12
 
   Colors {
     id: colors
   }
-
-  PolkitAgent {}
-
+  PolkitAgent {
+  }
   Variants {
     model: Quickshell.screens
 
     delegate: PanelWindow {
       property var modelData
-      screen: modelData
 
       WlrLayershell.layer: WlrLayer.Top
       WlrLayershell.namespace: "quickshell:bar"
+      color: "transparent"
+      implicitHeight: 32
+      screen: modelData
 
       anchors {
-        top: true
         left: true
         right: true
+        top: true
       }
-
-      implicitHeight: 32
-      color: "transparent"
-
-      Bar {}
+      Bar {
+      }
     }
   }
 }
