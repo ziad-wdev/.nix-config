@@ -25,8 +25,6 @@
       "L+ /var/lib/AccountsService/icons/${username} - - - - ${avatar}"
     ];
 
-  environment.systemPackages = with pkgs; [ bibata-cursors ];
-
   services.displayManager.sddm = {
     enable = true;
     wayland = {
@@ -40,5 +38,13 @@
         CursorSize = 24;
       };
     };
+  };
+
+  environment.systemPackages = with pkgs; [
+    bibata-cursors
+  ];
+
+  systemd.services.sddm.environment = {
+    KWIN_FORCE_SW_CURSOR = "1";
   };
 }
