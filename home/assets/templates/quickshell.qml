@@ -16,17 +16,4 @@ QtObject {
 
 	readonly property color alphaBackground: Qt.alpha(base00, 0.2)
 	readonly property color alphaForeground: Qt.alpha(base07, 0.5)
-
-	readonly property color alphaPrimary1: Qt.alpha(primary, 0.1)
-	readonly property color alphaPrimary2: Qt.alpha(primary, 0.2)
-	readonly property color alphaPrimary3: Qt.alpha(primary, 0.3)
-	readonly property color alphaPrimary4: Qt.alpha(primary, 0.4)
-	readonly property color alphaPrimary5: Qt.alpha(primary, 0.5)
-	readonly property color alphaPrimary6: Qt.alpha(primary, 0.6)
-	readonly property color alphaPrimary7: Qt.alpha(primary, 0.7)
-	readonly property color alphaPrimary8: Qt.alpha(primary, 0.8)
-	readonly property color alphaPrimary9: Qt.alpha(primary, 0.9)
-	readonly property color lighterPrimary: Qt.lighter(primary, 1.3)
-	readonly property color darkerPrimary: Qt.darker(primary, 1.3)
-
 }

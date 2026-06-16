@@ -13,11 +13,12 @@ Row {
       property var wsId: index + 1
       property bool isActive: Hyprland.focusedWorkspace?.id === wsId
       property bool isOccupied: Hyprland.workspaces.values.some(w => w.id === wsId)
+      property color baseColor: isActive ? colors.primary : isOccupied ? colors.tertiary : Qt.alpha(colors.primary, 0.1)
 
       implicitWidth: isActive ? 30 : 20
       implicitHeight: 6
       radius: root.radius
-      color: isActive ? colors.primary : isOccupied ? colors.tertiary : colors.alphaPrimary1
+      color: baseColor
 
       MouseArea {
         id: mouseArea
@@ -31,7 +32,7 @@ Row {
         when: mouseArea.containsMouse
         PropertyChanges {
           target: button
-          color: colors.lighterPrimary
+          color: Qt.lighter(baseColor, 1.2)
         }
       }
 

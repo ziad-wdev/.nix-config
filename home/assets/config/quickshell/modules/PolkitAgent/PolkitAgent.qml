@@ -27,21 +27,21 @@ PanelWindow {
   MouseArea {
     anchors.fill: parent
     onClicked: {
-      polkitAgent.flow.cancelAuthenticationRequest();
+      polkitAgent.flow?.cancelAuthenticationRequest();
     }
   }
 
   Shortcut {
     sequence: "Escape"
     onActivated: {
-      polkitAgent.flow.cancelAuthenticationRequest();
+      polkitAgent.flow?.cancelAuthenticationRequest();
     }
   }
 
   onVisibleChanged: {
     if (visible)
       inputField.forceActiveFocus();
-    inputField.text = "";
+    inputField.text = null;
   }
 
   Rectangle {
@@ -49,7 +49,7 @@ PanelWindow {
 
     implicitWidth: promptLayout.implicitWidth + root.padding * 4
     implicitHeight: promptLayout.implicitHeight + root.padding * 4
-    color: colors.surface_container_lowest
+    color: colors.base00
     radius: root.radius * 2
 
     MouseArea {
@@ -81,7 +81,7 @@ PanelWindow {
         Layout.preferredWidth: parent.width / 2
         implicitHeight: 2
 
-        color: colors.alphaPrimary1
+        color: Qt.alpha(colors.primary, 0.1)
         radius: root.radius
       }
 
@@ -94,23 +94,26 @@ PanelWindow {
         horizontalAlignment: Qt.AlignHCenter
         verticalAlignment: Qt.AlignVCenter
 
-        placeholderText: polkitAgent.flow?.inputPrompt || "Password"
-        placeholderTextColor: colors.alphaForeground
-        echoMode: !text ? TextInput.Normal : TextInput.Password
-
         cursorDelegate: Text {}
 
         background: Rectangle {
           radius: root.radius
-          color: colors.alphaPrimary1
+          color: Qt.alpha(colors.primary, 0.1)
         }
+
+        placeholderText: polkitAgent.flow?.isSuccessful ? polkitAgent.flow?.inputPrompt : "Authentication failed"
+        placeholderTextColor: polkitAgent.flow?.isSuccessful ? colors.alphaForeground : Qt.alpha(colors.base08, 0.5)
+        echoMode: TextInput.Password
 
         selectedTextColor: colors.base00
         selectionColor: colors.primary
         color: colors.base07
-        font.pixelSize: 24
+        font.pixelSize: 20
 
-        onAccepted: polkitAgent.flow.submit(text)
+        onAccepted: {
+          polkitAgent.flow?.submit(text);
+          !polkitAgent.flow?.isSuccessful && (inputField.text = "");
+        }
       }
     }
   }
