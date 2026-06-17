@@ -21,9 +21,6 @@
     "quickshell/shell.qml".source =
       config.lib.file.mkOutOfStoreSymlink "${flakePath}/home/assets/config/quickshell/shell.qml";
 
-    "quickshell/.qmlls.ini".source =
-      config.lib.file.mkOutOfStoreSymlink "${flakePath}/home/assets/config/quickshell/.qmlls.ini";
-
     "quickshell/Modules".source =
       config.lib.file.mkOutOfStoreSymlink "${flakePath}/home/assets/config/quickshell/Modules";
 

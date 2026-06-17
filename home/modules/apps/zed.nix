@@ -20,6 +20,7 @@
 
     extensions = [
       "react-snippets-es7"
+      "color-highlight"
       "charmed-icons"
       "git-firefly"
       "emmet"
@@ -64,6 +65,7 @@
       show_wrap_guides = false;
       soft_wrap = "bounded";
       tab_size = 2;
+      "lsp_document_colors" = "inlay";
 
       # --- Panels, Bars & UI Elements ---
       collaboration_panel = {
