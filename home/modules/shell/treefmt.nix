@@ -76,7 +76,7 @@
       exit 1
     fi
 
-    exec ${treefmtConfig.config.build.wrapper}/bin/treefmt --tree-root . "$@"
+    exec ${pkgs.treefmt}/bin/treefmt --config-file ${treefmtConfig.config.build.configFile} --tree-root . "$@"
   '';
 in {
   home.packages = [treefmt-anywhere];
