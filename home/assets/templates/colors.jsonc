@@ -1,34 +1,34 @@
 {
   "image": "{{image}}",
 
-  // background colors darkest to lightest
-  "bg0": "{{colors.primary.default.hex | set_saturation: 55 | set_lightness: 4.00}}",
-  "bg1": "{{colors.primary.default.hex | set_saturation: 40 | set_lightness: 7.00}}",
-  "bg2": "{{colors.primary.default.hex | set_saturation: 35 | set_lightness: 10.0}}",
-  "bg3": "{{colors.primary.default.hex | set_saturation: 33 | set_lightness: 13.0}}",
-  "bg4": "{{colors.primary.default.hex | set_saturation: 30 | set_lightness: 16.0}}",
+  // // background colors darkest to lightest
+  "bg0": "{{colors.primary.default.hex | set_saturation: 40 | set_lightness: 7}}",
+  "bg1": "{{colors.primary.default.hex | set_saturation: 35 | set_lightness: 12}}",
+  "bg2": "{{colors.primary.default.hex | set_saturation: 30 | set_lightness: 17}}",
+  "bg3": "{{colors.primary.default.hex | set_saturation: 25 | set_lightness: 23}}",
+  "bg4": "{{colors.primary.default.hex | set_saturation: 20 | set_lightness: 28}}",
 
   // foreground colors lightest to darkest
-  "fg0": "{{colors.primary.default.hex | set_saturation: 10 | set_lightness: 95.0}}",
-  "fg1": "{{colors.primary.default.hex | set_saturation: 12 | set_lightness: 90.0}}",
-  "fg2": "{{colors.primary.default.hex | set_saturation: 14 | set_lightness: 80.0}}",
-  "fg3": "{{colors.primary.default.hex | set_saturation: 16 | set_lightness: 65.0}}",
-  "fg4": "{{colors.primary.default.hex | set_saturation: 18 | set_lightness: 50.0}}",
+  "fg0": "{{colors.primary.default.hex | set_saturation: 18 | set_lightness: 80}}",
+  "fg1": "{{colors.primary.default.hex | set_saturation: 16 | set_lightness: 70}}",
+  "fg2": "{{colors.primary.default.hex | set_saturation: 14 | set_lightness: 60}}",
+  "fg3": "{{colors.primary.default.hex | set_saturation: 12 | set_lightness: 50}}",
+  "fg4": "{{colors.primary.default.hex | set_saturation: 10 | set_lightness: 40}}",
 
   // Primary colors
-  "primary":        "{{colors.primary.default.hex}}",
-  "darkPrimary":    "{{colors.primary.default.hex | set_lightness: 50}}",
-  "lightPrimary":   "{{colors.primary.default.hex | set_lightness: 75}}",
+  "primary":        "{{colors.primary.default.hex | set_lightness: 75}}",
+  "darkPrimary":    "{{colors.primary.default.hex | set_lightness: 60}}",
+  "lightPrimary":   "{{colors.primary.default.hex | set_lightness: 85}}",
 
   // Secondary colors
-  "secondary":      "{{colors.secondary.default.hex}}",
-  "darkSecondary":  "{{colors.secondary.default.hex | set_lightness: 50}}",
-  "lightSecondary": "{{colors.secondary.default.hex | set_lightness: 75}}",
+  "secondary":      "{{colors.secondary.default.hex | set_lightness: 75}}",
+  "darkSecondary":  "{{colors.secondary.default.hex | set_lightness: 60}}",
+  "lightSecondary": "{{colors.secondary.default.hex | set_lightness: 85}}",
 
   // Tertiary colors
-  "tertiary":       "{{colors.tertiary.default.hex}}",
-  "darkTertiary":   "{{colors.tertiary.default.hex | set_lightness: 50}}",
-  "lightTertiary":  "{{colors.tertiary.default.hex | set_lightness: 75}}",
+  "tertiary":       "{{colors.tertiary.default.hex | set_lightness: 75}}",
+  "darkTertiary":   "{{colors.tertiary.default.hex | set_lightness: 60}}",
+  "lightTertiary":  "{{colors.tertiary.default.hex | set_lightness: 85}}",
 
   // Accent colors
   "red":            "{{colors.red.default.hex    | set_lightness: 65}}",
@@ -39,13 +39,13 @@
   "blue":           "{{colors.blue.default.hex   | set_lightness: 65}}",
   "purple":         "{{colors.purple.default.hex | set_lightness: 65}}",
 
-  "darkRed":        "{{colors.red.default.hex    | set_lightness: 20}}",
-  "darkOrange":     "{{colors.orange.default.hex | set_lightness: 20}}",
-  "darkYellow":     "{{colors.yellow.default.hex | set_lightness: 20}}",
-  "darkGreen":      "{{colors.green.default.hex  | set_lightness: 20}}",
-  "darkAqua":       "{{colors.aqua.default.hex   | set_lightness: 20}}",
-  "darkBlue":       "{{colors.blue.default.hex   | set_lightness: 20}}",
-  "darkPurple":     "{{colors.purple.default.hex | set_lightness: 20}}",
+  "darkRed":        "{{colors.red.default.hex    | set_lightness: 50}}",
+  "darkOrange":     "{{colors.orange.default.hex | set_lightness: 50}}",
+  "darkYellow":     "{{colors.yellow.default.hex | set_lightness: 50}}",
+  "darkGreen":      "{{colors.green.default.hex  | set_lightness: 50}}",
+  "darkAqua":       "{{colors.aqua.default.hex   | set_lightness: 50}}",
+  "darkBlue":       "{{colors.blue.default.hex   | set_lightness: 50}}",
+  "darkPurple":     "{{colors.purple.default.hex | set_lightness: 50}}",
 
   "lightRed":       "{{colors.red.default.hex    | set_lightness: 75}}",
   "lightOrange":    "{{colors.orange.default.hex | set_lightness: 75}}",

@@ -27,23 +27,23 @@ in {
         yellow = {
           color = "#f5cd5b";
           blend = false;
-        }; # base0a
+        }; # base0A
         green = {
           color = "#7ad9a8";
           blend = false;
-        }; # base0b
+        }; # base0B
         aqua = {
           color = "#3dd1b0";
           blend = false;
-        }; # base0c
+        }; # base0C
         blue = {
           color = "#5fc8d4";
           blend = false;
-        }; # base0d
+        }; # base0D
         purple = {
           color = "#e89aa8";
           blend = false;
-        }; # base0e
+        }; # base0E
       };
     };
 
@@ -94,7 +94,8 @@ in {
 
       # post hooks (run after template rendering)
       # gtk theme
-      ${pkgs.glib}/bin/gsettings set org.gnome.desktop.interface gtk-theme none; sleep 0.05; ${pkgs.glib}/bin/gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark'
+      ${pkgs.glib}/bin/gsettings set org.gnome.desktop.interface gtk-theme none
+      ${pkgs.glib}/bin/gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark'
       # waybar
       pkill -SIGUSR2 waybar || { pkill waybar; waybar & }
       # ghostty

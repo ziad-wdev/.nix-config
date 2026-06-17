@@ -16,8 +16,8 @@
     $tertiary: #{"@tertiary"};
     $dark-tertiary: #{"@darkTertiary"};
 
-    $bg: #{"@bg1"};
-    $dark-bg: #{"@bg0"};
+    $bg: #{"@bg0"};
+    $dark-bg: #{"@bg1"};
     $light-bg: #{"@bg2"};
 
     $fg: #{"@fg0"};

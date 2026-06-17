@@ -33,11 +33,11 @@
     }
     window {
       width: 40%;
-      background-color: @bg1;
+      background-color: @bg0;
       text-color: @fg0;
     }
     inputbar {
-      background-color: @bg0;
+      background-color: @bg1;
       spacing: 8px;
     }
     entry {
@@ -57,13 +57,13 @@
       orientation: vertical;
     }
     element selected {
-      background-color: @bg4;
+      background-color: @bg2;
     }
     element-icon {
       size: 4em;
     }
     element-icon selected {
-      background-color: @bg3;
+      background-color: @bg1;
     }
     element-text {
       horizontal-align: 0.5;
