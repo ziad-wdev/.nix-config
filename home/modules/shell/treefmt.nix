@@ -70,8 +70,16 @@
       };
     };
   };
+  treefmt-anywhere = pkgs.writeShellScriptBin "treefmt" ''
+    if [ "$PWD" = "/" ]; then
+      echo "Error: Running treefmt on the root file system (/) is disabled for safety." >&2
+      exit 1
+    fi
+
+    exec ${treefmtConfig.config.build.wrapper}/bin/treefmt --tree-root . "$@"
+  '';
 in {
-  home.packages = [treefmtConfig.config.build.wrapper];
+  home.packages = [treefmt-anywhere];
 
   xdg.dataFile = let
     prettierPlugins =
