@@ -11,16 +11,15 @@
       on_unmatched = "ignore";
       indent_type = "spaces";
       indent_size = 2;
+      excludes = [
+        "*.patch"
+        "*.lock"
+        ".env*"
+        "result/*"
+        "node_modules/*"
+        ".github/*"
+      ];
     };
-
-    settings.global.excludes = [
-      "*.patch"
-      "*.lock"
-      ".env*"
-      "result/*"
-      "node_modules/*"
-      ".github/*"
-    ];
 
     programs = {
       alejandra.enable = true; # Nix
@@ -102,20 +101,27 @@ in {
       printWidth = 100;
       semi = false;
       singleQuote = true;
+      trailingComma = "all";
+      bracketSpacing = true;
+      arrowParens = "always";
+      endOfLine = "lf";
 
       importOrder = [
-        "^react"
         "<THIRD_PARTY_MODULES>"
+        "^react(-dom)?$"
+        "^next(.*)$"
         "^@/(.*)$"
-        "^[./]"
+        "^\\.\\./"
+        "^\\./"
+        "^.+\\.(css|scss|sass)$"
       ];
       importOrderSeparation = true;
       importOrderSortSpecifiers = true;
 
+      importOrderParserPlugins = ["typescript" "jsx" "decorators-legacy"];
+
       jsonRecursiveSort = true;
-      jsonSortOrder = ''
-        '{ "placeThisFirst": null, "/^\\\\d+/": "numeric", "/.*/": "caseInsensitiveLexical" }'
-      '';
+      jsonSortOrder = "{\"placeThisFirst\": null, \"/^\\\\d+/\": \"numeric\", \"/.*/\": \"caseInsensitiveLexical\"}";
 
       tailwindFunctions = [
         "cn"
