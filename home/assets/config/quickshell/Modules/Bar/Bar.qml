@@ -12,13 +12,10 @@ Rectangle {
   color: colors.base00
 
   RowLayout {
+    anchors.left: parent.left
+    anchors.leftMargin: root.padding
+    anchors.verticalCenter: parent.verticalCenter
     spacing: bar.spacing
-
-    anchors {
-      left: parent.left
-      leftMargin: root.padding
-      verticalCenter: parent.verticalCenter
-    }
   }
   RowLayout {
     anchors.centerIn: parent
@@ -30,12 +27,14 @@ Rectangle {
     }
   }
   RowLayout {
+    anchors.right: parent.right
+    anchors.rightMargin: root.padding
+    anchors.verticalCenter: parent.verticalCenter
     spacing: bar.spacing
 
-    anchors {
-      right: parent.right
-      rightMargin: root.padding
-      verticalCenter: parent.verticalCenter
+    Network {
+    }
+    Battery {
     }
   }
 }

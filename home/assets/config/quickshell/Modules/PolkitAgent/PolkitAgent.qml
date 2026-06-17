@@ -8,7 +8,11 @@ import Quickshell.Services.Polkit
 PanelWindow {
   WlrLayershell.layer: WlrLayer.Overlay
   WlrLayershell.namespace: "quickshell:polkitagent"
-  color: colors.alphaBackground
+  anchors.bottom: true
+  anchors.left: true
+  anchors.right: true
+  anchors.top: true
+  color: Qt.alpha(colors.base00, 0.2)
   focusable: true
   visible: polkitAgent.isActive
 
@@ -18,12 +22,6 @@ PanelWindow {
     inputField.text = null;
   }
 
-  anchors {
-    bottom: true
-    left: true
-    right: true
-    top: true
-  }
   PolkitAgent {
     id: polkitAgent
   }
@@ -88,7 +86,7 @@ PanelWindow {
         horizontalAlignment: Qt.AlignHCenter
         implicitHeight: 48
         placeholderText: "Password"
-        placeholderTextColor: colors.alphaForeground
+        placeholderTextColor: Qt.alpha(colors.base07, 0.5)
         selectedTextColor: colors.base00
         selectionColor: colors.primary
         verticalAlignment: Qt.AlignVCenter

@@ -13,7 +13,4 @@ QtObject {
 	readonly property color base05: Qt.hsva(primary.hsvHue, 0.05, 0.75, primary.a)
 	readonly property color base06: Qt.hsva(primary.hsvHue, 0.05, 0.90, primary.a)
 	readonly property color base07: Qt.hsva(primary.hsvHue, 0.05, 0.98, primary.a)
-
-	readonly property color alphaBackground: Qt.alpha(base00, 0.2)
-	readonly property color alphaForeground: Qt.alpha(base07, 0.5)
 }

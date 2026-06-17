@@ -6,7 +6,7 @@ Row {
   spacing: 8
 
   Repeater {
-    model: 5
+    model: ["I", "II", "III", "IV", "V"]
 
     delegate: Rectangle {
       id: button
@@ -26,15 +26,6 @@ Row {
           duration: 150
         }
       }
-      states: State {
-        name: "hovered"
-        when: mouseArea.containsMouse
-
-        PropertyChanges {
-          color: Qt.lighter(baseColor, 1.2)
-          target: button
-        }
-      }
       Behavior on width {
         NumberAnimation {
           duration: 150
@@ -46,6 +37,16 @@ Row {
 
         anchors.fill: parent
         hoverEnabled: true
+
+        states: State {
+          name: "hovered"
+          when: mouseArea.containsMouse
+
+          PropertyChanges {
+            color: Qt.lighter(baseColor, 1.2)
+            target: button
+          }
+        }
 
         onClicked: Hyprland.dispatch(`hl.dsp.focus({ workspace = ${wsId} })`)
       }
