@@ -38,45 +38,40 @@
     ];
 
     userSettings = {
+      # --- UI & Theming ---
       theme = "Matugen Dark";
-      agent = {
-        default_width = 400;
-        flexible = false;
-        dock = "right";
-      };
-      autosave = {
-        after_delay = {
-          milliseconds = 1000;
-        };
-      };
-      buffer_font_family = builtins.head config.fonts.fontconfig.defaultFonts.monospace;
-      buffer_font_features = {
-        calt = false;
-      };
-      buffer_font_size = 14;
-      cli_default_open_behavior = "existing_window";
-      collaboration_panel = {
-        default_width = 400;
-      };
-      colorize_brackets = true;
-      diagnostics = {
-        inline = {
-          enabled = true;
-        };
-      };
-      git_panel = {
-        default_width = 400;
-        tree_view = true;
-      };
       icon_theme = {
         dark = "Soft Charmed Icons";
         light = "Light Charmed Icons";
         mode = "dark";
       };
+      ui_font_family = builtins.head config.fonts.fontconfig.defaultFonts.sansSerif;
+      ui_font_size = 16;
+
+      # --- Editor & Buffer ---
+      buffer_font_family = builtins.head config.fonts.fontconfig.defaultFonts.monospace;
+      buffer_font_features = {
+        calt = false;
+      };
+      buffer_font_size = 14;
+      colorize_brackets = true;
       indent_guides = {
         active_line_width = 2;
         coloring = "indent_aware";
         line_width = 2;
+      };
+      preferred_line_length = 120;
+      show_wrap_guides = false;
+      soft_wrap = "bounded";
+      tab_size = 2;
+
+      # --- Panels, Bars & UI Elements ---
+      collaboration_panel = {
+        default_width = 400;
+      };
+      git_panel = {
+        default_width = 400;
+        tree_view = true;
       };
       minimap = {
         show = "never";
@@ -85,17 +80,6 @@
         default_width = 400;
         indent_guides = {
           show = "never";
-        };
-      };
-      preferred_line_length = 120;
-      format_on_save = "on";
-      formatter = {
-        external = {
-          command = "treefmt";
-          arguments = [
-            "--stdin"
-            "{buffer_path}"
-          ];
         };
       };
       project_panel = {
@@ -109,29 +93,14 @@
           show = "never";
         };
       };
-      restore_on_startup = "launchpad";
       scrollbar = {
         axes = {
           horizontal = false;
           vertical = false;
         };
       };
-      session = {
-        trust_all_worktrees = true;
-      };
-      show_wrap_guides = false;
-      soft_wrap = "bounded";
       tab_bar = {
         show_nav_history_buttons = false;
-      };
-      tab_size = 2;
-      telemetry = {
-        diagnostics = false;
-        metrics = false;
-      };
-      terminal = {
-        cursor_shape = "block";
-        default_height = 400;
       };
       toolbar = {
         breadcrumbs = false;
@@ -140,9 +109,53 @@
         code_actions = false;
         quick_actions = false;
       };
-      ui_font_family = builtins.head config.fonts.fontconfig.defaultFonts.sansSerif;
-      ui_font_size = 16;
+
+      # --- Formatting & Saving ---
+      autosave = {
+        after_delay = {
+          milliseconds = 1000;
+        };
+      };
+      format_on_save = "on";
+      formatter = {
+        external = {
+          command = "treefmt";
+          arguments = [
+            "--stdin"
+            "{buffer_path}"
+          ];
+        };
+      };
+
+      # --- Environment & Startup ---
+      cli_default_open_behavior = "existing_window";
       load_direnv = "direct";
+      restore_on_startup = "launchpad";
+      session = {
+        trust_all_worktrees = true;
+      };
+
+      # --- Terminal ---
+      terminal = {
+        cursor_shape = "block";
+        default_height = 400;
+      };
+
+      # --- AI, Diagnostics & Telemetry ---
+      agent = {
+        default_width = 400;
+        flexible = false;
+        dock = "right";
+      };
+      diagnostics = {
+        inline = {
+          enabled = true;
+        };
+      };
+      telemetry = {
+        diagnostics = false;
+        metrics = false;
+      };
     };
 
     userKeymaps = [

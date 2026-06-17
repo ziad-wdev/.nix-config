@@ -13,6 +13,10 @@
     qt6.qtimageformats
   ];
 
+  home.sessionVariables = {
+    QML2_IMPORT_PATH = "${pkgs.quickshell}/lib/qt-6/qml";
+  };
+
   xdg.configFile = {
     "quickshell/shell.qml".source =
       config.lib.file.mkOutOfStoreSymlink "${flakePath}/home/assets/config/quickshell/shell.qml";
