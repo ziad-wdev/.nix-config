@@ -112,6 +112,11 @@ in {
       importOrderSeparation = true;
       importOrderSortSpecifiers = true;
 
+      jsonRecursiveSort = true;
+      jsonSortOrder = ''
+        '{ "placeThisFirst": null, "/^\\\\d+/": "numeric", "/.*/": "caseInsensitiveLexical" }'
+      '';
+
       tailwindFunctions = [
         "cn"
         "clsx"

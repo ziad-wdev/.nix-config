@@ -1,26 +1,54 @@
 import QtQuick
-import QtQuick.Effects
+import QtQuick.Layouts
 import Quickshell
-import Quickshell.Widgets
 import Quickshell.Services.UPower
 
 Rectangle {
-  readonly property int percentage: UPowerDevice.percentage
+  readonly property bool charging: UPower.displayDevice.charging
+  readonly property int percentage: 100
 
   color: "transparent"
-  implicitHeight: 16
-  implicitWidth: 16
+  implicitHeight: batteryItem.batterySize
 
-  IconImage {
-    id: batteryIcon
-
+  RowLayout {
     anchors.fill: parent
-    source: Quickshell.iconPath("battery-level-" + 100 + "-symbolic")
-  }
-  MultiEffect {
-    anchors.fill: batteryIcon
-    colorization: 1.0
-    colorizationColor: percentage < 20 ? "red" : "green"
-    source: batteryIcon
+    spacing: 8
+
+    Item {
+      id: batteryItem
+
+      readonly property int batterySize: 10
+
+      implicitHeight: batterySize
+      implicitWidth: batterySize * 2
+
+      Rectangle {
+        anchors.fill: parent
+        anchors.rightMargin: batteryItem.batterySize / 12
+        border.color: "white"
+        border.width: batteryItem.batterySize / 6
+        color: "transparent"
+        radius: batteryItem.batterySize / 3
+      }
+      Rectangle {
+        anchors.right: parent.right
+        anchors.verticalCenter: parent.verticalCenter
+        color: "white"
+        height: batteryItem.batterySize / 2
+        radius: batteryItem.batterySize / 6
+        width: batteryItem.batterySize / 12
+      }
+      Rectangle {
+        color: percentage <= 20 ? "red" : "green"
+        height: parent.height - 4
+        radius: batteryItem.batterySize / 6
+        width: (parent.width - batteryItem.batterySize / 2) * (percentage / 100)
+        x: batteryItem.batterySize / 6
+        y: batteryItem.batterySize / 6
+      }
+    }
+    Text {
+      text: 0 + "%"
+    }
   }
 }

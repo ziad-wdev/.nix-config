@@ -10,17 +10,15 @@
 
   modulePaths = loadModules {
     "modules/apps" = [
+      "ghostty"
+      "nautilus"
       "vesktop"
       "zed"
       "zen"
     ];
     "modules/desktop" = [
-      "ghostty"
-      "hypridle"
       "hyprland"
-      "hyprlock"
       "matugen"
-      "nautilus"
       "quickshell"
       "rofi"
       "theme"

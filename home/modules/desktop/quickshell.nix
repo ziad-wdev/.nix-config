@@ -6,14 +6,19 @@
 }: {
   home.packages = with pkgs; [
     quickshell
+    qt6.qtsvg
     qt6.qtwayland
     qt6.qt5compat
-    qt6.qtsvg
+    qt6.qtmultimedia
+    qt6.qtimageformats
   ];
 
   xdg.configFile = {
     "quickshell/shell.qml".source =
       config.lib.file.mkOutOfStoreSymlink "${flakePath}/home/assets/config/quickshell/shell.qml";
+
+    "quickshell/.qmlls.ini".source =
+      config.lib.file.mkOutOfStoreSymlink "${flakePath}/home/assets/config/quickshell/.qmlls.ini";
 
     "quickshell/Modules".source =
       config.lib.file.mkOutOfStoreSymlink "${flakePath}/home/assets/config/quickshell/Modules";

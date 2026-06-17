@@ -3,10 +3,13 @@
   pkgs,
   ...
 }: {
-  # Dependencies of nix lsp
   home.packages = with pkgs; [
+    # Dependencies of nix lsp
     nil
     nixd
+
+    # Dependencies of qml lsp
+    qt6.qtdeclarative
   ];
 
   xdg.configFile."zed/themes/custom.json".source =
@@ -39,6 +42,7 @@
       agent = {
         default_width = 400;
         flexible = false;
+        dock = "right";
       };
       autosave = {
         after_delay = {
@@ -75,8 +79,7 @@
         line_width = 2;
       };
       minimap = {
-        show = "auto";
-        thumb = "always";
+        show = "never";
       };
       outline_panel = {
         default_width = 400;
@@ -131,8 +134,11 @@
         default_height = 400;
       };
       toolbar = {
-        breadcrumbs = true;
+        breadcrumbs = false;
         selections_menu = false;
+        agent_review = false;
+        code_actions = false;
+        quick_actions = false;
       };
       ui_font_family = builtins.head config.fonts.fontconfig.defaultFonts.sansSerif;
       ui_font_size = 16;
@@ -150,6 +156,7 @@
           "alt-shift-f" = "editor::Format";
           "ctrl-alt-shift-down" = null;
           "ctrl-d" = "editor::DuplicateLineDown";
+          "ctrl-shift-d" = "editor::DuplicateLineUp";
           "ctrl-shift-i" = null;
         };
       }
@@ -157,6 +164,7 @@
         context = "(Editor && mode == full)";
         bindings = {
           "ctrl-enter" = "editor::NewlineBelow";
+          "ctrl-shift-enter" = "editor::NewlineAbove";
         };
       }
       {
@@ -169,13 +177,6 @@
         bindings = {
           "ctrl-alt-b" = "workspace::ToggleLeftDock";
           "ctrl-b" = "workspace::ToggleRightDock";
-        };
-      }
-      {
-        context = "Workspace";
-        unbind = {
-          "ctrl-b" = "workspace::ToggleLeftDock";
-          "ctrl-alt-b" = "workspace::ToggleRightDock";
         };
       }
     ];

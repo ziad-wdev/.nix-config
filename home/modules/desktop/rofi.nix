@@ -6,7 +6,6 @@
   xdg.configFile."rofi/colors.rasi".source =
     config.lib.file.mkOutOfStoreSymlink "${config.xdg.dataHome}/themes/rofi.rasi";
 
-  # Grid theme
   xdg.configFile."rofi/grid-theme.rasi".text = ''
     /*****----- Configuration -----*****/
     configuration {
@@ -74,7 +73,6 @@
     }
   '';
 
-  # Main configuration
   xdg.configFile."rofi/config.rasi".text = ''
     /*****----- Theme -----*****/
     @theme "grid-theme.rasi"
