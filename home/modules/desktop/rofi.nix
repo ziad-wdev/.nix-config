@@ -57,19 +57,19 @@
       orientation: vertical;
     }
     element selected {
-      background-color: @primary;
+      background-color: @bg4;
     }
     element-icon {
       size: 4em;
     }
     element-icon selected {
-      background-color: @darkPrimary;
+      background-color: @bg3;
     }
     element-text {
       horizontal-align: 0.5;
     }
     element-text selected {
-      text-color: @bg0;
+      text-color: @primary;
     }
   '';
 
