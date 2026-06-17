@@ -39,8 +39,4 @@
   environment.systemPackages = with pkgs; [
     bibata-cursors
   ];
-
-  systemd.services.sddm.environment = {
-    KWIN_FORCE_SW_CURSOR = "1";
-  };
 }

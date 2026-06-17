@@ -33,11 +33,11 @@
     }
     window {
       width: 40%;
-      background-color: @surface;
-      text-color: @on-surface;
+      background-color: @bg1;
+      text-color: @fg0;
     }
     inputbar {
-      background-color: @surface-container-lowest;
+      background-color: @bg0;
       spacing: 8px;
     }
     entry {
@@ -63,13 +63,13 @@
       size: 4em;
     }
     element-icon selected {
-      background-color: @on-primary;
+      background-color: @darkPrimary;
     }
     element-text {
       horizontal-align: 0.5;
     }
     element-text selected {
-      text-color: @on-primary;
+      text-color: @bg0;
     }
   '';
 

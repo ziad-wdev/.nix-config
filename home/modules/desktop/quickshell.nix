@@ -18,6 +18,9 @@
   };
 
   xdg.configFile = {
+    "quickshell/.qmlls.ini".source =
+      config.lib.file.mkOutOfStoreSymlink "${flakePath}/home/assets/config/quickshell/.qmlls.ini";
+
     "quickshell/shell.qml".source =
       config.lib.file.mkOutOfStoreSymlink "${flakePath}/home/assets/config/quickshell/shell.qml";
 

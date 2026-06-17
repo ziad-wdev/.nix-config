@@ -11,22 +11,22 @@
     $side-padding-multiplier: 4;
 
     $primary: #{"@primary"};
-    $primary-hover: #{"darker(@primary)"};
+    $dark-primary: #{"@darkPrimary"};
 
     $tertiary: #{"@tertiary"};
-    $tertiary-hover: #{"darker(@tertiary)"};
+    $dark-tertiary: #{"@darkTertiary"};
 
-    $bg: #{"@surface"};
-    $bg-darker: #{"@surface_container_lowest"};
-    $bg-lighter: #{"@surface_container_low"};
+    $bg: #{"@bg1"};
+    $dark-bg: #{"@bg0"};
+    $light-bg: #{"@bg2"};
 
-    $fg: #{"@on_surface"};
-    $fg-primary: #{"@on_primary"};
+    $fg: #{"@fg0"};
+    $primary-fg: #{"@bg0"};
 
-    $green: #{"@base0B"};
-    $red: #{"@base08"};
-    $blue: #{"@base0D"};
-    $orange: #{"@base09"};
+    $green: #{"@lightGreen"};
+    $red: #{"@lightRed"};
+    $blue: #{"@lightBlue"};
+    $orange: #{"@lightOrange"};
 
     * {
       color: $fg;
@@ -53,7 +53,7 @@
     #battery {
       border-radius: $rounding;
       background-color: $bg;
-      border: 1px solid $bg-lighter;
+      border: 1px solid $light-bg;
       padding-left: $padding * $side-padding-multiplier;
       padding-right: $padding * $side-padding-multiplier;
     }
@@ -63,7 +63,7 @@
     #wireplumber:hover,
     #bluetooth:hover,
     #network:hover {
-      background-color: $bg-lighter;
+      background-color: $light-bg;
     }
 
     /* fix center alignment for custom menu */
@@ -81,13 +81,13 @@
 
       button {
         border-radius: max($rounding - $padding, $rounding / 2);
-        background-color: $bg-darker;
-        border: 1px solid $bg-lighter;
+        background-color: $dark-bg;
+        border: 1px solid $light-bg;
         min-width: 24px;
       }
 
       button:hover {
-        background-color: $bg-lighter;
+        background-color: $light-bg;
       }
 
       button:not(:last-child) {
@@ -101,7 +101,7 @@
       }
 
       button.visible:hover {
-        background-color: $primary-hover;
+        background-color: $dark-primary;
       }
 
       button:not(.visible):not(.empty) {
@@ -110,7 +110,7 @@
       }
 
       button:not(.visible):not(.empty):hover {
-        background-color: $tertiary-hover;
+        background-color: $dark-tertiary;
       }
 
       label {
@@ -119,7 +119,7 @@
 
       button.visible label,
       button:not(.visible):not(.empty) label {
-        color: $fg-primary;
+        color: $primary-fg;
       }
     }
 
@@ -142,12 +142,12 @@
     /* tray */
     #tray menu {
       background-color: $bg;
-      border: 1px solid $bg-lighter;
+      border: 1px solid $light-bg;
       padding: $padding * 2;
     }
 
     #tray separator {
-      border: 1px solid $bg-lighter;
+      border: 1px solid $light-bg;
       margin-bottom: $padding;
     }
 
@@ -166,7 +166,7 @@
     }
 
     #tray menuitem:hover label {
-      color: $fg-primary;
+      color: $primary-fg;
     }
   '';
 
