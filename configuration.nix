@@ -19,9 +19,8 @@
       "boot"
       "disko"
       "hardware"
-      "networking"
       "nvidia"
-      "sound"
+      "services"
     ];
   };
 in {

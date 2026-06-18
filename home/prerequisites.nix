@@ -1,15 +1,18 @@
 {pkgs, ...}: {
   # Required by hyprland.nix -> for Hyprland window manager
   programs.hyprland.enable = true;
-  security.polkit.enable = true;
-  services.upower.enable = true;
-  services.gnome.gnome-keyring.enable = true;
-
   xdg.portal = {
     enable = true;
     extraPortals = [pkgs.xdg-desktop-portal-hyprland];
     config.common.default = "*";
   };
+
+  # Required by quickshell.nix -> for Qucikshell services
+  services.upower.enable = true;
+  security.polkit.enable = true;
+
+  security.pam.services.login.enableGnomeKeyring = true;
+  services.gnome.gnome-keyring.enable = true;
 
   # Required by zsh.nix -> for Zsh shell privileges
   programs.zsh.enable = true;
@@ -19,5 +22,7 @@
   services.gvfs.enable = true;
 
   # Required by wlogout.nix -> for svg icon rendering
-  programs.gdk-pixbuf.modulePackages = [pkgs.librsvg];
+  programs.gdk-pixbuf.modulePackages = with pkgs; [
+    librsvg
+  ];
 }

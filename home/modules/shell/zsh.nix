@@ -22,9 +22,10 @@
       enable = true;
       theme = "robbyrussell";
     };
-
-    initContent = ''
-      fastfetch
-    '';
   };
+
+  programs.zsh.initContent = ''
+    eval "$(direnv hook zsh)"
+    fastfetch
+  '';
 }

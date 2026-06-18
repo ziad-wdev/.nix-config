@@ -1,15 +1,6 @@
 {pkgs, ...}: {
   nixpkgs.config.allowUnfree = true;
 
-  # Disable tests for openldap to avoid build failures for lutris
-  nixpkgs.overlays = [
-    (_final: prev: {
-      openldap = prev.openldap.overrideAttrs (_old: {
-        doCheck = false;
-      });
-    })
-  ];
-
   environment.systemPackages = with pkgs; [
     lutris # Game launcher
 
@@ -24,6 +15,15 @@
     curl
     ouch
     _7zz-rar
+  ];
+
+  # Disable tests for openldap to avoid build failures for lutris
+  nixpkgs.overlays = [
+    (_final: prev: {
+      openldap = prev.openldap.overrideAttrs (_old: {
+        doCheck = false;
+      });
+    })
   ];
 
   # Enable Docker for containerization and NVIDIA container toolkit.

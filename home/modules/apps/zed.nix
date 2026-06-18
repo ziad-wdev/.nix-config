@@ -31,6 +31,7 @@
       "qml"
       "ini"
       "toml"
+      "mustache"
       "dockerfile"
       "prisma"
       "sql"
@@ -39,7 +40,7 @@
     ];
 
     userSettings = {
-      # --- UI & Theming ---
+      # UI & Themin
       theme = "custom";
       icon_theme = {
         dark = "Soft Charmed Icons";
@@ -49,7 +50,7 @@
       ui_font_family = builtins.head config.fonts.fontconfig.defaultFonts.sansSerif;
       ui_font_size = 16;
 
-      # --- Editor & Buffer ---
+      # Editor & Buffe
       buffer_font_family = builtins.head config.fonts.fontconfig.defaultFonts.monospace;
       buffer_font_features = {
         calt = false;
@@ -67,7 +68,7 @@
       tab_size = 2;
       "lsp_document_colors" = "inlay";
 
-      # --- Panels, Bars & UI Elements ---
+      # Panels, Bars & UI Element
       collaboration_panel = {
         default_width = 400;
       };
@@ -113,7 +114,7 @@
         quick_actions = false;
       };
 
-      # --- Formatting & Saving ---
+      # Formatting & Savin
       autosave = {
         after_delay = {
           milliseconds = 1000;
@@ -130,7 +131,7 @@
         };
       };
 
-      # --- Environment & Startup ---
+      # Environment & Startu
       cli_default_open_behavior = "existing_window";
       load_direnv = "direct";
       restore_on_startup = "launchpad";
@@ -138,13 +139,13 @@
         trust_all_worktrees = true;
       };
 
-      # --- Terminal ---
+      # Termina
       terminal = {
         cursor_shape = "block";
         default_height = 400;
       };
 
-      # --- AI, Diagnostics & Telemetry ---
+      # AI, Diagnostics & Telemetr
       agent = {
         default_width = 400;
         flexible = false;

@@ -38,8 +38,8 @@ in {
 
   home = {
     homeDirectory = "/home/${username}";
-    inherit stateVersion;
     username = "${username}";
+    inherit stateVersion;
   };
 
   programs.home-manager.enable = true;

@@ -70,6 +70,7 @@
       };
     };
   };
+
   treefmt-anywhere = pkgs.writeShellScriptBin "treefmt" ''
     if [ "$PWD" = "/" ]; then
       echo "Error: Running treefmt on the root file system (/) is disabled for safety." >&2
@@ -81,29 +82,7 @@
 in {
   home.packages = [treefmt-anywhere];
 
-  xdg.dataFile = let
-    prettierPlugins =
-      pkgs.runCommand "prettier-plugins"
-      {
-        outputHashAlgo = "sha256";
-        outputHashMode = "recursive";
-        outputHash = "sha256-TMWcifer5LSNUloLEXyBrSWdxUxeUtz5TBlqdCco2SI=";
-        nativeBuildInputs = with pkgs; [
-          nodejs-slim
-          cacert
-        ];
-      }
-      ''
-        export HOME=$TMPDIR
-        mkdir -p $out/lib/node_modules
-        cd $out/lib
-        npm install \
-          prettier-plugin-sort-json \
-          @trivago/prettier-plugin-sort-imports \
-          prettier-plugin-tailwindcss \
-          --no-save
-      '';
-  in {
+  xdg.dataFile = {
     "prettier/.prettierrc".text = builtins.toJSON {
       tabWidth = 2;
       printWidth = 100;
@@ -139,10 +118,35 @@ in {
 
       # CRITICAL: prettier-plugin-tailwindcss MUST be the absolute last plugin in this list
       plugins = [
-        "${prettierPlugins}/lib/node_modules/prettier-plugin-sort-json/dist/index.js"
-        "${prettierPlugins}/lib/node_modules/@trivago/prettier-plugin-sort-imports/lib/src/index.js"
-        "${prettierPlugins}/lib/node_modules/prettier-plugin-tailwindcss/dist/index.mjs"
+        "prettier-plugin-sort-json"
+        "@trivago/prettier-plugin-sort-imports"
+        "prettier-plugin-tailwindcss"
       ];
     };
+
+    "prettier/node_modules".source = let
+      prettierPlugins =
+        pkgs.runCommand "prettier-plugins"
+        {
+          outputHashAlgo = "sha256";
+          outputHashMode = "recursive";
+          outputHash = "sha256-lmrZfNybP7YGD1wo8SAt7wRhhRVu2rxK849YYcAvJvA=";
+          nativeBuildInputs = with pkgs; [
+            nodejs
+            cacert
+          ];
+        }
+        ''
+          export HOME=$TMPDIR
+          mkdir -p $out
+          cd $out
+
+          npm install \
+            prettier-plugin-sort-json \
+            @trivago/prettier-plugin-sort-imports \
+            prettier-plugin-tailwindcss \
+            --no-save
+        '';
+    in "${prettierPlugins}/node_modules";
   };
 }

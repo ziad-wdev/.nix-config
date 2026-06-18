@@ -3,7 +3,6 @@
   pkgs,
   ...
 }: {
-  # Setup fonts system-wide
   home.packages = with pkgs; [
     inter
     noto-fonts-color-emoji
@@ -19,7 +18,6 @@
     };
   };
 
-  # Setup GTK and Qt cursor themes
   home.pointerCursor = {
     gtk.enable = true;
     package = pkgs.bibata-cursors;
@@ -27,9 +25,9 @@
     size = 24;
   };
 
-  # Setup GTK theme
   gtk = {
     enable = true;
+
     iconTheme = {
       package = pkgs.papirus-icon-theme.override {
         color = "bluegrey";
@@ -51,14 +49,12 @@
     '';
   };
 
-  # Force GTK4 apps to use dark mode natively
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
     };
   };
 
-  # Setup Qt theme
   qt = {
     enable = true;
     platformTheme.name = "gtk3";

@@ -7,7 +7,9 @@
   templatesPath = "${flakePath}/home/assets/templates";
   outputPath = "${config.xdg.dataHome}/themes";
 in {
-  home.packages = with pkgs; [matugen];
+  home.packages = with pkgs; [
+    matugen
+  ];
 
   home.file."${outputPath}/.keep".text = "";
 
@@ -55,18 +57,18 @@ in {
     };
   };
 
-  systemd.user.paths.template-watcher = {
+  systemd.user.paths.templates-watcher = {
     Unit = {Description = "Watch for Matugen theme changes";};
     Path = {PathModified = "${outputPath}/colors.jsonc";};
     Install = {WantedBy = ["default.target"];};
   };
 
-  systemd.user.services.template-watcher = let
-    template-renderer = pkgs.writeShellScriptBin "render-templates" ''
+  systemd.user.services.templates-watcher = let
+    templates-renderer = pkgs.writeShellScriptBin "render-templates" ''
       render() {
-        local colors="${outputPath}/colors.jsonc"
         local input="${templatesPath}/$1".mustache
         local output="${outputPath}/$2"
+        local colors="${outputPath}/colors.jsonc"
         local clean_colors="${outputPath}/clean_colors.json"
 
         if [ -s "$colors" ]; then
@@ -105,7 +107,7 @@ in {
     Unit = {Description = "Render templates on theme change";};
     Service = {
       Type = "oneshot";
-      ExecStart = "${template-renderer}/bin/render-templates";
+      ExecStart = "${templates-renderer}/bin/render-templates";
     };
   };
 }
