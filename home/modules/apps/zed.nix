@@ -40,7 +40,7 @@
 
     userSettings = {
       # --- UI & Theming ---
-      theme = "Matugen Dark";
+      theme = "custom";
       icon_theme = {
         dark = "Soft Charmed Icons";
         light = "Light Charmed Icons";
@@ -76,7 +76,8 @@
         tree_view = true;
       };
       minimap = {
-        show = "never";
+        show = "auto";
+        thumb = "hover";
       };
       outline_panel = {
         default_width = 400;

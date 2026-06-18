@@ -16,17 +16,17 @@
     $tertiary: #{"@tertiary"};
     $dark-tertiary: #{"@darkTertiary"};
 
-    $bg: #{"@bg0"};
-    $dark-bg: #{"@bg1"};
+    $bg: #{"@bg1"};
+    $dark-bg: #{"@bg0"};
     $light-bg: #{"@bg2"};
 
     $fg: #{"@fg0"};
     $primary-fg: #{"@bg0"};
 
-    $green: #{"@lightGreen"};
-    $red: #{"@lightRed"};
-    $blue: #{"@lightBlue"};
-    $orange: #{"@lightOrange"};
+    $green: #{"@green"};
+    $red: #{"@red"};
+    $blue: #{"@blue"};
+    $orange: #{"@orange"};
 
     * {
       color: $fg;

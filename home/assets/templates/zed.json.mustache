@@ -1,0 +1,376 @@
+{
+  "$schema": "https://zed.dev/schema/themes/v0.2.0.json",
+  "author": "custom",
+  "name": "custom",
+  "themes": [
+    {
+      "appearance": "dark",
+      "name": "custom",
+      "style": {
+        "accents": ["{{primary}}", "{{secondary}}", "{{tertiary}}"],
+        "background": "{{bg0}}",
+        "background.appearance": "opaque",
+        "border": "{{bg2}}",
+        "border.disabled": "{{bg2}}80",
+        "border.focused": "{{bg3}}",
+        "border.selected": "{{bg3}}",
+        "border.transparent": "{{bg2}}40",
+        "border.variant": "{{bg2}}",
+        "conflict": "{{red}}",
+        "conflict.background": "{{bg2}}80",
+        "conflict.border": "{{bg3}}",
+        "created": "{{green}}",
+        "created.background": "{{bg2}}80",
+        "created.border": "{{bg3}}",
+        "deleted": "{{red}}",
+        "deleted.background": "{{bg2}}80",
+        "deleted.border": "{{bg3}}",
+        "drop_target.background": "{{bg2}}80",
+        "editor.active_line.background": "{{bg2}}80",
+        "editor.active_line_number": "{{primary}}",
+        "editor.active_wrap_guide": "{{bg2}}",
+        "editor.background": "{{bg0}}",
+        "editor.document_highlight.read_background": "{{bg2}}80",
+        "editor.document_highlight.write_background": "{{bg2}}80",
+        "editor.foreground": "{{fg0}}",
+        "editor.gutter.background": "{{bg0}}",
+        "editor.highlighted_line.background": "{{bg2}}80",
+        "editor.indent_guide": "{{bg2}}80",
+        "editor.indent_guide_active": "{{bg4}}80",
+        "editor.invisible": "{{bg2}}80",
+        "editor.line_number": "{{bg4}}",
+        "editor.subheader.background": "{{bg0}}",
+        "editor.wrap_guide": "{{bg2}}40",
+        "element.active": "{{bg2}}",
+        "element.background": "{{bg2}}",
+        "element.disabled": "{{fg4}}",
+        "element.hover": "{{bg2}}",
+        "element.selected": "{{bg2}}",
+        "elevated_surface.background": "{{bg1}}",
+        "error": "{{red}}",
+        "error.background": "{{bg2}}",
+        "error.border": "{{bg3}}",
+        "ghost_element.active": "{{bg2}}",
+        "ghost_element.background": null,
+        "ghost_element.disabled": "{{fg4}}80",
+        "ghost_element.hover": "{{bg2}}80",
+        "ghost_element.selected": "{{bg2}}80",
+        "hidden": "{{bg2}}",
+        "hidden.border": "{{bg3}}80",
+        "hint": "{{aqua}}",
+        "hint.background": "{{bg2}}80",
+        "hint.border": "{{bg3}}",
+        "icon": "{{fg0}}",
+        "icon.accent": "{{primary}}",
+        "icon.disabled": "{{fg0}}80",
+        "icon.muted": "{{fg2}}",
+        "icon.placeholder": "{{fg2}}80",
+        "ignored": "{{fg2}}80",
+        "ignored.background": "{{bg2}}40",
+        "ignored.border": "{{bg3}}40",
+        "info": "{{yellow}}",
+        "info.background": "{{bg2}}80",
+        "info.border": "{{bg3}}",
+        "link_text.hover": "{{primary}}",
+        "modified": "{{yellow}}",
+        "modified.background": "{{bg2}}80",
+        "modified.border": "{{bg3}}",
+        "pane.focused_border": "{{primary}}",
+        "panel.background": "{{bg0}}",
+        "panel.focused_border": "{{primary}}80",
+        "players": [
+          {
+            "background": "{{bg2}}80",
+            "cursor": "{{primary}}",
+            "selection": "{{primary}}40"
+          },
+          {
+            "background": "{{bg2}}80",
+            "cursor": "{{secondary}}",
+            "selection": "{{secondary}}40"
+          }
+        ],
+        "predictive": "{{fg2}}80",
+        "predictive.background": "{{bg2}}80",
+        "predictive.border": "{{bg3}}",
+        "renamed": "{{aqua}}",
+        "renamed.background": "{{bg2}}80",
+        "renamed.border": "{{bg3}}",
+        "scrollbar.thumb.background": "{{darkPrimary}}20",
+        "scrollbar.thumb.border": null,
+        "scrollbar.thumb.hover_background": "{{darkPrimary}}40",
+        "scrollbar.track.background": "{{bg0}}",
+        "scrollbar.track.border": "{{bg0}}",
+        "search.active_match_background": "{{secondary}}80",
+        "search.match_background": "{{primary}}80",
+        "status_bar.background": "{{bg0}}",
+        "success": "{{green}}",
+        "success.background": "{{bg2}}80",
+        "success.border": "{{bg3}}",
+        "surface.background": "{{bg0}}",
+        "syntax": {
+          "attribute": {
+            "color": "{{red}}",
+            "font_style": null,
+            "font_weight": null
+          },
+          "boolean": {
+            "color": "{{orange}}",
+            "font_style": null,
+            "font_weight": null
+          },
+          "comment": {
+            "color": "{{fg4}}",
+            "font_style": "italic",
+            "font_weight": 800
+          },
+          "comment.doc": {
+            "color": "{{fg4}}",
+            "font_style": "italic",
+            "font_weight": 800
+          },
+          "constant": {
+            "color": "{{red}}",
+            "font_style": null,
+            "font_weight": null
+          },
+          "constructor": {
+            "color": "{{blue}}",
+            "font_style": null,
+            "font_weight": null
+          },
+          "embedded": {
+            "color": "{{purple}}",
+            "font_style": null,
+            "font_weight": null
+          },
+          "emphasis": {
+            "color": "{{purple}}",
+            "font_style": "italic",
+            "font_weight": null
+          },
+          "emphasis.strong": {
+            "color": "{{yellow}}",
+            "font_style": null,
+            "font_weight": 700
+          },
+          "enum": {
+            "color": "{{aqua}}",
+            "font_style": null,
+            "font_weight": null
+          },
+          "function": {
+            "color": "{{blue}}",
+            "font_style": null,
+            "font_weight": null
+          },
+          "hint": {
+            "color": "{{fg4}}",
+            "font_style": null,
+            "font_weight": null
+          },
+          "keyword": {
+            "color": "{{purple}}",
+            "font_style": null,
+            "font_weight": null
+          },
+          "label": {
+            "color": "{{orange}}",
+            "font_style": null,
+            "font_weight": null
+          },
+          "link_text": {
+            "color": "{{red}}",
+            "font_style": "normal",
+            "font_weight": null
+          },
+          "link_uri": {
+            "color": "{{aqua}}",
+            "font_style": null,
+            "font_weight": null
+          },
+          "namespace": {
+            "color": "{{yellow}}",
+            "font_style": null,
+            "font_weight": null
+          },
+          "number": {
+            "color": "{{aqua}}",
+            "font_style": null,
+            "font_weight": null
+          },
+          "operator": {
+            "color": "{{fg2}}",
+            "font_style": null,
+            "font_weight": null
+          },
+          "predictive": {
+            "color": "{{fg4}}",
+            "font_style": "italic",
+            "font_weight": null
+          },
+          "preproc": {
+            "color": "{{purple}}",
+            "font_style": null,
+            "font_weight": null
+          },
+          "primary": {
+            "color": "{{fg2}}",
+            "font_style": null,
+            "font_weight": null
+          },
+          "property": {
+            "color": "{{red}}",
+            "font_style": null,
+            "font_weight": null
+          },
+          "punctuation": {
+            "color": "{{fg2}}",
+            "font_style": null,
+            "font_weight": null
+          },
+          "punctuation.bracket": {
+            "color": "{{fg2}}",
+            "font_style": null,
+            "font_weight": null
+          },
+          "punctuation.delimiter": {
+            "color": "{{fg2}}",
+            "font_style": null,
+            "font_weight": null
+          },
+          "punctuation.list_marker": {
+            "color": "{{red}}",
+            "font_style": null,
+            "font_weight": null
+          },
+          "punctuation.markup": {
+            "color": "{{red}}",
+            "font_style": null,
+            "font_weight": null
+          },
+          "punctuation.special": {
+            "color": "{{purple}}",
+            "font_style": null,
+            "font_weight": null
+          },
+          "selector": {
+            "color": "{{purple}}",
+            "font_style": null,
+            "font_weight": null
+          },
+          "selector.pseudo": {
+            "color": "{{aqua}}",
+            "font_style": null,
+            "font_weight": null
+          },
+          "string": {
+            "color": "{{green}}",
+            "font_style": null,
+            "font_weight": null
+          },
+          "string.escape": {
+            "color": "{{aqua}}",
+            "font_style": null,
+            "font_weight": null
+          },
+          "string.regex": {
+            "color": "{{aqua}}",
+            "font_style": null,
+            "font_weight": null
+          },
+          "string.special": {
+            "color": "{{aqua}}",
+            "font_style": null,
+            "font_weight": null
+          },
+          "string.special.symbol": {
+            "color": "{{green}}",
+            "font_style": null,
+            "font_weight": null
+          },
+          "tag": {
+            "color": "{{red}}",
+            "font_style": null,
+            "font_weight": null
+          },
+          "text.literal": {
+            "color": "{{green}}",
+            "font_style": null,
+            "font_weight": null
+          },
+          "title": {
+            "color": "{{blue}}",
+            "font_style": null,
+            "font_weight": 700
+          },
+          "type": {
+            "color": "{{yellow}}",
+            "font_style": null,
+            "font_weight": null
+          },
+          "variable": {
+            "color": "{{red}}",
+            "font_style": null,
+            "font_weight": null
+          },
+          "variable.special": {
+            "color": "{{orange}}",
+            "font_style": null,
+            "font_weight": null
+          },
+          "variant": {
+            "color": "{{blue}}",
+            "font_style": null,
+            "font_weight": null
+          }
+        },
+        "tab.active_background": "{{bg1}}",
+        "tab.inactive_background": "{{bg0}}",
+        "tab_bar.background": "{{bg0}}",
+        "terminal.ansi.black": "{{bg0}}",
+        "terminal.ansi.blue": "{{blue}}",
+        "terminal.ansi.bright_black": "{{fg4}}",
+        "terminal.ansi.bright_blue": "{{lightBlue}}",
+        "terminal.ansi.bright_cyan": "{{lightAqua}}",
+        "terminal.ansi.bright_green": "{{lightGreen}}",
+        "terminal.ansi.bright_magenta": "{{lightPurple}}",
+        "terminal.ansi.bright_red": "{{lightRed}}",
+        "terminal.ansi.bright_white": "{{fg0}}",
+        "terminal.ansi.bright_yellow": "{{lightYellow}}",
+        "terminal.ansi.cyan": "{{aqua}}",
+        "terminal.ansi.dim_black": "{{bg2}}",
+        "terminal.ansi.dim_blue": "{{darkBlue}}",
+        "terminal.ansi.dim_cyan": "{{darkAqua}}",
+        "terminal.ansi.dim_green": "{{darkGreen}}",
+        "terminal.ansi.dim_magenta": "{{darkPurple}}",
+        "terminal.ansi.dim_red": "{{darkRed}}",
+        "terminal.ansi.dim_white": "{{fg4}}",
+        "terminal.ansi.dim_yellow": "{{darkYellow}}",
+        "terminal.ansi.green": "{{green}}",
+        "terminal.ansi.magenta": "{{purple}}",
+        "terminal.ansi.red": "{{red}}",
+        "terminal.ansi.white": "{{fg0}}",
+        "terminal.ansi.yellow": "{{yellow}}",
+        "terminal.background": "{{bg0}}",
+        "terminal.bright_foreground": "{{fg0}}",
+        "terminal.dim_foreground": "{{fg4}}",
+        "terminal.foreground": "{{fg1}}",
+        "text": "{{fg1}}",
+        "text.accent": "{{primary}}",
+        "text.disabled": "{{fg0}}80",
+        "text.muted": "{{fg4}}",
+        "text.placeholder": "{{fg4}}",
+        "title_bar.background": "{{bg0}}",
+        "title_bar.inactive_background": "{{bg0}}",
+        "toolbar.background": "{{bg0}}",
+        "unreachable": "{{fg2}}80",
+        "unreachable.background": "{{bg2}}40",
+        "unreachable.border": "{{bg3}}80",
+        "warning": "{{red}}",
+        "warning.background": "{{bg2}}80",
+        "warning.border": "{{bg3}}"
+      }
+    }
+  ]
+}

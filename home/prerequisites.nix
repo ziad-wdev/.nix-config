@@ -1,8 +1,9 @@
 {pkgs, ...}: {
   # Required by hyprland.nix -> for Hyprland window manager
   programs.hyprland.enable = true;
-  services.gnome.gnome-keyring.enable = true;
   security.polkit.enable = true;
+  services.upower.enable = true;
+  services.gnome.gnome-keyring.enable = true;
 
   xdg.portal = {
     enable = true;

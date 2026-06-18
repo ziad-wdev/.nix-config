@@ -21,13 +21,9 @@
     icon-library # GNOME Icon Library
 
     # System utilities
-    python3
-    python3Packages.pip
-    nodejs_24
     curl
+    ouch
     _7zz-rar
-    ouch # Archive extraction and compression utility
-    imagemagick # Image processing
   ];
 
   # Enable Docker for containerization and NVIDIA container toolkit.

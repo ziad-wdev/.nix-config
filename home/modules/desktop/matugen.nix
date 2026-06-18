@@ -18,31 +18,31 @@ in {
       custom_colors = {
         red = {
           color = "#ff6048";
-          blend = false;
+          blend = true;
         }; # base08
         orange = {
           color = "#ffa478";
-          blend = false;
+          blend = true;
         }; # base09
         yellow = {
           color = "#f5cd5b";
-          blend = false;
+          blend = true;
         }; # base0A
         green = {
           color = "#7ad9a8";
-          blend = false;
+          blend = true;
         }; # base0B
         aqua = {
           color = "#3dd1b0";
-          blend = false;
+          blend = true;
         }; # base0C
         blue = {
           color = "#5fc8d4";
-          blend = false;
+          blend = true;
         }; # base0D
         purple = {
           color = "#e89aa8";
-          blend = false;
+          blend = true;
         }; # base0E
       };
     };
@@ -51,11 +51,6 @@ in {
       colors = {
         input_path = "${templatesPath}/colors.jsonc";
         output_path = "${outputPath}/colors.jsonc";
-      };
-
-      zed = {
-        input_path = "${templatesPath}/zed.json";
-        output_path = "${outputPath}/zed.json";
       };
     };
   };
@@ -81,15 +76,16 @@ in {
       }
 
       #      input           output
+      render colors.css      colors.css
       render gtk.css         gtk.css
-      render hyprland.lua    hyprland.lua
-      render hyprlock.conf   hyprlock.conf
-      render quickshell.qml  quickshell.qml
-      render colors.css      wlogout.css
-      render colors.css      waybar.css
+      render gtk.css         wlogout.css
+      render gtk.css         waybar.css
       render rofi.rasi       rofi.rasi
       render ghostty         ghostty
-      # render zed.json        zed.json
+      render quickshell.qml  quickshell.qml
+      render hyprland.lua    hyprland.lua
+      render hyprlock.conf   hyprlock.conf
+      render zed.json        zed.json
       render vesktop.css     vesktop.css
 
       # post hooks (run after template rendering)
