@@ -3,9 +3,7 @@
   pkgs,
   ...
 }: {
-  home.packages = with pkgs; [
-    vesktop
-  ];
+  home.packages = with pkgs; [vesktop];
 
   xdg.configFile."vesktop/themes/custom.css".source =
     config.lib.file.mkOutOfStoreSymlink "${config.xdg.dataHome}/themes/vesktop.css";

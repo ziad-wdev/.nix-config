@@ -3,10 +3,7 @@
   pkgs,
   ...
 }: {
-  home.packages = with pkgs; [
-    nautilus
-    nautilus-python
-  ];
+  home.packages = with pkgs; [nautilus nautilus-python];
 
   home.sessionVariables = {
     NAUTILUS_4_EXTENSION_DIR = "${pkgs.nautilus-python}/lib/nautilus/extensions-4";

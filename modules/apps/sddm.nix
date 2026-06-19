@@ -36,7 +36,5 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [
-    bibata-cursors
-  ];
+  environment.systemPackages = with pkgs; [bibata-cursors];
 }

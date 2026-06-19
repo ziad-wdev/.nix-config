@@ -131,10 +131,7 @@ in {
           outputHashAlgo = "sha256";
           outputHashMode = "recursive";
           outputHash = "sha256-lmrZfNybP7YGD1wo8SAt7wRhhRVu2rxK849YYcAvJvA=";
-          nativeBuildInputs = with pkgs; [
-            nodejs
-            cacert
-          ];
+          nativeBuildInputs = with pkgs; [nodejs cacert];
         }
         ''
           export HOME=$TMPDIR

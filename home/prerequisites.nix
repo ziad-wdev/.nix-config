@@ -22,7 +22,5 @@
   services.gvfs.enable = true;
 
   # Required by wlogout.nix -> for svg icon rendering
-  programs.gdk-pixbuf.modulePackages = with pkgs; [
-    librsvg
-  ];
+  programs.gdk-pixbuf.modulePackages = with pkgs; [librsvg];
 }

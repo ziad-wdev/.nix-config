@@ -26,9 +26,9 @@
       "wlogout"
     ];
     "modules/shell" = [
+      "bun"
       "fastfetch"
       "git"
-      "pnpm"
       "treefmt"
       "zsh"
     ];

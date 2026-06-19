@@ -7,9 +7,7 @@
   templatesPath = "${flakePath}/home/assets/templates";
   outputPath = "${config.xdg.dataHome}/themes";
 in {
-  home.packages = with pkgs; [
-    matugen
-  ];
+  home.packages = with pkgs; [matugen];
 
   home.file."${outputPath}/.keep".text = "";
 
