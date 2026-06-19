@@ -82,8 +82,34 @@
 in {
   home.packages = [treefmt-anywhere];
 
-  xdg.dataFile = {
-    "prettier/.prettierrc".text = builtins.toJSON {
+  xdg.dataFile."prettier/.prettierrc".text = let
+    prettierPlugins =
+      pkgs.runCommand "prettier-plugins"
+      {
+        outputHashAlgo = "sha256";
+        outputHashMode = "recursive";
+        outputHash = "sha256-lmrZfNybP7YGD1wo8SAt7wRhhRVu2rxK849YYcAvJvA=";
+        nativeBuildInputs = with pkgs; [nodejs cacert];
+      }
+      ''
+        export HOME=$TMPDIR
+        mkdir -p $out
+        cd $out
+
+        npm install \
+          prettier-plugin-sort-json \
+          @trivago/prettier-plugin-sort-imports \
+          prettier-plugin-tailwindcss \
+          --no-save
+      '';
+  in
+    builtins.toJSON {
+      plugins = [
+        "${prettierPlugins}/node_modules/prettier-plugin-sort-json/dist/index.js"
+        "${prettierPlugins}/node_modules/@trivago/prettier-plugin-sort-imports/lib/src/index.js"
+        "${prettierPlugins}/node_modules/prettier-plugin-tailwindcss/dist/index.mjs"
+      ];
+
       tabWidth = 2;
       printWidth = 100;
       semi = false;
@@ -115,35 +141,5 @@ in {
         "clsx"
         "tw"
       ];
-
-      # CRITICAL: prettier-plugin-tailwindcss MUST be the absolute last plugin in this list
-      plugins = [
-        "prettier-plugin-sort-json"
-        "@trivago/prettier-plugin-sort-imports"
-        "prettier-plugin-tailwindcss"
-      ];
     };
-
-    "prettier/node_modules".source = let
-      prettierPlugins =
-        pkgs.runCommand "prettier-plugins"
-        {
-          outputHashAlgo = "sha256";
-          outputHashMode = "recursive";
-          outputHash = "sha256-lmrZfNybP7YGD1wo8SAt7wRhhRVu2rxK849YYcAvJvA=";
-          nativeBuildInputs = with pkgs; [nodejs cacert];
-        }
-        ''
-          export HOME=$TMPDIR
-          mkdir -p $out
-          cd $out
-
-          npm install \
-            prettier-plugin-sort-json \
-            @trivago/prettier-plugin-sort-imports \
-            prettier-plugin-tailwindcss \
-            --no-save
-        '';
-    in "${prettierPlugins}/node_modules";
-  };
 }
