@@ -23,19 +23,18 @@
   };
 
   # essential services
+  services.gvfs.enable = true;
   services.tlp.enable = true;
   services.upower.enable = true;
   security.polkit.enable = true;
-  services.gvfs.enable = true;
-
-  security.pam.services.login.enableGnomeKeyring = true;
   services.gnome.gnome-keyring.enable = true;
+  security.pam.services.login.enableGnomeKeyring = true;
 
   # compatibility services
   programs.nix-ld = {
     enable = true;
     libraries = with pkgs; [
-      libsecrets
+      libsecret
       glib
     ];
   };

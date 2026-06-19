@@ -26,6 +26,7 @@
     })
   ];
 
+  # Enable Zsh as the default shell for users.
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
 
