@@ -10,11 +10,11 @@
     $padding: 4px;
     $side-padding-multiplier: 4;
 
-    $primary: #{"@primary"};
-    $dark-primary: #{"@darkPrimary"};
+    $primary: #{"@primary3"};
+    $dark-primary: #{"@primary1"};
 
-    $tertiary: #{"@tertiary"};
-    $dark-tertiary: #{"@darkTertiary"};
+    $tertiary: #{"@tertiary3"};
+    $dark-tertiary: #{"@tertiary1"};
 
     $bg: #{"@bg1"};
     $dark-bg: #{"@bg0"};
@@ -23,10 +23,10 @@
     $fg: #{"@fg0"};
     $primary-fg: #{"@bg0"};
 
-    $green: #{"@green"};
-    $red: #{"@red"};
-    $blue: #{"@blue"};
-    $orange: #{"@orange"};
+    $green: #{"@green2"};
+    $red: #{"@red2"};
+    $blue: #{"@blue2"};
+    $orange: #{"@orange2"};
 
     * {
       color: $fg;

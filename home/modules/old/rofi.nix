@@ -112,7 +112,7 @@
       horizontal-align: 0.5;
     }
     element-text selected {
-      text-color: @primary;
+      text-color: @primary2;
     }
   '';
 

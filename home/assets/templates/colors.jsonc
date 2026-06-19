@@ -1,57 +1,88 @@
 {
-  "image": "{{image}}",
+  "image":      "{{ image }}",
 
   // background colors darkest to lightest
-  "bg0": "{{colors.primary.default.hex | set_saturation: 24 | set_lightness: 10}}",
-  "bg1": "{{colors.primary.default.hex | set_saturation: 21 | set_lightness: 12}}",
-  "bg2": "{{colors.primary.default.hex | set_saturation: 18 | set_lightness: 15}}",
-  "bg3": "{{colors.primary.default.hex | set_saturation: 15 | set_lightness: 19}}",
-  "bg4": "{{colors.primary.default.hex | set_saturation: 12 | set_lightness: 24}}",
+  "bg0":        "{{ colors.primary.default.hex       | set_saturation: 15    | set_lightness:  7 }}",
+  "bg1":        "{{ colors.primary.default.hex       | set_saturation: 14.25 | set_lightness:  7 | lighten:   6 }}",
+  "bg2":        "{{ colors.primary.default.hex       | set_saturation: 12.5  | set_lightness:  7 | lighten:  12 }}",
+  "bg3":        "{{ colors.primary.default.hex       | set_saturation: 11.25 | set_lightness:  7 | lighten:  20 }}",
+  "bg4":        "{{ colors.primary.default.hex       | set_saturation: 10    | set_lightness:  7 | lighten:  28 }}",
 
   // foreground colors lightest to darkest
-  "fg0": "{{colors.primary.default.hex | set_saturation: 28 | set_lightness: 85}}",
-  "fg1": "{{colors.primary.default.hex | set_saturation: 24 | set_lightness: 75}}",
-  "fg2": "{{colors.primary.default.hex | set_saturation: 20 | set_lightness: 65}}",
-  "fg3": "{{colors.primary.default.hex | set_saturation: 16 | set_lightness: 55}}",
-  "fg4": "{{colors.primary.default.hex | set_saturation: 12 | set_lightness: 45}}",
+  "fg0":        "{{ colors.primary.default.hex       | set_saturation: 25    | set_lightness: 85 }}",
+  "fg1":        "{{ colors.primary.default.hex       | set_saturation: 22.5  | set_lightness: 85 | lighten: -10 }}",
+  "fg2":        "{{ colors.primary.default.hex       | set_saturation: 20    | set_lightness: 85 | lighten: -20 }}",
+  "fg3":        "{{ colors.primary.default.hex       | set_saturation: 17.5  | set_lightness: 85 | lighten: -30 }}",
+  "fg4":        "{{ colors.primary.default.hex       | set_saturation: 15    | set_lightness: 85 | lighten: -40 }}",
 
-  // Primary colors
-  "primary":        "{{ colors.primary.default.hex | set_saturation: 35 | set_lightness: 55 }}",
-  "darkPrimary":    "{{ colors.primary.default.hex | set_saturation: 35 | set_lightness: 55 | lighten: -10 }}",
-  "lightPrimary":   "{{ colors.primary.default.hex | set_saturation: 35 | set_lightness: 55 | lighten:  10 }}",
+  // primary colors
+  "primary0":   "{{ colors.primary.default.hex       | set_saturation: 35    | set_lightness: 55 | lighten: -16 }}",
+  "primary1":   "{{ colors.primary.default.hex       | set_saturation: 35    | set_lightness: 55 | lighten:  -8 }}",
+  "primary2":   "{{ colors.primary.default.hex       | set_saturation: 35    | set_lightness: 55 }}",
+  "primary3":   "{{ colors.primary.default.hex       | set_saturation: 35    | set_lightness: 55 | lighten:   8 }}",
+  "primary4":   "{{ colors.primary.default.hex       | set_saturation: 35    | set_lightness: 55 | lighten:  16 }}",
 
-  // Secondary colors
-  "secondary":      "{{ colors.secondary.default.hex | set_saturation: 35 | set_lightness: 55 }}",
-  "darkSecondary":  "{{ colors.secondary.default.hex | set_saturation: 35 | set_lightness: 55 | lighten: -10 }}",
-  "lightSecondary": "{{ colors.secondary.default.hex | set_saturation: 35 | set_lightness: 55 | lighten:  10 }}",
+  // secondary colors
+  "secondary0": "{{ colors.secondary.default.hex     | set_saturation: 35    | set_lightness: 55 | lighten: -16 }}",
+  "secondary1": "{{ colors.secondary.default.hex     | set_saturation: 35    | set_lightness: 55 | lighten:  -8 }}",
+  "secondary2": "{{ colors.secondary.default.hex     | set_saturation: 35    | set_lightness: 55 }}",
+  "secondary3": "{{ colors.secondary.default.hex     | set_saturation: 35    | set_lightness: 55 | lighten:   8 }}",
+  "secondary4": "{{ colors.secondary.default.hex     | set_saturation: 35    | set_lightness: 55 | lighten:  16 }}",
 
-  // Tertiary colors
-  "tertiary":       "{{ colors.tertiary.default.hex | set_saturation: 35 | set_lightness: 55 }}",
-  "darkTertiary":   "{{ colors.tertiary.default.hex | set_saturation: 35 | set_lightness: 55 | lighten: -10 }}",
-  "lightTertiary":  "{{ colors.tertiary.default.hex | set_saturation: 35 | set_lightness: 55 | lighten:  10 }}",
+  // tertiary colors
+  "tertiary0":  "{{ colors.tertiary.default.hex      | set_saturation: 35    | set_lightness: 55 | lighten: -16 }}",
+  "tertiary1":  "{{ colors.tertiary.default.hex      | set_saturation: 35    | set_lightness: 55 | lighten:  -8 }}",
+  "tertiary2":  "{{ colors.tertiary.default.hex      | set_saturation: 35    | set_lightness: 55 }}",
+  "tertiary3":  "{{ colors.tertiary.default.hex      | set_saturation: 35    | set_lightness: 55 | lighten:   8 }}",
+  "tertiary4":  "{{ colors.tertiary.default.hex      | set_saturation: 35    | set_lightness: 55 | lighten:  16 }}",
 
-  // Accent colors
-  "red":            "{{ colors.red_source.default.hex    | set_saturation: 35 | set_lightness: 55 }}",
-  "orange":         "{{ colors.orange_source.default.hex | set_saturation: 35 | set_lightness: 55 }}",
-  "yellow":         "{{ colors.yellow_source.default.hex | set_saturation: 35 | set_lightness: 55 }}",
-  "green":          "{{ colors.green_source.default.hex  | set_saturation: 35 | set_lightness: 55 }}",
-  "aqua":           "{{ colors.aqua_source.default.hex   | set_saturation: 35 | set_lightness: 55 }}",
-  "blue":           "{{ colors.blue_source.default.hex   | set_saturation: 35 | set_lightness: 55 }}",
-  "purple":         "{{ colors.purple_source.default.hex | set_saturation: 35 | set_lightness: 55 }}",
+  // accent colors
+  // red
+  "red0":       "{{ colors.red_source.default.hex    | set_saturation: 35    | set_lightness: 55 | lighten: -16 }}",
+  "red1":       "{{ colors.red_source.default.hex    | set_saturation: 35    | set_lightness: 55 | lighten:  -8 }}",
+  "red2":       "{{ colors.red_source.default.hex    | set_saturation: 35    | set_lightness: 55 }}",
+  "red3":       "{{ colors.red_source.default.hex    | set_saturation: 35    | set_lightness: 55 | lighten:   8 }}",
+  "red4":       "{{ colors.red_source.default.hex    | set_saturation: 35    | set_lightness: 55 | lighten:  16 }}",
 
-  "darkRed":        "{{ colors.red_source.default.hex    | set_saturation: 35 | set_lightness: 55 | lighten: -10 }}",
-  "darkOrange":     "{{ colors.orange_source.default.hex | set_saturation: 35 | set_lightness: 55 | lighten: -10 }}",
-  "darkYellow":     "{{ colors.yellow_source.default.hex | set_saturation: 35 | set_lightness: 55 | lighten: -10 }}",
-  "darkGreen":      "{{ colors.green_source.default.hex  | set_saturation: 35 | set_lightness: 55 | lighten: -10 }}",
-  "darkAqua":       "{{ colors.aqua_source.default.hex   | set_saturation: 35 | set_lightness: 55 | lighten: -10 }}",
-  "darkBlue":       "{{ colors.blue_source.default.hex   | set_saturation: 35 | set_lightness: 55 | lighten: -10 }}",
-  "darkPurple":     "{{ colors.purple_source.default.hex | set_saturation: 35 | set_lightness: 55 | lighten: -10 }}",
+  // orange
+  "orange0":    "{{ colors.orange_source.default.hex | set_saturation: 35    | set_lightness: 55 | lighten: -16 }}",
+  "orange1":    "{{ colors.orange_source.default.hex | set_saturation: 35    | set_lightness: 55 | lighten:  -8 }}",
+  "orange2":    "{{ colors.orange_source.default.hex | set_saturation: 35    | set_lightness: 55 }}",
+  "orange3":    "{{ colors.orange_source.default.hex | set_saturation: 35    | set_lightness: 55 | lighten:   8 }}",
+  "orange4":    "{{ colors.orange_source.default.hex | set_saturation: 35    | set_lightness: 55 | lighten:  16 }}",
 
-  "lightRed":       "{{ colors.red_source.default.hex    | set_saturation: 35 | set_lightness: 55 | lighten:  10 }}",
-  "lightOrange":    "{{ colors.orange_source.default.hex | set_saturation: 35 | set_lightness: 55 | lighten:  10 }}",
-  "lightYellow":    "{{ colors.yellow_source.default.hex | set_saturation: 35 | set_lightness: 55 | lighten:  10 }}",
-  "lightGreen":     "{{ colors.green_source.default.hex  | set_saturation: 35 | set_lightness: 55 | lighten:  10 }}",
-  "lightAqua":      "{{ colors.aqua_source.default.hex   | set_saturation: 35 | set_lightness: 55 | lighten:  10 }}",
-  "lightBlue":      "{{ colors.blue_source.default.hex   | set_saturation: 35 | set_lightness: 55 | lighten:  10 }}",
-  "lightPurple":    "{{ colors.purple_source.default.hex | set_saturation: 35 | set_lightness: 55 | lighten:  10 }}",
+  // yellow
+  "yellow0":    "{{ colors.yellow_source.default.hex | set_saturation: 35    | set_lightness: 55 | lighten: -16 }}",
+  "yellow1":    "{{ colors.yellow_source.default.hex | set_saturation: 35    | set_lightness: 55 | lighten:  -8 }}",
+  "yellow2":    "{{ colors.yellow_source.default.hex | set_saturation: 35    | set_lightness: 55 }}",
+  "yellow3":    "{{ colors.yellow_source.default.hex | set_saturation: 35    | set_lightness: 55 | lighten:   8 }}",
+  "yellow4":    "{{ colors.yellow_source.default.hex | set_saturation: 35    | set_lightness: 55 | lighten:  16 }}",
+
+  // green
+  "green0":     "{{ colors.green_source.default.hex  | set_saturation: 35    | set_lightness: 55 | lighten: -16 }}",
+  "green1":     "{{ colors.green_source.default.hex  | set_saturation: 35    | set_lightness: 55 | lighten:  -8 }}",
+  "green2":     "{{ colors.green_source.default.hex  | set_saturation: 35    | set_lightness: 55 }}",
+  "green3":     "{{ colors.green_source.default.hex  | set_saturation: 35    | set_lightness: 55 | lighten:   8 }}",
+  "green4":     "{{ colors.green_source.default.hex  | set_saturation: 35    | set_lightness: 55 | lighten:  16 }}",
+
+  // aqua
+  "aqua0":      "{{ colors.aqua_source.default.hex   | set_saturation: 35    | set_lightness: 55 | lighten: -16 }}",
+  "aqua1":      "{{ colors.aqua_source.default.hex   | set_saturation: 35    | set_lightness: 55 | lighten:  -8 }}",
+  "aqua2":      "{{ colors.aqua_source.default.hex   | set_saturation: 35    | set_lightness: 55 }}",
+  "aqua3":      "{{ colors.aqua_source.default.hex   | set_saturation: 35    | set_lightness: 55 | lighten:   8 }}",
+  "aqua4":      "{{ colors.aqua_source.default.hex   | set_saturation: 35    | set_lightness: 55 | lighten:  16 }}",
+
+  // blue
+  "blue0":      "{{ colors.blue_source.default.hex   | set_saturation: 35    | set_lightness: 55 | lighten: -16 }}",
+  "blue1":      "{{ colors.blue_source.default.hex   | set_saturation: 35    | set_lightness: 55 | lighten:  -8 }}",
+  "blue2":      "{{ colors.blue_source.default.hex   | set_saturation: 35    | set_lightness: 55 }}",
+  "blue3":      "{{ colors.blue_source.default.hex   | set_saturation: 35    | set_lightness: 55 | lighten:   8 }}",
+  "blue4":      "{{ colors.blue_source.default.hex   | set_saturation: 35    | set_lightness: 55 | lighten:  16 }}",
+
+  // purple
+  "purple0":    "{{ colors.purple_source.default.hex | set_saturation: 35    | set_lightness: 55 | lighten: -16 }}",
+  "purple1":    "{{ colors.purple_source.default.hex | set_saturation: 35    | set_lightness: 55 | lighten:  -8 }}",
+  "purple2":    "{{ colors.purple_source.default.hex | set_saturation: 35    | set_lightness: 55 }}",
+  "purple3":    "{{ colors.purple_source.default.hex | set_saturation: 35    | set_lightness: 55 | lighten:   8 }}",
+  "purple4":    "{{ colors.purple_source.default.hex | set_saturation: 35    | set_lightness: 55 | lighten:  16 }}",
 }

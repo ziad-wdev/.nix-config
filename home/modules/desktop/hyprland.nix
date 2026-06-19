@@ -74,7 +74,7 @@
         {
           monitor = "";
           text = "$TIME";
-          color = "$primary";
+          color = "$primary2";
           font_size = 256;
           font_family = builtins.head config.fonts.fontconfig.defaultFonts.monospace;
           position = "0, 300";
@@ -87,10 +87,10 @@
         {
           monitor = "";
           inner_color = "rgba(0, 0, 0, 0.5)";
-          font_color = "$primary";
-          outer_color = "$primary";
-          check_color = "$primary";
-          fail_color = "$error";
+          font_color = "$primary2";
+          outer_color = "$primary2";
+          check_color = "$primary2";
+          fail_color = "$red2";
           size = "200, 50";
           outline_thickness = 0;
           dots_size = 0.32;
