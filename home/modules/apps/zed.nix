@@ -40,7 +40,7 @@
     ];
 
     userSettings = {
-      # UI & Themin
+      # Theming
       theme = "custom";
       icon_theme = {
         dark = "Soft Charmed Icons";
@@ -50,7 +50,7 @@
       ui_font_family = builtins.head config.fonts.fontconfig.defaultFonts.sansSerif;
       ui_font_size = 16;
 
-      # Editor & Buffe
+      # Buffer
       buffer_font_family = builtins.head config.fonts.fontconfig.defaultFonts.monospace;
       buffer_font_features = {
         calt = false;
@@ -68,24 +68,7 @@
       tab_size = 2;
       "lsp_document_colors" = "inlay";
 
-      # Panels, Bars & UI Element
-      collaboration_panel = {
-        default_width = 400;
-      };
-      git_panel = {
-        default_width = 400;
-        tree_view = true;
-      };
-      minimap = {
-        show = "auto";
-        thumb = "hover";
-      };
-      outline_panel = {
-        default_width = 400;
-        indent_guides = {
-          show = "never";
-        };
-      };
+      # Elements
       project_panel = {
         auto_fold_dirs = false;
         default_width = 400;
@@ -96,6 +79,33 @@
         scrollbar = {
           show = "never";
         };
+      };
+      git_panel = {
+        default_width = 400;
+        tree_view = true;
+      };
+      outline_panel = {
+        default_width = 400;
+        indent_guides = {
+          show = "never";
+        };
+      };
+      collaboration_panel = {
+        default_width = 400;
+      };
+      terminal = {
+        cursor_shape = "block";
+        default_height = 400;
+      };
+      agent = {
+        default_width = 400;
+        flexible = false;
+        dock = "right";
+      };
+
+      minimap = {
+        show = "auto";
+        thumb = "hover";
       };
       scrollbar = {
         axes = {
@@ -114,7 +124,7 @@
         quick_actions = false;
       };
 
-      # Formatting & Savin
+      # Formatting
       autosave = {
         after_delay = {
           milliseconds = 1000;
@@ -130,8 +140,15 @@
           ];
         };
       };
+      lsp = {
+        qml = {
+          binary = {
+            arguments = ["-E"];
+          };
+        };
+      };
 
-      # Environment & Startu
+      # Startup
       cli_default_open_behavior = "existing_window";
       load_direnv = "direct";
       restore_on_startup = "launchpad";
@@ -139,18 +156,7 @@
         trust_all_worktrees = true;
       };
 
-      # Termina
-      terminal = {
-        cursor_shape = "block";
-        default_height = 400;
-      };
-
-      # AI, Diagnostics & Telemetr
-      agent = {
-        default_width = 400;
-        flexible = false;
-        dock = "right";
-      };
+      # Telemetry
       diagnostics = {
         inline = {
           enabled = true;
