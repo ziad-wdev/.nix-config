@@ -12,6 +12,7 @@
   modulePaths = loadModules {
     "modules/apps" = [
       "flatpaks"
+      "hyprland"
       "packages"
       "sddm"
     ];

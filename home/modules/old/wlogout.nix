@@ -75,4 +75,12 @@ in {
       #shutdown:hover, #shutdown:focus { background-image: url("${iconDir}/dark-shutdown.svg"); }
     '';
   };
+
+  home.sessionVariables = {
+    GDK_PIXBUF_MODULE_FILE = "${pkgs.buildEnv {
+      name = "gdk-pixbuf-loader";
+      paths = [pkgs.librsvg];
+      pathsToLink = ["/lib/gdk-pixbuf-2.0"];
+    }}/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache";
+  };
 }
