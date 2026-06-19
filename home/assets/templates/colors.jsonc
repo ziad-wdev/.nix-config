@@ -3,10 +3,10 @@
 
   // background colors darkest to lightest
   "bg0":        "{{ colors.primary.default.hex       | set_saturation: 15    | set_lightness:  7 }}",
-  "bg1":        "{{ colors.primary.default.hex       | set_saturation: 14.25 | set_lightness:  7 | lighten:   6 }}",
-  "bg2":        "{{ colors.primary.default.hex       | set_saturation: 12.5  | set_lightness:  7 | lighten:  12 }}",
-  "bg3":        "{{ colors.primary.default.hex       | set_saturation: 11.25 | set_lightness:  7 | lighten:  20 }}",
-  "bg4":        "{{ colors.primary.default.hex       | set_saturation: 10    | set_lightness:  7 | lighten:  28 }}",
+  "bg1":        "{{ colors.primary.default.hex       | set_saturation: 14.25 | set_lightness:  7 | lighten:   2 }}",
+  "bg2":        "{{ colors.primary.default.hex       | set_saturation: 12.5  | set_lightness:  7 | lighten:   4 }}",
+  "bg3":        "{{ colors.primary.default.hex       | set_saturation: 11.25 | set_lightness:  7 | lighten:   8 }}",
+  "bg4":        "{{ colors.primary.default.hex       | set_saturation: 10    | set_lightness:  7 | lighten:  16 }}",
 
   // foreground colors lightest to darkest
   "fg0":        "{{ colors.primary.default.hex       | set_saturation: 25    | set_lightness: 85 }}",
