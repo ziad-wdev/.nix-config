@@ -14,6 +14,7 @@
   ];
 
   home.sessionVariables = {
+    QML_IMPORT_PATH = "${pkgs.quickshell}/lib/qt-6/qml";
     QML2_IMPORT_PATH = "${pkgs.quickshell}/lib/qt-6/qml";
   };
 

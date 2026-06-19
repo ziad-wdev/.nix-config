@@ -20,8 +20,10 @@
       "hyprland"
       "matugen"
       "quickshell"
-      "rofi"
       "theme"
+    ];
+    "modules/old" = [
+      "rofi"
       "waybar"
       "wlogout"
     ];
