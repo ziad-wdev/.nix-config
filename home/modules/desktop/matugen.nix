@@ -94,22 +94,7 @@ in {
       ${pkgs.glib}/bin/gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark'
 
       # nautilus
-      # Get the URIs of all currently open Nautilus windows
-      if open_paths=$(dbus-send --print-reply --dest=org.freedesktop.FileManager1 \
-        /org/freedesktop/FileManager1 \
-        org.freedesktop.DBus.Properties.Get \
-        string:"org.freedesktop.FileManager1" \
-        string:"OpenWindows" 2>/dev/null | grep -o 'file://[^"]*'); then
-
-        # 1. Close Nautilus completely
-        nautilus -q
-        sleep 0.2
-
-        # 2. Reopen each path that was previously open
-        echo "$open_paths" | while read -r path; do
-          nautilus "$path" &
-        done
-      fi
+      nautilus -q
 
       # waybar
       pkill -SIGUSR2 waybar || { pkill waybar; waybar & }
