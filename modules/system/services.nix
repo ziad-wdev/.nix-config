@@ -1,7 +1,11 @@
-{
+{pkgs, ...}: {
   # network
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
+  networking.nameservers = [
+    "1.1.1.1"
+    "8.8.8.8"
+  ];
 
   # bluetooth
   hardware.bluetooth.enable = true;
@@ -19,7 +23,13 @@
   };
 
   # compatibility services
-  programs.nix-ld.enable = true;
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      libsecret
+      glib
+    ];
+  };
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
