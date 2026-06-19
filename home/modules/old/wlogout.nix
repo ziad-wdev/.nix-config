@@ -59,7 +59,7 @@ in {
 
       button:hover,
       button:focus {
-        background-color: @primary;
+        background-color: @primary2;
         background-size: 50%;
       }
 
