@@ -1,4 +1,8 @@
-{config, ...}: let
+{
+  config,
+  pkgs,
+  ...
+}: let
   iconDir = ../../assets/icons;
 in {
   programs.wlogout = {
