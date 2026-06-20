@@ -55,12 +55,10 @@
 
       modules = [
         ./configuration.nix
-
         home-manager.nixosModules.home-manager
         {
           home-manager = {
             extraSpecialArgs = sharedArgs;
-
             backupFileExtension = "hm-backup";
             useGlobalPkgs = true;
             useUserPackages = true;

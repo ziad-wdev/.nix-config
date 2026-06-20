@@ -27,20 +27,19 @@
 
   gtk = {
     enable = true;
-
     iconTheme = {
+      name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme.override {
         color = "bluegrey";
       };
-      name = "Papirus-Dark";
     };
+
     theme = {
-      package = pkgs.adw-gtk3;
       name = "adw-gtk3-dark";
+      package = pkgs.adw-gtk3;
     };
 
     gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
-
     gtk3.extraCss = ''
       @import url("file://${config.xdg.dataHome}/themes/gtk.css");
     '';

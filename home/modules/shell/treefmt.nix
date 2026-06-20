@@ -6,7 +6,6 @@
 }: let
   treefmtConfig = inputs.treefmt-nix.lib.evalModule pkgs {
     projectRootFile = ".git/HEAD";
-
     settings.global = {
       on_unmatched = "ignore";
       indent_type = "spaces";
@@ -25,13 +24,10 @@
       alejandra.enable = true; # Nix
       deadnix.enable = true; # Deletes dead Nix code
       statix.enable = true; # Nix static analysis
-
       ruff.enable = true; # Python (replaces black, flake8, and isort)
       rustfmt.enable = true; # Rust
       gofmt.enable = true; # Go
-
       shfmt.enable = true; # Shell scripts
-
       yamlfmt.enable = true; # YAML
       stylua.enable = true; # Lua
       taplo.enable = true; # TOML
@@ -46,6 +42,7 @@
           "--indent-width"
           "2"
         ];
+
         includes = ["*.qml"];
       };
 
@@ -56,6 +53,7 @@
           "--config"
           "${config.xdg.dataHome}/prettier/.prettierrc"
         ];
+
         includes = [
           "*.js"
           "*.jsx"
@@ -72,7 +70,8 @@
   };
 
   treefmt-anywhere = pkgs.writeShellScriptBin "treefmt" ''
-    if [ "$PWD" = "/" ]; then
+    if [ "$PWD" = "/" ];
+    then
       echo "Error: Running treefmt on the root file system (/) is disabled for safety." >&2
       exit 1
     fi
@@ -119,6 +118,12 @@ in {
       arrowParens = "always";
       endOfLine = "lf";
 
+      jsonRecursiveSort = true;
+      jsonSortOrder = "{\"placeThisFirst\": null, \"/^\\\\d+/\": \"numeric\", \"/.*/\": \"caseInsensitiveLexical\"}";
+
+      importOrderSeparation = true;
+      importOrderSortSpecifiers = true;
+      importOrderParserPlugins = ["typescript" "jsx" "decorators-legacy"];
       importOrder = [
         "<THIRD_PARTY_MODULES>"
         "^react(-dom)?$"
@@ -128,13 +133,6 @@ in {
         "^\\./"
         "^.+\\.(css|scss|sass)$"
       ];
-      importOrderSeparation = true;
-      importOrderSortSpecifiers = true;
-
-      importOrderParserPlugins = ["typescript" "jsx" "decorators-legacy"];
-
-      jsonRecursiveSort = true;
-      jsonSortOrder = "{\"placeThisFirst\": null, \"/^\\\\d+/\": \"numeric\", \"/.*/\": \"caseInsensitiveLexical\"}";
 
       tailwindFunctions = [
         "cn"

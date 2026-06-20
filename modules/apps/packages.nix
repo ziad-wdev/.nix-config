@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   nixpkgs.config.allowUnfree = true;
-
   environment.systemPackages = with pkgs; [
     lutris # Game launcher
 
@@ -35,9 +34,9 @@
   virtualisation.docker.enable = true;
 
   # Enable Steam
+  programs.gamemode.enable = true;
   programs.steam = {
     enable = true;
     gamescopeSession.enable = true;
   };
-  programs.gamemode.enable = true;
 }

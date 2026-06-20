@@ -9,7 +9,6 @@
   colorsTemplate = "colors.yaml";
 in {
   home.packages = with pkgs; [matugen];
-
   xdg.configFile."matugen/config.toml".source = (pkgs.formats.toml {}).generate "config" {
     config = {
       wallpaper.command = "awww img --transition-type random --transition-fps 60 \"{{ image }}\"";
@@ -18,31 +17,38 @@ in {
         red = {
           color = "#ff6048";
           blend = true;
-        }; # base08
+        };
+        # base08
         orange = {
           color = "#ffa478";
           blend = true;
-        }; # base09
+        };
+        # base09
         yellow = {
           color = "#f5cd5b";
           blend = true;
-        }; # base0A
+        };
+        # base0A
         green = {
           color = "#7ad9a8";
           blend = true;
-        }; # base0B
+        };
+        # base0B
         aqua = {
           color = "#3dd1b0";
           blend = true;
-        }; # base0C
+        };
+        # base0C
         blue = {
           color = "#5fc8d4";
           blend = true;
-        }; # base0D
+        };
+        # base0D
         purple = {
           color = "#e89aa8";
           blend = true;
-        }; # base0E
+        };
+        # base0E
       };
     };
 
@@ -55,9 +61,9 @@ in {
   };
 
   systemd.user.paths.templates-watcher = {
-    Unit = {Description = "Watch for Matugen theme changes";};
-    Path = {PathModified = "${outputPath}/${colorsTemplate}";};
-    Install = {WantedBy = ["default.target"];};
+    Unit.Description = "Watch for Matugen theme changes";
+    Path.PathModified = "${outputPath}/${colorsTemplate}";
+    Install.WantedBy = ["default.target"];
   };
 
   systemd.user.services.templates-watcher = let
@@ -100,7 +106,7 @@ in {
       hyprctl reload
     '';
   in {
-    Unit = {Description = "Render templates on theme change";};
+    Unit.Description = "Render templates on theme change";
     Service = {
       Type = "oneshot";
       ExecStart = "${templates-renderer}/bin/render-templates";

@@ -56,7 +56,6 @@
     enable = true;
     settings = {
       source = ["${config.xdg.dataHome}/themes/hyprlock.conf"];
-
       background = [
         {
           monitor = "";

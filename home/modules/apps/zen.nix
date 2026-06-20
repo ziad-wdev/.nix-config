@@ -1,10 +1,8 @@
 {inputs, ...}: {
   imports = [inputs.zen-browser.homeModules.default];
-
   programs.zen-browser = {
     enable = true;
     setAsDefaultBrowser = true;
-
     policies = {
       AutofillAddressEnabled = false;
       AutofillCreditCardEnabled = false;
@@ -16,7 +14,6 @@
       DontCheckDefaultBrowser = true;
       NoDefaultBookmarks = true;
       OfferToSaveLogins = false;
-
       EnableTrackingProtection = {
         Value = true;
         Locked = true;
@@ -36,15 +33,15 @@
       };
 
       Preferences = {
-        "browser.startup.homepage" = {
-          Value = "about:blank";
-          Status = "locked";
-        };
         "zen.workspaces.continue-where-left-off" = false;
         "zen.urlbar.behavior" = "floating";
         "zen.welcome-screen.seen" = true;
         "zen.view.layout" = 2;
         "zen.view.compact.hide-tabbar" = true;
+        "browser.startup.homepage" = {
+          Value = "about:blank";
+          Status = "locked";
+        };
       };
     };
 
@@ -52,7 +49,6 @@
       id = 0;
       name = "default";
       isDefault = true;
-
       mods = [
         "906c6915-5677-48ff-9bfc-096a02a72379" # Floating Status Bar
         "253a3a74-0cc4-47b7-8b82-996a64f030d5" # Floating History

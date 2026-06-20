@@ -6,12 +6,10 @@
   programs.zsh = {
     enable = true;
     dotDir = "${config.xdg.configHome}/zsh";
-
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     historySubstringSearch.enable = true;
-
     shellAliases = {
       nix-rebuild = "sudo nixos-rebuild switch --flake ${flakePath}#default";
       nix-update = "nix flake update --flake ${flakePath} && sudo nixos-rebuild switch --flake ${flakePath}#default";

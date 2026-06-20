@@ -17,7 +17,6 @@
 
   programs.zed-editor = {
     enable = true;
-
     extensions = [
       "react-snippets-es7"
       "color-highlight"
@@ -41,31 +40,32 @@
 
     userSettings = {
       # Theming
+      ui_font_family = builtins.head config.fonts.fontconfig.defaultFonts.sansSerif;
+      ui_font_size = 16;
       theme = "custom";
       icon_theme = {
         dark = "Soft Charmed Icons";
         light = "Light Charmed Icons";
         mode = "dark";
       };
-      ui_font_family = builtins.head config.fonts.fontconfig.defaultFonts.sansSerif;
-      ui_font_size = 16;
 
       # Buffer
       buffer_font_family = builtins.head config.fonts.fontconfig.defaultFonts.monospace;
+      buffer_font_size = 14;
+      preferred_line_length = 120;
+      show_wrap_guides = false;
+      soft_wrap = "bounded";
+      tab_size = 2;
+      colorize_brackets = true;
       buffer_font_features = {
         calt = false;
       };
-      buffer_font_size = 14;
-      colorize_brackets = true;
+
       indent_guides = {
         active_line_width = 2;
         coloring = "indent_aware";
         line_width = 2;
       };
-      preferred_line_length = 120;
-      show_wrap_guides = false;
-      soft_wrap = "bounded";
-      tab_size = 2;
 
       # Elements
       project_panel = {
@@ -75,27 +75,33 @@
         indent_guides = {
           show = "never";
         };
+
         scrollbar = {
           show = "never";
         };
       };
+
       git_panel = {
         default_width = 400;
         tree_view = true;
       };
+
       outline_panel = {
         default_width = 400;
         indent_guides = {
           show = "never";
         };
       };
+
       collaboration_panel = {
         default_width = 400;
       };
+
       terminal = {
         cursor_shape = "block";
         default_height = 400;
       };
+
       agent = {
         default_width = 400;
         flexible = false;
@@ -106,15 +112,18 @@
         show = "auto";
         thumb = "hover";
       };
+
       scrollbar = {
         axes = {
           horizontal = false;
           vertical = false;
         };
       };
+
       tab_bar = {
         show_nav_history_buttons = false;
       };
+
       toolbar = {
         breadcrumbs = false;
         selections_menu = false;
@@ -124,12 +133,13 @@
       };
 
       # Formatting & LSP
+      format_on_save = "on";
       autosave = {
         after_delay = {
           milliseconds = 1000;
         };
       };
-      format_on_save = "on";
+
       formatter = {
         external = {
           command = "treefmt";
@@ -139,6 +149,8 @@
           ];
         };
       };
+
+      lsp_document_colors = "inlay";
       lsp = {
         qml = {
           binary = {
@@ -146,7 +158,6 @@
           };
         };
       };
-      "lsp_document_colors" = "inlay";
 
       # Startup
       cli_default_open_behavior = "existing_window";
@@ -155,8 +166,9 @@
       session = {
         trust_all_worktrees = true;
       };
+
       node = {
-        "ignore_system_version" = true;
+        ignore_system_version = true;
       };
 
       # Telemetry
@@ -165,6 +177,7 @@
           enabled = true;
         };
       };
+
       telemetry = {
         diagnostics = false;
         metrics = false;
@@ -179,6 +192,7 @@
             "editor::SelectNext"
             {"replace_newest" = false;}
           ];
+
           "alt-shift-f" = "editor::Format";
           "ctrl-alt-shift-down" = null;
           "ctrl-d" = "editor::DuplicateLineDown";

@@ -22,7 +22,6 @@
 
     $fg: #{"@fg0"};
     $primary-fg: #{"@bg0"};
-
     $green: #{"@green2"};
     $red: #{"@red2"};
     $blue: #{"@blue2"};
@@ -181,9 +180,7 @@
 in {
   programs.waybar = {
     enable = true;
-
     style = builtins.readFile waybarStyle;
-
     settings = {
       mainBar = {
         layer = "top";
@@ -194,12 +191,13 @@ in {
         "margin-top" = 16;
         "margin-bottom" = 0;
         reload_style_on_change = true;
-
         modules-left = [
           "custom/menu"
           "hyprland/workspaces"
         ];
+
         modules-center = ["clock"];
+
         modules-right = [
           "tray"
           "wireplumber"
@@ -226,6 +224,7 @@ in {
               5
             ];
           };
+
           tooltip = false;
         };
 
@@ -246,6 +245,7 @@ in {
             "󰖀"
             "󰕾"
           ];
+
           on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
           max-volume = 200;
           scroll-step = 5;
@@ -272,6 +272,7 @@ in {
             "󰤥 "
             "󰤨 "
           ];
+
           on-click = "${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
           tooltip = false;
         };
@@ -286,6 +287,7 @@ in {
               " "
               " "
             ];
+
             charging = [
               "  "
               "  "
@@ -294,10 +296,12 @@ in {
               "  "
             ];
           };
+
           states = {
             warning = 30;
             critical = 15;
           };
+
           tooltip = false;
         };
       };

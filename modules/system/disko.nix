@@ -19,6 +19,7 @@
                 mountOptions = ["umask=0077"];
               };
             };
+
             swap = {
               size = "4G";
               content = {
@@ -26,6 +27,7 @@
                 discardPolicy = "both";
               };
             };
+
             root = {
               size = "100%";
               content = {

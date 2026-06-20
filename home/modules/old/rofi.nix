@@ -25,7 +25,8 @@
           filename="''${img##*/}"
           thumb="$CACHE_DIR/''${filename}.jpg"
 
-          if [[ ! -f $thumb ]]; then
+          if [[ ! -f $thumb ]];
+          then
             ${pkgs.imagemagick}/bin/magick -limit thread 1 -define jpeg:size=512x512 "$img" -filter Triangle -thumbnail 320x180^ -gravity center -extent 320x180 -quality 60 -strip "$thumb"
           fi
 
@@ -40,7 +41,8 @@
 
       selection_idx=$(list_wallpapers | rofi -dmenu -show-icons -format 'i' -theme-str 'element-icon { size: 150px; }' -p "󰸉  WALLPAPERS")
 
-      if [[ -n $selection_idx && $selection_idx -ge 0 ]]; then
+      if [[ -n $selection_idx && $selection_idx -ge 0 ]];
+      then
         set_wallpaper "''${ALL_FILES[$selection_idx]}"
       fi
     '';

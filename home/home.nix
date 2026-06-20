@@ -16,17 +16,20 @@
       "zed"
       "zen"
     ];
+
     "modules/desktop" = [
       "hyprland"
       "matugen"
       "quickshell"
       "theme"
     ];
+
     "modules/old" = [
       "rofi"
       "waybar"
       "wlogout"
     ];
+
     "modules/shell" = [
       "bun"
       "fastfetch"
@@ -37,12 +40,10 @@
   };
 in {
   imports = modulePaths;
-
+  programs.home-manager.enable = true;
   home = {
     homeDirectory = "/home/${username}";
     username = "${username}";
     inherit stateVersion;
   };
-
-  programs.home-manager.enable = true;
 }
