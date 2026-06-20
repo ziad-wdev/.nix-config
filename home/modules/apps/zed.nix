@@ -31,7 +31,7 @@
       "qml"
       "ini"
       "toml"
-      "mustache"
+      "jinja2"
       "dockerfile"
       "prisma"
       "sql"
