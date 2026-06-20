@@ -12,7 +12,7 @@ PanelWindow {
   anchors.left: true
   anchors.right: true
   anchors.top: true
-  color: Qt.alpha(colors.base00, 0.2)
+  color: Qt.alpha(colors.bg0, 0.2)
   focusable: true
   visible: polkitAgent.isActive
 
@@ -41,7 +41,7 @@ PanelWindow {
   }
   Rectangle {
     anchors.centerIn: parent
-    color: colors.base00
+    color: colors.bg0
     implicitHeight: promptLayout.implicitHeight + root.padding * 4
     implicitWidth: promptLayout.implicitWidth + root.padding * 4
     radius: root.radius * 2
@@ -57,20 +57,20 @@ PanelWindow {
 
       Text {
         Layout.alignment: Qt.AlignHCenter
-        color: colors.base07
+        color: colors.fg0
         font.pixelSize: 24
         text: "Authentication Required"
       }
       Text {
         Layout.alignment: Qt.AlignHCenter
-        color: colors.base07
+        color: colors.fg0
         font.pixelSize: 16
         text: polkitAgent.flow?.message || ""
       }
       Rectangle {
         Layout.alignment: Qt.AlignHCenter
         Layout.preferredWidth: parent.width / 2
-        color: Qt.alpha(colors.primary, 0.1)
+        color: Qt.alpha(colors.primary2, 0.1)
         implicitHeight: 2
         radius: root.radius
       }
@@ -80,19 +80,19 @@ PanelWindow {
         property int shakeOffset: 0
 
         Layout.fillWidth: true
-        color: colors.base07
+        color: colors.fg0
         echoMode: TextInput.Password
         font.pixelSize: 20
         horizontalAlignment: Qt.AlignHCenter
         implicitHeight: 48
         placeholderText: "Password"
-        placeholderTextColor: Qt.alpha(colors.base07, 0.5)
-        selectedTextColor: colors.base00
-        selectionColor: colors.primary
+        placeholderTextColor: Qt.alpha(colors.fg0, 0.5)
+        selectedTextColor: colors.bg0
+        selectionColor: colors.primary2
         verticalAlignment: Qt.AlignVCenter
 
         background: Rectangle {
-          color: Qt.alpha(colors.primary, 0.1)
+          color: Qt.alpha(colors.primary2, 0.1)
           radius: root.radius
 
           transform: Translate {
@@ -158,13 +158,13 @@ PanelWindow {
               duration: 50
               property: "selectionColor"
               target: inputField
-              to: colors.base08
+              to: colors.red2
             }
             ColorAnimation {
               duration: 200
               property: "selectionColor"
               target: inputField
-              to: colors.primary
+              to: colors.primary2
             }
           }
           SequentialAnimation {
@@ -175,13 +175,13 @@ PanelWindow {
               duration: 50
               property: "color"
               target: inputField
-              to: colors.base08
+              to: colors.red2
             }
             ColorAnimation {
               duration: 200
               property: "color"
               target: inputField
-              to: colors.base07
+              to: colors.fg0
             }
           }
         }

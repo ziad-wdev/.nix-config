@@ -2,7 +2,7 @@ import QtQuick
 import Quickshell
 
 Text {
-  color: colors.primary
+  color: colors.primary2
   text: "00:00 AM"
 
   Timer {

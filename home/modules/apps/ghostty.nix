@@ -15,7 +15,6 @@
       confirm-close-surface = false;
       copy-on-select = false;
       gtk-titlebar = false;
-      config-errors = "ignore";
       gtk-single-instance = true;
       scrollback-limit = 4096;
       app-notifications = "no-clipboard-copy,no-config-reload";

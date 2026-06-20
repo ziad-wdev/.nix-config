@@ -9,7 +9,7 @@ Rectangle {
   readonly property int spacing: 12
 
   anchors.fill: parent
-  color: colors.base00
+  color: colors.bg0
 
   RowLayout {
     anchors.left: parent.left
