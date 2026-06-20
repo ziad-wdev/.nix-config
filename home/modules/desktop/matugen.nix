@@ -6,11 +6,9 @@
 }: let
   templatesPath = "${flakePath}/home/assets/templates";
   outputPath = "${config.xdg.dataHome}/themes";
-  colorsTemplate = "colors.json5";
+  colorsTemplate = "colors.yaml";
 in {
   home.packages = with pkgs; [matugen];
-
-  home.file."${outputPath}/.keep".text = "";
 
   xdg.configFile."matugen/config.toml".source = (pkgs.formats.toml {}).generate "config" {
     config = {
@@ -64,14 +62,20 @@ in {
 
   systemd.user.services.templates-watcher = let
     templates-renderer = pkgs.writeShellScriptBin "render-templates" ''
-      render() {
-        local input="${templatesPath}/$1".j2
-        local output="${outputPath}/$2"
-        local colors="${outputPath}/${colorsTemplate}"
+      colors="${outputPath}/${colorsTemplate}"
+      colorsJSON="${outputPath}/colors.json"
 
-        if [ -s "$colors" ]; then
-          ${pkgs.minijinja}/bin/minijinja-cli "$input" "$colors" > "$output"
-        fi
+      if [ -s "$colors" ]; then
+        ${pkgs.yq-go}/bin/yq -o=json "$colors" > "$colorsJSON"
+      else
+        echo "Error: $colors is empty or missing."
+        exit 1
+      fi
+
+      render() {
+        local input="${templatesPath}/$1".mustache
+        local output="${outputPath}/$2"
+        ${pkgs.mustache-go}/bin/mustache "$colorsJSON" "$input" > "$output"
       }
 
       #      input           output
@@ -88,23 +92,12 @@ in {
       render vesktop.css     vesktop.css
 
       # post hooks (run after template rendering)
-      # gtk theme
       ${pkgs.glib}/bin/gsettings set org.gnome.desktop.interface gtk-theme none
       ${pkgs.glib}/bin/gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark'
-
-      # nautilus
       nautilus -q
-
-      # waybar
       pkill -SIGUSR2 waybar || { pkill waybar; waybar & }
-
-      # ghostty
       pkill -SIGUSR2 ghostty
-
-      # hyprland
       hyprctl reload
-
-      echo "Template updated successfully."
     '';
   in {
     Unit = {Description = "Render templates on theme change";};

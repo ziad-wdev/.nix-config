@@ -31,7 +31,7 @@
       "qml"
       "ini"
       "toml"
-      "jinja2"
+      "mustache"
       "dockerfile"
       "prisma"
       "sql"
@@ -66,7 +66,6 @@
       show_wrap_guides = false;
       soft_wrap = "bounded";
       tab_size = 2;
-      "lsp_document_colors" = "inlay";
 
       # Elements
       project_panel = {
@@ -124,7 +123,7 @@
         quick_actions = false;
       };
 
-      # Formatting
+      # Formatting & LSP
       autosave = {
         after_delay = {
           milliseconds = 1000;
@@ -147,6 +146,7 @@
           };
         };
       };
+      "lsp_document_colors" = "inlay";
 
       # Startup
       cli_default_open_behavior = "existing_window";
@@ -154,6 +154,9 @@
       restore_on_startup = "launchpad";
       session = {
         trust_all_worktrees = true;
+      };
+      node = {
+        "ignore_system_version" = true;
       };
 
       # Telemetry
