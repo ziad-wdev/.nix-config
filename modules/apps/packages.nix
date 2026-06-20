@@ -13,9 +13,8 @@
     icon-library # GNOME Icon Library
 
     # Gaming applications
-    (pkgs.lutris.override {
-      extraLibraries = pkgs: [pkgs.wineWowPackages.stable];
-    })
+    lutris
+    wineWow64Packages.stable
   ];
 
   # Enable Zsh as the default shell for users.
