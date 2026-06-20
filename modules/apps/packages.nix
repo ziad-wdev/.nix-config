@@ -1,27 +1,20 @@
 {pkgs, ...}: {
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-    lutris # Game launcher
+    # System utilities
+    btop
+    ouch
+    _7zz-rar
 
-    gnome-disk-utility # Disk utility
+    # UI applications
     resources # Resource management
-    baobab # Disk usage analyzer
     showtime # video player
     loupe # Image viewer
     icon-library # GNOME Icon Library
 
-    # System utilities
-    curl
-    ouch
-    _7zz-rar
-  ];
-
-  # Disable tests for openldap to avoid build failures for lutris
-  nixpkgs.overlays = [
-    (_final: prev: {
-      openldap = prev.openldap.overrideAttrs (_old: {
-        doCheck = false;
-      });
+    # Gaming applications
+    (pkgs.lutris.override {
+      extraLibraries = pkgs: [pkgs.wineWowPackages.stable];
     })
   ];
 

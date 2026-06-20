@@ -11,7 +11,6 @@ in {
       enableEditor = true;
       efiInstallAsRemovable = true;
       style.wallpapers = [];
-
       extraConfig = with theme.palette; ''
         background_style: color
         backdrop: ${base00}
