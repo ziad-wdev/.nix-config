@@ -14,6 +14,8 @@
 
     nix-flatpak.url = "github:gmodena/nix-flatpak";
 
+    nix-colors.url = "github:misterio77/nix-colors";
+
     silentSDDM = {
       url = "github:uiriansan/SilentSDDM";
       inputs.nixpkgs.follows = "nixpkgs";
