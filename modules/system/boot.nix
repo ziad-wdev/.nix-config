@@ -10,11 +10,14 @@ in {
       maxGenerations = 10;
       enableEditor = true;
       efiInstallAsRemovable = true;
+      style.wallpapers = [];
       extraConfig = with theme.palette; ''
-        background_style=color
-        term_background=${base00}
-        term_foreground=${base05}
-        term_palette=${base00},${base08},${base0B},${base0A},${base0D},${base0E},${base0C},${base05},${base03},${base09},${base01},${base02},${base04},${base06},${base0F},${base07}
+        background_style: color
+        backdrop: ${base00}
+        term_background: ${base00}
+        term_foreground: ${base05}
+        term_palette: ${base00};${base08};${base0B};${base0A};${base0D};${base0E};${base0C};${base05}
+        term_palette: ${base03};${base09};${base01};${base02};${base04};${base06};${base0F};${base07}
       '';
     };
   };
