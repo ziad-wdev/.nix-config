@@ -6,6 +6,7 @@
 }: let
   templatesPath = "${flakePath}/home/assets/templates";
   outputPath = "${config.xdg.dataHome}/themes";
+  colorsTemplate = "colors.json5";
 in {
   home.packages = with pkgs; [matugen];
 
@@ -13,7 +14,7 @@ in {
 
   xdg.configFile."matugen/config.toml".source = (pkgs.formats.toml {}).generate "config" {
     config = {
-      wallpaper.command = "awww img --transition-type random --transition-fps 60 \"{{image}}\"";
+      wallpaper.command = "awww img --transition-type random --transition-fps 60 \"{{ image }}\"";
 
       custom_colors = {
         red = {
@@ -49,29 +50,27 @@ in {
 
     templates = {
       colors = {
-        input_path = "${templatesPath}/colors.jsonc";
-        output_path = "${outputPath}/colors.jsonc";
+        input_path = "${templatesPath}/${colorsTemplate}";
+        output_path = "${outputPath}/${colorsTemplate}";
       };
     };
   };
 
   systemd.user.paths.templates-watcher = {
     Unit = {Description = "Watch for Matugen theme changes";};
-    Path = {PathModified = "${outputPath}/colors.jsonc";};
+    Path = {PathModified = "${outputPath}/${colorsTemplate}";};
     Install = {WantedBy = ["default.target"];};
   };
 
   systemd.user.services.templates-watcher = let
     templates-renderer = pkgs.writeShellScriptBin "render-templates" ''
       render() {
-        local input="${templatesPath}/$1".mustache
+        local input="${templatesPath}/$1".j2
         local output="${outputPath}/$2"
-        local colors="${outputPath}/colors.jsonc"
-        local clean_colors="${outputPath}/clean_colors.json"
+        local colors="${outputPath}/${colorsTemplate}"
 
         if [ -s "$colors" ]; then
-          sed 's|//.*||g' "$colors" > "$clean_colors"
-          ${pkgs.mustache-go}/bin/mustache "$clean_colors" "$input" > "$output"
+          ${pkgs.minijinja}/bin/minijinja-cli "$input" "$colors" > "$output"
         fi
       }
 

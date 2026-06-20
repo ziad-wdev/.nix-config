@@ -85,6 +85,6 @@ in {
       name = "gdk-pixbuf-loader";
       paths = [pkgs.librsvg];
       pathsToLink = ["/lib/gdk-pixbuf-2.0"];
-    }}/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache";
+     }}/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache";
   };
 }
