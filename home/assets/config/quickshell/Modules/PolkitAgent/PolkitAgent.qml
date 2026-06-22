@@ -53,25 +53,27 @@ PanelWindow {
       id: promptLayout
 
       anchors.centerIn: parent
-      spacing: 32
 
       Text {
         Layout.alignment: Qt.AlignHCenter
+        Layout.bottomMargin: root.padding
         color: colors.fg0
-        font.pixelSize: 24
+        font.pixelSize: root.fontSize * 1.5
         text: "Authentication Required"
       }
       Text {
         Layout.alignment: Qt.AlignHCenter
         color: colors.fg0
-        font.pixelSize: 16
+        font.pixelSize: root.fontSize
         text: polkitAgent.flow?.message || ""
       }
       Rectangle {
         Layout.alignment: Qt.AlignHCenter
-        Layout.preferredWidth: parent.width / 2
+        Layout.bottomMargin: root.padding * 1.5
+        Layout.preferredHeight: 2
+        Layout.preferredWidth: parent.width * 0.5
+        Layout.topMargin: root.padding * 1.5
         color: Qt.alpha(colors.primary2, 0.1)
-        implicitHeight: 2
         radius: root.radius
       }
       TextField {
@@ -80,11 +82,11 @@ PanelWindow {
         property int shakeOffset: 0
 
         Layout.fillWidth: true
+        Layout.preferredHeight: font.pixelSize + root.padding * 2
         color: colors.fg0
-        echoMode: TextInput.Password
-        font.pixelSize: 20
+        echoMode: TextField.Password
+        font.pixelSize: root.fontSize * 1.25
         horizontalAlignment: Qt.AlignHCenter
-        implicitHeight: 48
         placeholderText: "Password"
         placeholderTextColor: Qt.alpha(colors.fg0, 0.5)
         selectedTextColor: colors.bg0

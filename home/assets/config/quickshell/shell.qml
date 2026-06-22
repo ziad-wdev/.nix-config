@@ -1,7 +1,7 @@
-//@ pragma ShellId MyQuickshell
-import "./Icons"
-import "./Modules/PolkitAgent"
+// @ pragma ShellId MyQuickshell
+import "./Theme"
 import "./Modules/Bar"
+import "./Modules/PolkitAgent"
 import QtQuick
 import Quickshell
 import Quickshell.Wayland
@@ -9,14 +9,12 @@ import Quickshell.Wayland
 ShellRoot {
   id: root
 
+  readonly property int fontSize: 16
   readonly property int padding: 16
   readonly property int radius: 12
 
-  Colors {
-    id: colors
-  }
-  Icons {
-    id: icons
+  Theme {
+    id: theme
   }
   PolkitAgent {
   }
@@ -32,7 +30,7 @@ ShellRoot {
       anchors.right: true
       anchors.top: true
       color: "transparent"
-      implicitHeight: 32
+      implicitHeight: root.fontSize + root.padding * 1.25
       screen: modelData
 
       Bar {

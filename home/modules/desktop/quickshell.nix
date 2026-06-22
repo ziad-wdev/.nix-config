@@ -24,10 +24,10 @@
     "quickshell/Modules".source =
       config.lib.file.mkOutOfStoreSymlink "${flakePath}/home/assets/config/quickshell/Modules";
 
-    "quickshell/Icons".source =
-      config.lib.file.mkOutOfStoreSymlink "${flakePath}/home/assets/config/quickshell/Icons";
+    "quickshell/Theme/Theme.qml".source =
+      config.lib.file.mkOutOfStoreSymlink "${flakePath}/home/assets/config/quickshell/Theme/Theme.qml";
 
-    "quickshell/Colors.qml".source =
+    "quickshell/Theme/Colors.qml".source =
       config.lib.file.mkOutOfStoreSymlink "${config.xdg.dataHome}/themes/quickshell.qml";
   };
 }

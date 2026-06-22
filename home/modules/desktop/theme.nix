@@ -5,8 +5,8 @@
 }: {
   home.packages = with pkgs; [
     inter
-    noto-fonts-color-emoji
     nerd-fonts.jetbrains-mono
+    noto-fonts-color-emoji
   ];
 
   fonts.fontconfig = {

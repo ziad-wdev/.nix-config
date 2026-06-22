@@ -1,9 +1,10 @@
 import QtQuick
+import QtQuick.Layouts
 import Quickshell
 import Quickshell.Hyprland
 
-Row {
-  spacing: 8
+RowLayout {
+  spacing: root.padding * 0.5
 
   Repeater {
     model: ["I", "II", "III", "IV", "V"]
@@ -16,9 +17,9 @@ Row {
       readonly property bool isOccupied: Hyprland.workspaces.values.some(w => w.id === wsId)
       readonly property var wsId: index + 1
 
+      Layout.preferredHeight: 6
+      Layout.preferredWidth: isActive ? 30 : 20
       color: baseColor
-      implicitHeight: 6
-      implicitWidth: isActive ? 30 : 20
       radius: root.radius
 
       Behavior on color {

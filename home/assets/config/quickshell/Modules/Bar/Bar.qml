@@ -6,7 +6,7 @@ import Quickshell
 Rectangle {
   id: bar
 
-  readonly property int spacing: 12
+  readonly property int spacing: root.padding
 
   anchors.fill: parent
   color: colors.bg0
@@ -16,14 +16,15 @@ Rectangle {
     anchors.leftMargin: root.padding
     anchors.verticalCenter: parent.verticalCenter
     spacing: bar.spacing
+
+    Workspaces {
+    }
   }
   RowLayout {
     anchors.centerIn: parent
     spacing: bar.spacing
 
     Clock {
-    }
-    Workspaces {
     }
   }
   RowLayout {
