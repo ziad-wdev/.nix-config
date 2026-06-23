@@ -100,7 +100,6 @@ in {
       # post hooks (run after template rendering)
       ${pkgs.glib}/bin/gsettings set org.gnome.desktop.interface gtk-theme none
       ${pkgs.glib}/bin/gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark'
-      nautilus -q
       pkill -SIGUSR2 waybar || { pkill waybar; waybar & }
       pkill -SIGUSR2 ghostty
       hyprctl reload
