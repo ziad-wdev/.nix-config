@@ -12,7 +12,7 @@ PanelWindow {
   anchors.left: true
   anchors.right: true
   anchors.top: true
-  color: Qt.alpha(colors.bg0, 0.2)
+  color: Qt.alpha(theme.colors.bg0, 0.2)
   focusable: true
   visible: polkitAgent.isActive
 
@@ -41,7 +41,7 @@ PanelWindow {
   }
   Rectangle {
     anchors.centerIn: parent
-    color: colors.bg0
+    color: theme.colors.bg0
     implicitHeight: promptLayout.implicitHeight + root.padding * 4
     implicitWidth: promptLayout.implicitWidth + root.padding * 4
     radius: root.radius * 2
@@ -57,13 +57,13 @@ PanelWindow {
       Text {
         Layout.alignment: Qt.AlignHCenter
         Layout.bottomMargin: root.padding
-        color: colors.fg0
+        color: theme.colors.fg0
         font.pixelSize: root.fontSize * 1.5
         text: "Authentication Required"
       }
       Text {
         Layout.alignment: Qt.AlignHCenter
-        color: colors.fg0
+        color: theme.colors.fg0
         font.pixelSize: root.fontSize
         text: polkitAgent.flow?.message || ""
       }
@@ -73,7 +73,7 @@ PanelWindow {
         Layout.preferredHeight: 2
         Layout.preferredWidth: parent.width * 0.5
         Layout.topMargin: root.padding * 1.5
-        color: Qt.alpha(colors.primary2, 0.1)
+        color: Qt.alpha(theme.colors.primary2, 0.1)
         radius: root.radius
       }
       TextField {
@@ -83,18 +83,18 @@ PanelWindow {
 
         Layout.fillWidth: true
         Layout.preferredHeight: font.pixelSize + root.padding * 2
-        color: colors.fg0
+        color: theme.colors.fg0
         echoMode: TextField.Password
         font.pixelSize: root.fontSize * 1.25
         horizontalAlignment: Qt.AlignHCenter
         placeholderText: "Password"
-        placeholderTextColor: Qt.alpha(colors.fg0, 0.5)
-        selectedTextColor: colors.bg0
-        selectionColor: colors.primary2
+        placeholderTextColor: Qt.alpha(theme.colors.fg0, 0.5)
+        selectedTextColor: theme.colors.bg0
+        selectionColor: theme.colors.primary2
         verticalAlignment: Qt.AlignVCenter
 
         background: Rectangle {
-          color: Qt.alpha(colors.primary2, 0.1)
+          color: Qt.alpha(theme.colors.primary2, 0.1)
           radius: root.radius
 
           transform: Translate {
@@ -160,13 +160,13 @@ PanelWindow {
               duration: 50
               property: "selectionColor"
               target: inputField
-              to: colors.red2
+              to: theme.colors.red2
             }
             ColorAnimation {
               duration: 200
               property: "selectionColor"
               target: inputField
-              to: colors.primary2
+              to: theme.colors.primary2
             }
           }
           SequentialAnimation {
@@ -177,13 +177,13 @@ PanelWindow {
               duration: 50
               property: "color"
               target: inputField
-              to: colors.red2
+              to: theme.colors.red2
             }
             ColorAnimation {
               duration: 200
               property: "color"
               target: inputField
-              to: colors.fg0
+              to: theme.colors.fg0
             }
           }
         }

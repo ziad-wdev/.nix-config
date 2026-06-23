@@ -12,7 +12,7 @@ RowLayout {
   spacing: root.padding * 0.5
 
   Text {
-    color: colors.green2
+    color: theme.colors.green2
     font.pixelSize: root.fontSize
     text: battery.percentage + "%"
   }

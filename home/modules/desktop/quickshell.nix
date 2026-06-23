@@ -28,6 +28,6 @@
       config.lib.file.mkOutOfStoreSymlink "${flakePath}/home/assets/config/quickshell/Theme/Theme.qml";
 
     "quickshell/Theme/Colors.qml".source =
-      config.lib.file.mkOutOfStoreSymlink "${config.xdg.dataHome}/themes/quickshell.qml";
+      config.lib.file.mkOutOfStoreSymlink "${config.xdg.dataHome}/themes/colors.qml";
   };
 }

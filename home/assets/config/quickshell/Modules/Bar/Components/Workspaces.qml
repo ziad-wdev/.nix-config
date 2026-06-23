@@ -12,7 +12,7 @@ RowLayout {
     delegate: Rectangle {
       id: button
 
-      readonly property color baseColor: isActive ? colors.primary2 : isOccupied ? colors.tertiary2 : Qt.alpha(colors.primary2, 0.1)
+      readonly property color baseColor: isActive ? theme.colors.primary2 : isOccupied ? theme.colors.tertiary2 : Qt.alpha(theme.colors.primary2, 0.1)
       readonly property bool isActive: Hyprland.focusedWorkspace?.id === wsId
       readonly property bool isOccupied: Hyprland.workspaces.values.some(w => w.id === wsId)
       readonly property var wsId: index + 1

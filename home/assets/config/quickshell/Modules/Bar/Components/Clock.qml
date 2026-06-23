@@ -2,7 +2,7 @@ import QtQuick
 import Quickshell
 
 Text {
-  color: colors.primary2
+  color: theme.colors.primary2
   font.pixelSize: root.fontSize
   text: "00:00 AM"
 

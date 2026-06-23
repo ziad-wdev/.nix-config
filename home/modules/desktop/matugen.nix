@@ -85,13 +85,13 @@ in {
       }
 
       #      input           output
+      render colors.qml      colors.qml
       render colors.css      colors.css
       render gtk.css         gtk.css
       render gtk.css         wlogout.css
       render gtk.css         waybar.css
       render rofi.rasi       rofi.rasi
       render ghostty         ghostty
-      render quickshell.qml  quickshell.qml
       render hyprland.lua    hyprland.lua
       render hyprlock.conf   hyprlock.conf
       render zed.json        zed.json
