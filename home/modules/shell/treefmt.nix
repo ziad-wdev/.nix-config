@@ -141,4 +141,8 @@ in {
         "tw"
       ];
     };
+
+  home.sessionVariables = {
+    RUFF_CACHE_DIR = "${config.xdg.cacheHome}/ruff";
+  };
 }
