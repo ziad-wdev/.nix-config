@@ -1,1 +1,0 @@
-/nix/store/y5vy8gh8ci4s0j9j84cwp8hqy4rdy9jh-home-manager-files/.nix-config/home/assets/config/quickshell/Theme/Colors.qml

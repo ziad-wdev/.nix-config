@@ -13,7 +13,7 @@
     "quickshell".source =
       config.lib.file.mkOutOfStoreSymlink "${flakePath}/home/assets/config/quickshell";
 
-    "${flakePath}/home/assets/config/quickshell/Theme/Colors.qml".source =
+    "${flakePath}/home/assets/config/quickshell/shared/Colors.qml".source =
       config.lib.file.mkOutOfStoreSymlink "${config.xdg.dataHome}/themes/colors.qml";
   };
 }

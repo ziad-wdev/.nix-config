@@ -24,11 +24,11 @@
   };
 
   programs.zsh.initContent = ''
+    fastfetch
+    eval "$(direnv hook zsh)"
     unset __HM_SESS_VARS_SOURCED
     if [ -f "${config.home.profileDirectory}/etc/profile.d/hm-session-vars.sh" ]; then
         . "${config.home.profileDirectory}/etc/profile.d/hm-session-vars.sh"
     fi
-    eval "$(direnv hook zsh)"
-    fastfetch
   '';
 }

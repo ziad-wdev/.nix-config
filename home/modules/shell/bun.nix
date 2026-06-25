@@ -18,6 +18,7 @@
   };
 
   home.sessionVariables = {
-    BUN_INSTALL_CACHE_DIR = "${config.xdg.cacheHome}/bun/install/cache";
+    BUN_INSTALL_CACHE_DIR = "${config.xdg.cacheHome}/bun";
+    NPM_CONFIG_CACHE = "${config.xdg.cacheHome}/npm";
   };
 }
