@@ -16,4 +16,8 @@
       };
     };
   };
+
+  home.sessionVariables = {
+    BUN_INSTALL_CACHE_DIR = "${config.xdg.cacheHome}/bun/install/cache";
+  };
 }

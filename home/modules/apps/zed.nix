@@ -1,4 +1,5 @@
 {
+  inputs,
   config,
   pkgs,
   ...
@@ -8,8 +9,8 @@
     nil
     nixd
 
-    # Dependencies of qml lsp
-    qt6.qtdeclarative
+    # Quickshell lsp
+    inputs.qml-lsp.packages.${pkgs.system}.default
   ];
 
   xdg.configFile."zed/themes/custom.json".source =
@@ -27,7 +28,6 @@
       # LSP's
       "nix"
       "lua"
-      "qml"
       "ini"
       "toml"
       "mustache"
@@ -151,10 +151,17 @@
       };
 
       lsp_document_colors = "inlay";
+      languages = {
+        QML = {
+          language_servers = [
+            "qml-language-server"
+          ];
+        };
+      };
       lsp = {
-        qml = {
+        "qml-language-server" = {
           binary = {
-            arguments = ["-E"];
+            path = "qml-language-server";
           };
         };
       };
@@ -186,6 +193,11 @@
 
     userKeymaps = [
       {
+        bindings = {
+          "ctrl-alt-w" = "workspace::CloseProject";
+        };
+      }
+      {
         context = "Editor";
         bindings = {
           "alt-d" = [
@@ -208,8 +220,10 @@
         };
       }
       {
+        context = "Terminal";
         bindings = {
-          "ctrl-alt-w" = "workspace::CloseProject";
+          "ctrl-c" = "terminal::Copy";
+          "ctrl-v" = "terminal::Paste";
         };
       }
       {

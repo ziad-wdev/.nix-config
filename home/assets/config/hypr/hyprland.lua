@@ -33,8 +33,8 @@ hl.monitor({
 })
 
 -- Imports
-require("colors")
 require("modules.rules")
 require("modules.configs")
 require("modules.animations")
 require("modules.binds")
+require("modules.colors")

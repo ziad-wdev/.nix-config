@@ -14,41 +14,41 @@ in {
       wallpaper.command = "awww img --transition-type random --transition-fps 60 \"{{ image }}\"";
 
       custom_colors = {
+        # base08
         red = {
           color = "#ff6048";
           blend = true;
         };
-        # base08
+        # base09
         orange = {
           color = "#ffa478";
           blend = true;
         };
-        # base09
+        # base0A
         yellow = {
           color = "#f5cd5b";
           blend = true;
         };
-        # base0A
+        # base0B
         green = {
           color = "#7ad9a8";
           blend = true;
         };
-        # base0B
+        # base0C
         aqua = {
           color = "#3dd1b0";
           blend = true;
         };
-        # base0C
+        # base0D
         blue = {
           color = "#5fc8d4";
           blend = true;
         };
-        # base0D
+        # base0E
         purple = {
           color = "#e89aa8";
           blend = true;
         };
-        # base0E
       };
     };
 
@@ -88,14 +88,15 @@ in {
       render colors.qml      colors.qml
       render colors.css      colors.css
       render gtk.css         gtk.css
+
+      render hyprland.lua    hyprland.lua
+      render ghostty         ghostty
+      render zed.json        zed.json
+      render vesktop.css     vesktop.css
+
       render gtk.css         wlogout.css
       render gtk.css         waybar.css
       render rofi.rasi       rofi.rasi
-      render ghostty         ghostty
-      render hyprland.lua    hyprland.lua
-      render hyprlock.conf   hyprlock.conf
-      render zed.json        zed.json
-      render vesktop.css     vesktop.css
 
       # post hooks (run after template rendering)
       ${pkgs.glib}/bin/gsettings set org.gnome.desktop.interface gtk-theme none

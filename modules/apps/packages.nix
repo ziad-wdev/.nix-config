@@ -2,7 +2,6 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     # System utilities
-    btop
     ouch
     _7zz-rar
 
