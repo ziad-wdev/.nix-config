@@ -39,6 +39,7 @@
         options = [
           "--inplace"
           "--normalize"
+          "--single-line-empty-objects"
           "--indent-width"
           "2"
         ];

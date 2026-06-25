@@ -2,9 +2,7 @@
 import QtQuick
 import Quickshell
 
-import "./modules/Theme"
-import "./modules/Bar"
-import "./modules/PolkitAgent"
+import "./panels" as Panels
 
 ShellRoot {
   id: root
