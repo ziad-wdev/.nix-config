@@ -8,9 +8,6 @@
     # Dependencies of nix lsp
     nil
     nixd
-
-    # MongoDB
-    mongodb
   ];
 
   xdg.configFile."zed/themes/custom.json".source =
