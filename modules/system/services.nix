@@ -23,6 +23,7 @@
   };
 
   # essential services
+  services.earlyoom.enable = true;
   services.gvfs.enable = true;
   services.tlp.enable = true;
   services.upower.enable = true;
