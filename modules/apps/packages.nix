@@ -5,9 +5,6 @@
     _7zz-rar
     ouch
 
-    # MongoDB
-    mongodb-ce
-
     # UI applications
     resources # Resource manger
     showtime # video player
