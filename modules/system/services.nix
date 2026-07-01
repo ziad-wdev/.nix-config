@@ -23,13 +23,36 @@
   };
 
   # essential services
-  services.earlyoom.enable = true;
   services.gvfs.enable = true;
   services.tlp.enable = true;
   services.upower.enable = true;
   security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.login.enableGnomeKeyring = true;
+
+  # ram optimization services
+  services.earlyoom = {
+    enable = true;
+    extraArgs = [
+      "-g"
+      "--prefer '^(electron|chrome|firefox|zen-browser)$'"
+      "--avoid '^(Xorg|wayland|nix-daemon|hyprland|waybar|gnome-keyring-daemon|pipewire|wireplumber)$'"
+    ];
+  };
+
+  zramSwap = {
+    enable = true;
+    memoryPercent = 100;
+    priority = 100;
+  };
+
+  boot.kernel.sysctl = {
+    "vm.swappiness" = 180;
+    "vm.watermark_boost_factor" = 0;
+    "vm.watermark_scale_factor" = 125;
+    "vm.vfs_cache_pressure" = 50;
+    "vm.page-cluster" = 0;
+  };
 
   # compatibility services
   programs.nix-ld = {
