@@ -1,1 +1,1 @@
-/nix/store/wlahgznayqyszf0xjhmhgkz4iv2ng1sd-home-manager-files/.nix-config/home/assets/config/hypr/modules/colors.lua
+/nix/store/lylnvjybs9scahb35ijrmrcx2fkhyb8f-home-manager-files/.nix-config/home/assets/config/hypr/modules/colors.lua
