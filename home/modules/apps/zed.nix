@@ -9,8 +9,8 @@
     nil
     nixd
 
-    # Quickshell lsp
-    inputs.qml-lsp.packages.${pkgs.system}.default
+    # MongoDB
+    mongodb-ce
   ];
 
   xdg.configFile."zed/themes/custom.json".source =
@@ -27,6 +27,7 @@
 
       # LSP's
       "nix"
+      "qml"
       "lua"
       "ini"
       "toml"
@@ -151,17 +152,10 @@
       };
 
       lsp_document_colors = "inlay";
-      languages = {
-        QML = {
-          language_servers = [
-            "qml-language-server"
-          ];
-        };
-      };
       lsp = {
-        "qml-language-server" = {
+        qmljs = {
           binary = {
-            path = "qml-language-server";
+            path = "${inputs.qml-lsp.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/qml-language-server";
           };
         };
       };

@@ -2,18 +2,18 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     # System utilities
-    ouch
     _7zz-rar
+    ouch
 
     # UI applications
-    resources # Resource management
+    resources # Resource manger
     showtime # video player
     loupe # Image viewer
-    icon-library # GNOME Icon Library
 
     # Gaming applications
-    lutris
     wineWow64Packages.stable
+    protonup-ng
+    lutris
   ];
 
   # Enable Zsh as the default shell for users.

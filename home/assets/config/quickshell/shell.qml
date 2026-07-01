@@ -2,16 +2,16 @@
 import QtQuick
 import Quickshell
 
-import "./panels" as Panels
+import "./shared"
+import "./panels"
 
 ShellRoot {
-  id: root
+  id: rootShell
 
   Theme {
     id: theme
   }
-  PolkitAgent {
-  }
+
   Variants {
     model: Quickshell.screens
 
@@ -21,4 +21,6 @@ ShellRoot {
       screen: modelData
     }
   }
+
+  PolkitAgent {}
 }

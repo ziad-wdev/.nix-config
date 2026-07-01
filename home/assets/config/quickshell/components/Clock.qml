@@ -2,6 +2,8 @@ import QtQuick
 import Quickshell
 
 Text {
+  id: clock
+
   color: theme.colors.primary2
   font.pixelSize: theme.fontSizeSmall
   text: "00:00 AM"

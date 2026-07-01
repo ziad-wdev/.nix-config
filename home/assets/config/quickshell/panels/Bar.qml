@@ -1,55 +1,50 @@
-import "./Components"
+import "../components"
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import Quickshell.Wayland
 
 PanelWindow {
+  id: root
+
+  readonly property int padding: 16
+  readonly property int spacing: 16
+
   WlrLayershell.layer: WlrLayer.Top
   WlrLayershell.namespace: "quickshell:bar"
   anchors.left: true
   anchors.right: true
   anchors.top: true
+  implicitHeight: 32
   color: theme.colors.bg0
-  implicitHeight: theme.fontSizeSmall + theme.padding * 1.25
 
-  // Left
   RowLayout {
-    id: barLeft
-
     anchors.left: parent.left
-    anchors.leftMargin: theme.padding
+    anchors.leftMargin: root.padding
     height: parent.height
-    spacing: theme.barInnerSpacing
+    spacing: root.spacing
 
-    Workspaces {
-    }
+    Workspaces {}
   }
 
-  // Center
   RowLayout {
-    id: barCenter
-
     anchors.centerIn: parent
     height: parent.height
-    spacing: theme.barInnerSpacing
+    spacing: root.spacing
 
-    Clock {
-    }
+    Clock {}
   }
 
-  // Right
   RowLayout {
-    id: barRight
-
     anchors.right: parent.right
-    anchors.rightMargin: theme.padding
+    anchors.rightMargin: root.padding
     height: parent.height
-    spacing: theme.barInnerSpacing
+    spacing: root.spacing
 
-    Network {
-    }
-    Battery {
-    }
+    Volume {}
+
+    Network {}
+
+    Battery {}
   }
 }

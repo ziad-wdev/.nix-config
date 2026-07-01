@@ -6,15 +6,23 @@ import Quickshell.Wayland
 import Quickshell.Services.Polkit
 
 PanelWindow {
+  id: root
+
+  readonly property int padding: theme.padding * 4
+  readonly property int radius: theme.radius * 2
+  readonly property int inputPadding: theme.padding * 2
+  readonly property int inputRadius: theme.radius
+  readonly property int spacing: 20
+
   WlrLayershell.layer: WlrLayer.Overlay
   WlrLayershell.namespace: "quickshell:polkitagent"
   anchors.bottom: true
   anchors.left: true
   anchors.right: true
   anchors.top: true
-  color: Qt.alpha(theme.colors.bg0, 0.2)
   focusable: true
   visible: polkitAgent.isActive
+  color: theme.overlay
 
   onVisibleChanged: {
     if (visible)
@@ -25,6 +33,7 @@ PanelWindow {
   PolkitAgent {
     id: polkitAgent
   }
+
   MouseArea {
     anchors.fill: parent
 
@@ -32,6 +41,7 @@ PanelWindow {
       polkitAgent.flow.cancelAuthenticationRequest();
     }
   }
+
   Shortcut {
     sequence: "Escape"
 
@@ -39,70 +49,71 @@ PanelWindow {
       polkitAgent.flow.cancelAuthenticationRequest();
     }
   }
+
   Rectangle {
+    implicitHeight: polkitPrompt.implicitHeight + root.padding
+    implicitWidth: polkitPrompt.implicitWidth + root.padding
     anchors.centerIn: parent
+    radius: root.radius
     color: theme.colors.bg0
-    implicitHeight: promptLayout.implicitHeight + theme.padding * 4
-    implicitWidth: promptLayout.implicitWidth + theme.padding * 4
-    radius: theme.radius * 2
 
     MouseArea {
       anchors.fill: parent
     }
+
     ColumnLayout {
-      id: promptLayout
+      id: polkitPrompt
 
       anchors.centerIn: parent
 
       Text {
         Layout.alignment: Qt.AlignHCenter
-        Layout.bottomMargin: theme.padding
+        Layout.bottomMargin: root.spacing / 2
         color: theme.colors.fg0
-        font.pixelSize: theme.fontSizeH3
+        font.pixelSize: theme.fontSizeLarge
         text: "Authentication Required"
       }
+
       Text {
         Layout.alignment: Qt.AlignHCenter
-        color: theme.colors.fg4
-        font.pixelSize: theme.fontSizeH4
+        font.pixelSize: theme.fontSizeMedium
+        color: theme.colors.fg2
         text: polkitAgent.flow?.message || ""
       }
+
       Rectangle {
         Layout.alignment: Qt.AlignHCenter
-        Layout.bottomMargin: theme.padding * 1.5
+        Layout.bottomMargin: root.spacing
+        Layout.topMargin: root.spacing
         Layout.preferredHeight: 2
         Layout.preferredWidth: parent.width * 0.5
-        Layout.topMargin: theme.padding * 1.5
-        color: Qt.alpha(theme.colors.primary2, 0.1)
-        radius: theme.radius
+        color: theme.colors.bg1
       }
+
       TextField {
         id: inputField
 
         property int shakeOffset: 0
 
         Layout.fillWidth: true
-        Layout.preferredHeight: font.pixelSize + theme.padding * 2
-        color: theme.colors.bg1
-        echoMode: TextField.Password
-        font.pixelSize: theme.fontSizeBase
         horizontalAlignment: Qt.AlignHCenter
-        placeholderText: "Password"
-        placeholderTextColor: theme.colors.bg2
+        verticalAlignment: Qt.AlignVCenter
+        Layout.preferredHeight: font.pixelSize + root.inputPadding
         selectedTextColor: theme.colors.bg0
         selectionColor: theme.colors.primary2
-        verticalAlignment: Qt.AlignVCenter
+        font.pixelSize: theme.fontSizeMedium
+        echoMode: TextField.Password
+        color: theme.colors.fg0
 
         background: Rectangle {
+          radius: root.inputRadius
           color: theme.colors.bg1
-          radius: theme.radius
 
           transform: Translate {
             x: -inputField.shakeOffset
           }
         }
-        cursorDelegate: Text {
-        }
+        cursorDelegate: Text {}
         transform: Translate {
           x: inputField.shakeOffset
         }
@@ -110,6 +121,16 @@ PanelWindow {
         onAccepted: {
           polkitAgent.flow.submit(text);
           errorAnimation.start();
+        }
+
+        Text {
+          anchors.fill: parent
+          horizontalAlignment: Qt.AlignHCenter
+          verticalAlignment: Qt.AlignVCenter
+          visible: inputField.text.length === 0
+          font.pixelSize: theme.fontSizeBase
+          color: theme.colors.bg4
+          text: "Password"
         }
 
         ParallelAnimation {
@@ -121,30 +142,35 @@ PanelWindow {
             PauseAnimation {
               duration: errorAnimation.delay
             }
+
             NumberAnimation {
               duration: 50
               property: "shakeOffset"
               target: inputField
               to: -8
             }
+
             NumberAnimation {
               duration: 50
               property: "shakeOffset"
               target: inputField
               to: 8
             }
+
             NumberAnimation {
               duration: 50
               property: "shakeOffset"
               target: inputField
               to: -5
             }
+
             NumberAnimation {
               duration: 50
               property: "shakeOffset"
               target: inputField
               to: 5
             }
+
             NumberAnimation {
               duration: 50
               property: "shakeOffset"
@@ -152,16 +178,19 @@ PanelWindow {
               to: 0
             }
           }
+
           SequentialAnimation {
             PauseAnimation {
               duration: errorAnimation.delay
             }
+
             ColorAnimation {
               duration: 50
               property: "selectionColor"
               target: inputField
               to: theme.colors.red2
             }
+
             ColorAnimation {
               duration: 200
               property: "selectionColor"
@@ -169,16 +198,19 @@ PanelWindow {
               to: theme.colors.primary2
             }
           }
+
           SequentialAnimation {
             PauseAnimation {
               duration: errorAnimation.delay
             }
+
             ColorAnimation {
               duration: 50
               property: "color"
               target: inputField
               to: theme.colors.red2
             }
+
             ColorAnimation {
               duration: 200
               property: "color"

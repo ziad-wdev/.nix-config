@@ -4,52 +4,67 @@ import Quickshell
 import Quickshell.Hyprland
 
 RowLayout {
+  id: root
+
+  readonly property color bg: theme.colors.bg1
+  readonly property color bgActive: Qt.alpha(theme.colors.primary2, 0.1)
+  readonly property color bgOccupied: Qt.alpha(theme.colors.tertiary2, 0.1)
+  readonly property color textColor: theme.colors.bg4
+  readonly property color textColorActive: theme.colors.primary2
+  readonly property color textColorOccupied: theme.colors.tertiary2
+  readonly property int fontSize: theme.fontSizeSmall
+  readonly property int padding: 6
+  readonly property int radius: 2
+
   spacing: 6
 
   Repeater {
-    model: ["I", "II", "III", "IV", "V"]
+    model: 10
 
     delegate: Rectangle {
-      id: button
+      readonly property bool isActive: Hyprland.focusedWorkspace?.id === index + 1
+      readonly property bool isOccupied: Hyprland.workspaces.values.some(w => w.id === index + 1)
+      readonly property bool shouldShow: index + 1 <= 6 || isActive || isOccupied
 
-      readonly property color baseColor: isActive ? theme.colors.primary2 : isOccupied ? theme.colors.tertiary2 : Qt.alpha(theme.colors.primary2, 0.1)
-      readonly property bool isActive: Hyprland.focusedWorkspace?.id === wsId
-      readonly property bool isOccupied: Hyprland.workspaces.values.some(w => w.id === wsId)
-      readonly property var wsId: index + 1
+      Layout.preferredHeight: root.fontSize + root.padding
+      Layout.preferredWidth: root.fontSize + root.padding
+      radius: root.radius
+      color: isActive ? root.bgActive : isOccupied ? root.bgOccupied : root.bg
+      opacity: shouldShow ? 1 : 0
+      scale: shouldShow ? 1 : 0
+      visible: opacity > 0.6
 
-      Layout.preferredHeight: 6
-      Layout.preferredWidth: isActive ? 30 : 20
-      color: baseColor
-      radius: theme.radius
-
-      Behavior on color {
-        ColorAnimation {
-          duration: 150
+      Behavior on opacity {
+        NumberAnimation {
+          duration: theme.duration
+          easing.type: theme.easingOut
         }
       }
-      Behavior on width {
+      Behavior on scale {
         NumberAnimation {
-          duration: 150
+          duration: theme.duration * 2
+          easing.type: theme.popOut
         }
       }
 
       MouseArea {
-        id: mouseArea
-
         anchors.fill: parent
-        hoverEnabled: true
 
-        states: State {
-          name: "hovered"
-          when: mouseArea.containsMouse
+        onClicked: Hyprland.dispatch(`hl.dsp.focus({ workspace = ${index + 1} })`)
+      }
 
-          PropertyChanges {
-            color: Qt.lighter(baseColor, 1.2)
-            target: button
+      Text {
+        anchors.centerIn: parent
+        color: parent.isActive ? root.textColorActive : parent.isOccupied ? root.textColorOccupied : root.textColor
+        font.pixelSize: root.fontSize
+        text: index + 1
+
+        Behavior on color {
+          ColorAnimation {
+            duration: theme.duration
+            easing.type: theme.easingOut
           }
         }
-
-        onClicked: Hyprland.dispatch(`hl.dsp.focus({ workspace = ${wsId} })`)
       }
     }
   }

@@ -24,6 +24,6 @@
   };
 
   environment.sessionVariables = {
-    __GL_SHADER_DISK_CACHE_PATH = "\${XDG_CACHE_HOME:-$HOME/.cache}/nv";
+    CUDA_CACHE_PATH = "\${XDG_CACHE_HOME:-$HOME/.cache}/nv";
   };
 }

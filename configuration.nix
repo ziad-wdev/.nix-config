@@ -21,6 +21,7 @@
       "boot"
       "disko"
       "hardware"
+      "netlimit"
       "nvidia"
       "services"
     ];

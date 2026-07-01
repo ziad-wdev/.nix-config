@@ -38,10 +38,12 @@
         command = "${pkgs.qt6.qtdeclarative}/bin/qmlformat";
         options = [
           "--inplace"
-          "--normalize"
-          "--single-line-empty-objects"
           "--indent-width"
           "2"
+          "--objects-spacing"
+          "--functions-spacing"
+          "--single-line-empty-objects"
+          "--group-attributes-together"
         ];
 
         includes = ["*.qml"];
@@ -97,7 +99,6 @@ in {
         cd $out
 
         npm install \
-          prettier-plugin-sort-json \
           @trivago/prettier-plugin-sort-imports \
           prettier-plugin-tailwindcss \
           --no-save
@@ -105,7 +106,6 @@ in {
   in
     builtins.toJSON {
       plugins = [
-        "${prettierPlugins}/node_modules/prettier-plugin-sort-json/dist/index.js"
         "${prettierPlugins}/node_modules/@trivago/prettier-plugin-sort-imports/lib/src/index.js"
         "${prettierPlugins}/node_modules/prettier-plugin-tailwindcss/dist/index.mjs"
       ];
@@ -118,9 +118,6 @@ in {
       bracketSpacing = true;
       arrowParens = "always";
       endOfLine = "lf";
-
-      jsonRecursiveSort = true;
-      jsonSortOrder = "{\"placeThisFirst\": null, \"/^\\\\d+/\": \"numeric\", \"/.*/\": \"caseInsensitiveLexical\"}";
 
       importOrderSeparation = true;
       importOrderSortSpecifiers = true;
