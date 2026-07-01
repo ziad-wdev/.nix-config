@@ -10,7 +10,7 @@
     nixd
 
     # MongoDB
-    mongodb-ce
+    mongodb
   ];
 
   xdg.configFile."zed/themes/custom.json".source =
