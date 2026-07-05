@@ -9,6 +9,7 @@
     resources # Resource manger
     showtime # video player
     loupe # Image viewer
+    upscayl
 
     # Gaming applications
     wineWow64Packages.stable
