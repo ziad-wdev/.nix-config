@@ -22,10 +22,34 @@
     wireplumber.enable = true;
   };
 
+  # power management
+  services.upower.enable = true;
+  services.tlp = {
+    enable = true;
+    settings = {
+      # AC: Responsive performance
+      CPU_SCALING_GOVERNOR_ON_AC = "powersave";
+      CPU_ENERGY_PERF_POLICY_ON_AC = "balance_performance";
+      CPU_BOOST_ON_AC = 1;
+      SUSPEND_ON_AC = 0;
+      CPU_MIN_PERF_ON_AC = 0;
+      CPU_MAX_PERF_ON_AC = 100;
+
+      # Battery: Max efficiency
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+      CPU_BOOST_ON_BAT = 0;
+      CPU_MIN_PERF_ON_BAT = 0;
+      CPU_MAX_PERF_ON_BAT = 60;
+
+      # Battery Charge Thresholds
+      START_CHARGE_THRESH_BAT0 = 75;
+      STOP_CHARGE_THRESH_BAT0 = 80;
+    };
+  };
+
   # essential services
   services.gvfs.enable = true;
-  services.tlp.enable = true;
-  services.upower.enable = true;
   security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.login.enableGnomeKeyring = true;
@@ -42,15 +66,15 @@
 
   zramSwap = {
     enable = true;
-    memoryPercent = 100;
+    memoryPercent = 50;
     priority = 100;
   };
 
   boot.kernel.sysctl = {
-    "vm.swappiness" = 180;
+    "vm.swappiness" = 60;
     "vm.watermark_boost_factor" = 0;
     "vm.watermark_scale_factor" = 125;
-    "vm.vfs_cache_pressure" = 50;
+    "vm.vfs_cache_pressure" = 100;
     "vm.page-cluster" = 0;
   };
 
