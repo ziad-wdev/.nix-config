@@ -42,13 +42,21 @@
       CPU_MIN_PERF_ON_BAT = 0;
       CPU_MAX_PERF_ON_BAT = 60;
       RUNTIME_PM_ON_BAT = "auto";
-      RUNTIME_PN_DENYLIST = "00:14.3";
+      RUNTIME_PM_DENYLIST = "00:14.3";
 
       # Battery Charge Thresholds
       START_CHARGE_THRESH_BAT0 = 75;
       STOP_CHARGE_THRESH_BAT0 = 80;
+
+      # Devices to disable on startup
+      DEVICES_TO_DISABLE_ON_STARTUP = "";
     };
   };
+
+  boot.extraModprobeConfig = ''
+    options iwlwifi power_save=0
+    options iwlmvm power_scheme=1
+  '';
 
   # essential services
   services.gvfs.enable = true;
@@ -87,6 +95,34 @@
       stdenv.cc.cc
       libsecret
       glib
+      nss
+
+      stdenv.cc.cc.lib
+      libxkbcommon
+      gdk-pixbuf
+      fontconfig
+      freetype
+      alsa-lib
+      libdrm
+      cairo
+      pango
+      nspr
+      cups
+      mesa
+      dbus
+      gtk3
+      atk
+      xorg.libXcomposite
+      xorg.libxkbcommon
+      xorg.libXcursor
+      xorg.libXdamage
+      xorg.libXrender
+      xorg.libXrandr
+      xorg.libXfixes
+      xorg.libXext
+      xorg.libX11
+      xorg.libxcb
+      xorg.libXi
     ];
   };
 

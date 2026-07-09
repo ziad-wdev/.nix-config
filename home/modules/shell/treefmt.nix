@@ -110,32 +110,36 @@ in {
         "${prettierPlugins}/node_modules/prettier-plugin-tailwindcss/dist/index.mjs"
       ];
 
-      tabWidth = 2;
+      endOfLine = "lf";
       printWidth = 100;
       semi = false;
+      tabWidth = 2;
       singleQuote = true;
+      jsxSingleQuote = false;
       trailingComma = "all";
-      bracketSpacing = true;
       arrowParens = "always";
-      endOfLine = "lf";
+      bracketSpacing = true;
+      proseWrap = "preserve";
+      quoteProps = "as-needed";
+      embeddedLanguageFormatting = "auto";
 
-      importOrderSeparation = true;
-      importOrderSortSpecifiers = true;
-      importOrderParserPlugins = ["typescript" "jsx" "decorators-legacy"];
       importOrder = [
+        "^(react|react-dom)$"
+        "^next(/.*)?$"
         "<THIRD_PARTY_MODULES>"
-        "^react(-dom)?$"
-        "^next(.*)$"
         "^@/(.*)$"
         "^\\.\\./"
         "^\\./"
         "^.+\\.(css|scss|sass)$"
       ];
+      importOrderSeparation = true;
+      importOrderSortSpecifiers = true;
+      importOrderParserPlugins = ["typescript" "jsx" "decorators-legacy"];
 
       tailwindFunctions = [
-        "cn"
         "clsx"
         "tw"
+        "cn"
       ];
     };
 
