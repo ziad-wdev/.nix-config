@@ -104,8 +104,10 @@
       freetype
       alsa-lib
       libdrm
+      libgbm
       cairo
       pango
+      expat
       nspr
       cups
       mesa
