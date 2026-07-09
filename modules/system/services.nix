@@ -112,17 +112,16 @@
       dbus
       gtk3
       atk
-      xorg.libXcomposite
-      xorg.libxkbcommon
-      xorg.libXcursor
-      xorg.libXdamage
-      xorg.libXrender
-      xorg.libXrandr
-      xorg.libXfixes
-      xorg.libXext
-      xorg.libX11
-      xorg.libxcb
-      xorg.libXi
+      libxcomposite
+      libxcursor
+      libxdamage
+      libxrender
+      libxrandr
+      libxfixes
+      libxext
+      libx11
+      libxcb
+      libxi
     ];
   };
 
