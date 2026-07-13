@@ -2,7 +2,6 @@
   flakePath,
   stateVersion,
   username,
-  pkgs,
   ...
 }: let
   loadModules = attrs:
@@ -28,7 +27,6 @@
   };
 in {
   imports = modulePaths;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
   system.stateVersion = stateVersion;
   time.timeZone = "Africa/Cairo";
   nix.settings = {
