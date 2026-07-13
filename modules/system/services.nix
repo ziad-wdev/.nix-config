@@ -2,10 +2,7 @@
   # network
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
-  networking.nameservers = [
-    "1.1.1.1"
-    "8.8.8.8"
-  ];
+  networking.nameservers = ["1.1.1.1" "8.8.8.8"];
 
   # bluetooth
   hardware.bluetooth.enable = true;
@@ -42,27 +39,19 @@
       CPU_MIN_PERF_ON_BAT = 0;
       CPU_MAX_PERF_ON_BAT = 60;
       RUNTIME_PM_ON_BAT = "auto";
-      RUNTIME_PM_DENYLIST = "00:14.3";
 
       # Battery Charge Thresholds
       START_CHARGE_THRESH_BAT0 = 75;
       STOP_CHARGE_THRESH_BAT0 = 80;
 
-      # Devices to disable on startup
-      DEVICES_TO_DISABLE_ON_STARTUP = "";
+      # Disable Wi-Fi power management protocols
+      WIFI_PWR_ON_AC = "off";
+      WIFI_PWR_ON_BAT = "off";
+
+      # Block TLP from suspending this specific PCIe device
+      RUNTIME_PM_DENYLIST = "00:14.3";
     };
   };
-
-  boot.extraModprobeConfig = ''
-    options iwlwifi power_save=0
-    options iwlmvm power_scheme=1
-  '';
-
-  # essential services
-  services.gvfs.enable = true;
-  security.polkit.enable = true;
-  services.gnome.gnome-keyring.enable = true;
-  security.pam.services.login.enableGnomeKeyring = true;
 
   # ram optimization services
   services.earlyoom = {
@@ -88,6 +77,12 @@
     "vm.page-cluster" = 0;
   };
 
+  # essential services
+  services.gvfs.enable = true;
+  security.polkit.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.login.enableGnomeKeyring = true;
+
   # compatibility services
   programs.nix-ld = {
     enable = true;
@@ -96,34 +91,6 @@
       libsecret
       glib
       nss
-
-      stdenv.cc.cc.lib
-      libxkbcommon
-      gdk-pixbuf
-      fontconfig
-      freetype
-      alsa-lib
-      libdrm
-      libgbm
-      cairo
-      pango
-      expat
-      nspr
-      cups
-      mesa
-      dbus
-      gtk3
-      atk
-      libxcomposite
-      libxcursor
-      libxdamage
-      libxrender
-      libxrandr
-      libxfixes
-      libxext
-      libx11
-      libxcb
-      libxi
     ];
   };
 
