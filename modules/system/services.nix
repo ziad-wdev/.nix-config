@@ -21,37 +21,6 @@
 
   # power management
   services.upower.enable = true;
-  services.tlp = {
-    enable = true;
-    settings = {
-      # AC: Responsive performance
-      CPU_SCALING_GOVERNOR_ON_AC = "powersave";
-      CPU_ENERGY_PERF_POLICY_ON_AC = "balance_performance";
-      CPU_BOOST_ON_AC = 1;
-      CPU_MIN_PERF_ON_AC = 0;
-      CPU_MAX_PERF_ON_AC = 100;
-      RUNTIME_PM_ON_AC = "on";
-
-      # Battery: Max efficiency
-      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
-      CPU_BOOST_ON_BAT = 0;
-      CPU_MIN_PERF_ON_BAT = 0;
-      CPU_MAX_PERF_ON_BAT = 60;
-      RUNTIME_PM_ON_BAT = "auto";
-
-      # Battery Charge Thresholds
-      START_CHARGE_THRESH_BAT0 = 75;
-      STOP_CHARGE_THRESH_BAT0 = 80;
-
-      # Disable Wi-Fi power management protocols
-      WIFI_PWR_ON_AC = "off";
-      WIFI_PWR_ON_BAT = "off";
-
-      # Block TLP from suspending this specific PCIe device
-      RUNTIME_PM_DENYLIST = "00:14.3";
-    };
-  };
 
   # ram optimization services
   services.earlyoom = {
@@ -61,20 +30,6 @@
       "--prefer '^(electron|chrome|firefox|zen-browser)$'"
       "--avoid '^(Xorg|wayland|nix-daemon|hyprland|waybar|gnome-keyring-daemon|pipewire|wireplumber)$'"
     ];
-  };
-
-  zramSwap = {
-    enable = true;
-    memoryPercent = 50;
-    priority = 100;
-  };
-
-  boot.kernel.sysctl = {
-    "vm.swappiness" = 60;
-    "vm.watermark_boost_factor" = 0;
-    "vm.watermark_scale_factor" = 125;
-    "vm.vfs_cache_pressure" = 100;
-    "vm.page-cluster" = 0;
   };
 
   # essential services
