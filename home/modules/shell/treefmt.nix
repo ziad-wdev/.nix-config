@@ -90,7 +90,7 @@ in {
       {
         outputHashAlgo = "sha256";
         outputHashMode = "recursive";
-        outputHash = "sha256-lmrZfNybP7YGD1wo8SAt7wRhhRVu2rxK849YYcAvJvA=";
+        outputHash = "sha256-/lxccoqMzOvks6cMJeAtQ10u4Ig+9+EwtOLmdUVqKis=";
         nativeBuildInputs = with pkgs; [nodejs cacert];
       }
       ''
@@ -99,14 +99,14 @@ in {
         cd $out
 
         npm install \
-          @trivago/prettier-plugin-sort-imports \
+          @ianvs/prettier-plugin-sort-imports \
           prettier-plugin-tailwindcss \
           --no-save
       '';
   in
     builtins.toJSON {
       plugins = [
-        "${prettierPlugins}/node_modules/@trivago/prettier-plugin-sort-imports/lib/src/index.js"
+        "${prettierPlugins}/node_modules/@ianvs/prettier-plugin-sort-imports/lib/src/index.js"
         "${prettierPlugins}/node_modules/prettier-plugin-tailwindcss/dist/index.mjs"
       ];
 
@@ -124,17 +124,29 @@ in {
       embeddedLanguageFormatting = "auto";
 
       importOrder = [
-        "^(react|react-dom)$"
-        "^next(/.*)?$"
+        "^(react/(.*)$)|^(react$)"
+        "^(next/(.*)$)|^(next$)"
+        ""
+        "<BUILTIN_MODULES>"
+        ""
         "<THIRD_PARTY_MODULES>"
+        ""
         "^@/(.*)$"
+        ""
+        "^@repo/(.*)$"
+        ""
         "^\\.\\./"
+        ""
         "^\\./"
+        ""
         "^.+\\.(css|scss|sass)$"
       ];
-      importOrderSeparation = true;
-      importOrderSortSpecifiers = true;
-      importOrderParserPlugins = ["typescript" "jsx" "decorators-legacy"];
+      importOrderTypeScriptVersion = "5.0.0";
+      importOrderParserPlugins = [
+        "typescript"
+        "jsx"
+        "decorators-legacy"
+      ];
 
       tailwindFunctions = [
         "clsx"
