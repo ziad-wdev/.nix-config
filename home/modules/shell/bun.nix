@@ -17,6 +17,10 @@
     };
   };
 
+  home.sessionPath = [
+    "${config.xdg.dataHome}/bun/bin"
+  ];
+
   home.sessionVariables = {
     BUN_INSTALL = "${config.xdg.dataHome}/bun";
     BUN_INSTALL_CACHE_DIR = "${config.xdg.cacheHome}/bun";
