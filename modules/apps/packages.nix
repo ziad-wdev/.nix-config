@@ -8,6 +8,7 @@
     # UI applications
     resources # Resource manger
     showtime # video player
+    papers # doc viewer
     loupe # Image viewer
 
     # Gaming applications
@@ -30,4 +31,8 @@
     enable = true;
     gamescopeSession.enable = true;
   };
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-40.10.5"
+  ];
 }
