@@ -6,6 +6,8 @@
     _7zz-rar
     ouch
 
+    rendercv
+
     # UI applications
     resources # Resource manger
     showtime # video player
