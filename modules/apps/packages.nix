@@ -2,6 +2,7 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     # System utilities
+    nodejs-slim
     _7zz-rar
     ouch
 
