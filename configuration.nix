@@ -28,7 +28,8 @@
   };
 in {
   imports = modulePaths;
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages;
+  hardware.enableRedistributableFirmware = true;
   system.stateVersion = stateVersion;
   time.timeZone = "Africa/Cairo";
   nix.settings = {

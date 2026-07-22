@@ -22,16 +22,6 @@
   # power management
   services.upower.enable = true;
 
-  # ram optimization services
-  services.earlyoom = {
-    enable = true;
-    extraArgs = [
-      "-g"
-      "--prefer '^(electron|chrome|firefox|zen-browser)$'"
-      "--avoid '^(Xorg|wayland|nix-daemon|hyprland|waybar|gnome-keyring-daemon|pipewire|wireplumber)$'"
-    ];
-  };
-
   # essential services
   services.gvfs.enable = true;
   security.polkit.enable = true;
@@ -45,7 +35,6 @@
       stdenv.cc.cc
       libsecret
       glib
-      nss
     ];
   };
 
