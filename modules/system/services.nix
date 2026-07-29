@@ -22,13 +22,17 @@
   # power management
   services.upower.enable = true;
 
+  boot.kernelParams = ["usbcore.autosuspend=-1"];
+
   # essential services
+  services.fwupd.enable = true;
   services.gvfs.enable = true;
   security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.login.enableGnomeKeyring = true;
 
   # compatibility services
+  services.envfs.enable = true;
   programs.nix-ld = {
     enable = true;
     libraries = with pkgs; [

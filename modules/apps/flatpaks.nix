@@ -10,7 +10,6 @@
     packages = [
       "com.github.tchx84.Flatseal" # Flatseal
       "com.rtosta.zapzap" # WhatsApp
-      "org.telegram.desktop" # Telegram
       "com.obsproject.Studio" # OBS Studio
       "org.localsend.localsend_app" # Local file sharing
       "org.upscayl.Upscayl" # Upscayl

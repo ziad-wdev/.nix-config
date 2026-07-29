@@ -28,8 +28,9 @@
   };
 in {
   imports = modulePaths;
-  boot.kernelPackages = pkgs.linuxPackages;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
   hardware.enableRedistributableFirmware = true;
+  hardware.firmware = [pkgs.linux-firmware];
   system.stateVersion = stateVersion;
   time.timeZone = "Africa/Cairo";
   nix.settings = {
@@ -68,6 +69,7 @@ in {
       "video"
       "audio"
       "docker"
+      "gamemode"
     ];
   };
 }
