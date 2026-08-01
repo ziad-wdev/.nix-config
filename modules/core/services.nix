@@ -19,8 +19,6 @@
     wireplumber.enable = true;
   };
 
-  # boot.kernelParams = ["usbcore.autosuspend=-1"];
-
   # essential services
   services.upower.enable = true;
   services.fwupd.enable = true;
