@@ -3,8 +3,8 @@
   pkgs,
   ...
 }: {
-  boot.kernelPackages = pkgs.linuxPackages_zen;
   hardware.enableRedistributableFirmware = true;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
   hardware.firmware = [pkgs.linux-firmware];
   time.timeZone = "Africa/Cairo";
   nix.settings = {

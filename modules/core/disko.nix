@@ -33,6 +33,7 @@
                 type = "filesystem";
                 format = "btrfs";
                 mountpoint = "/";
+                mountOptions = ["compress=zstd" "noatime"];
               };
             };
           };
