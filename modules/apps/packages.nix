@@ -1,8 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     # System utilities
@@ -16,6 +12,7 @@
     loupe # Image viewer
 
     # Gaming applications
+    vulkan-tools
     protonup-ng
     lutris
   ];
@@ -29,12 +26,10 @@
   virtualisation.docker.enable = true;
 
   # Enable Steam
-  nixpkgs.overlays = [inputs.millennium.overlays.default];
   programs.gamemode.enable = true;
   programs.steam = {
     enable = true;
     gamescopeSession.enable = true;
-    package = pkgs.millennium-steam;
   };
 
   nixpkgs.config.permittedInsecurePackages = [

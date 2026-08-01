@@ -6,22 +6,22 @@
 
 -- Startup Commands
 hl.on("hyprland.start", function()
-	hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
-	hl.exec_cmd("awww-daemon")
-	hl.exec_cmd("waybar")
+	-- dbus-update-activation-environment removed; UWSM handles this natively
+	hl.exec_cmd("uwsm app -- awww-daemon")
+	hl.exec_cmd("uwsm app -- waybar")
 end)
 
 -- Variables
 cmds = {
-	screenshot = "pkill slurp || hyprshot -z -m region -o ~/Pictures/screenshots",
-	windowScreenshot = "pkill slurp || hyprshot -z -m window -o ~/Pictures/screenshots",
-	colorPicker = "pkill hyprpicker || hyprpicker",
-	powerMenu = "pkill wlogout || wlogout -b 5",
-	appLauncher = "pkill rofi || rofi -show drun",
-	wallpaperPicker = "pkill rofi || bash ~/.config/rofi/scripts/rofi-wallpapers.sh",
-	fileManager = "nautilus",
-	terminal = "ghostty",
-	browser = "zen-beta",
+	screenshot = "pkill slurp || uwsm app -- hyprshot -z -m region -o ~/Pictures/screenshots",
+	windowScreenshot = "pkill slurp || uwsm app -- hyprshot -z -m window -o ~/Pictures/screenshots",
+	colorPicker = "pkill hyprpicker || uwsm app -- hyprpicker",
+	powerMenu = "pkill wlogout || uwsm app -- wlogout -b 5",
+	appLauncher = "pkill rofi || uwsm app -- rofi -show drun",
+	wallpaperPicker = "pkill rofi || uwsm app -- bash ~/.config/rofi/scripts/rofi-wallpapers.sh",
+	fileManager = "uwsm app -- nautilus",
+	terminal = "uwsm app -- ghostty",
+	browser = "uwsm app -- zen-beta",
 }
 
 -- Monitor Configuration
