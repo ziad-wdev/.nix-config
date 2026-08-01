@@ -2,39 +2,31 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    disko = {
-      url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # Tools
+    import-tree.url = "github:denful/import-tree";
 
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
 
-    nix-flatpak.url = "github:gmodena/nix-flatpak";
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Extra
+    silentSDDM.url = "github:uiriansan/SilentSDDM";
+    silentSDDM.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-colors.url = "github:misterio77/nix-colors";
 
-    silentSDDM = {
-      url = "github:uiriansan/SilentSDDM";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
 
-    zen-browser = {
-      url = "github:0xc000022070/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    zen-browser.inputs.nixpkgs.follows = "nixpkgs";
 
-    treefmt-nix = {
-      url = "github:numtide/treefmt-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    treefmt-nix.url = "github:numtide/treefmt-nix";
+    treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
 
-    qml-lsp = {
-      url = "github:cushycush/qml-language-server";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    qml-lsp.url = "github:cushycush/qml-language-server";
+    qml-lsp.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
@@ -59,7 +51,6 @@
       specialArgs = sharedArgs;
 
       modules = [
-        ./configuration.nix
         home-manager.nixosModules.home-manager
         {
           home-manager = {
@@ -67,13 +58,10 @@
             backupFileExtension = "hm-backup";
             useGlobalPkgs = true;
             useUserPackages = true;
-            users.${username} = {
-              imports = [
-                ./home/home.nix
-              ];
-            };
           };
         }
+
+        (inputs.import-tree ./modules)
       ];
     };
   };

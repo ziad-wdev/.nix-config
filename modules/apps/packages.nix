@@ -17,10 +17,6 @@
     lutris
   ];
 
-  # Enable Zsh as the default shell for users.
-  programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
-
   # Enable Docker for containerization and NVIDIA container toolkit.
   hardware.nvidia-container-toolkit.enable = true;
   virtualisation.docker.enable = true;

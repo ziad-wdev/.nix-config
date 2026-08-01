@@ -4,7 +4,7 @@
   ...
 }: let
   sassContent = pkgs.writeText "style.scss" ''
-    @import url("file://${config.xdg.dataHome}/themes/waybar.css");
+    @import url("file://${config.hm.xdg.dataHome}/themes/waybar.css");
 
     $rounding: 24px;
     $padding: 4px;
@@ -178,131 +178,133 @@
       sass ${sassContent} $out
     '';
 in {
-  programs.waybar = {
-    enable = true;
-    style = builtins.readFile waybarStyle;
-    settings = {
-      mainBar = {
-        layer = "top";
-        position = "top";
-        spacing = 8;
-        "margin-left" = 16;
-        "margin-right" = 16;
-        "margin-top" = 16;
-        "margin-bottom" = 0;
-        reload_style_on_change = true;
-        modules-left = [
-          "custom/menu"
-          "hyprland/workspaces"
-        ];
-
-        modules-center = ["clock"];
-
-        modules-right = [
-          "tray"
-          "wireplumber"
-          "bluetooth"
-          "network"
-          "battery"
-        ];
-
-        "custom/menu" = {
-          format = "";
-          on-click = "rofi -show drun";
-          tooltip = false;
-        };
-
-        "hyprland/workspaces" = {
-          format = "{icon}";
-          all-outputs = true;
-          persistent-workspaces = {
-            "*" = [
-              1
-              2
-              3
-              4
-              5
-            ];
-          };
-
-          tooltip = false;
-        };
-
-        clock = {
-          format = "{:%m %a %I:%M %p}";
-          tooltip = false;
-        };
-
-        tray = {
+  hm = {
+    programs.waybar = {
+      enable = true;
+      style = builtins.readFile waybarStyle;
+      settings = {
+        mainBar = {
+          layer = "top";
+          position = "top";
           spacing = 8;
-        };
-
-        wireplumber = {
-          format = "{icon}   {volume}%";
-          format-muted = "󰝟";
-          format-icons = [
-            "󰕿"
-            "󰖀"
-            "󰕾"
+          "margin-left" = 16;
+          "margin-right" = 16;
+          "margin-top" = 16;
+          "margin-bottom" = 0;
+          reload_style_on_change = true;
+          modules-left = [
+            "custom/menu"
+            "hyprland/workspaces"
           ];
 
-          on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
-          max-volume = 200;
-          scroll-step = 5;
-          tooltip = false;
-        };
+          modules-center = ["clock"];
 
-        bluetooth = {
-          format = "";
-          format-connected = "󰂯   {device_alias}";
-          format-connected-battery = "   {device_alias} {device_battery_percentage}%";
-          on-click = "${pkgs.blueman}/bin/blueman-manager";
-          tooltip = false;
-        };
-
-        network = {
-          format-wifi = "{icon}   {essid}";
-          format-ethernet = "󰈀    Ethernet";
-          format-disabled = "󰤭     Disabled";
-          format-disconnected = "󰤭    Disconnected";
-          format-icons = [
-            "󰤯 "
-            "󰤟 "
-            "󰤢 "
-            "󰤥 "
-            "󰤨 "
+          modules-right = [
+            "tray"
+            "wireplumber"
+            "bluetooth"
+            "network"
+            "battery"
           ];
 
-          on-click = "${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
-          tooltip = false;
-        };
-
-        battery = {
-          format = "{icon}   {capacity}%";
-          format-icons = {
-            default = [
-              " "
-              " "
-              " "
-              " "
-              " "
-            ];
-
-            charging = [
-              "  "
-              "  "
-              "  "
-              "  "
-              "  "
-            ];
+          "custom/menu" = {
+            format = "";
+            on-click = "rofi -show drun";
+            tooltip = false;
           };
 
-          states = {
-            warning = 30;
-            critical = 15;
+          "hyprland/workspaces" = {
+            format = "{icon}";
+            all-outputs = true;
+            persistent-workspaces = {
+              "*" = [
+                1
+                2
+                3
+                4
+                5
+              ];
+            };
+
+            tooltip = false;
           };
 
-          tooltip = false;
+          clock = {
+            format = "{:%m %a %I:%M %p}";
+            tooltip = false;
+          };
+
+          tray = {
+            spacing = 8;
+          };
+
+          wireplumber = {
+            format = "{icon}   {volume}%";
+            format-muted = "󰝟";
+            format-icons = [
+              "󰕿"
+              "󰖀"
+              "󰕾"
+            ];
+
+            on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+            max-volume = 200;
+            scroll-step = 5;
+            tooltip = false;
+          };
+
+          bluetooth = {
+            format = "";
+            format-connected = "󰂯   {device_alias}";
+            format-connected-battery = "   {device_alias} {device_battery_percentage}%";
+            on-click = "${pkgs.blueman}/bin/blueman-manager";
+            tooltip = false;
+          };
+
+          network = {
+            format-wifi = "{icon}   {essid}";
+            format-ethernet = "󰈀    Ethernet";
+            format-disabled = "󰤭     Disabled";
+            format-disconnected = "󰤭    Disconnected";
+            format-icons = [
+              "󰤯 "
+              "󰤟 "
+              "󰤢 "
+              "󰤥 "
+              "󰤨 "
+            ];
+
+            on-click = "${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
+            tooltip = false;
+          };
+
+          battery = {
+            format = "{icon}   {capacity}%";
+            format-icons = {
+              default = [
+                " "
+                " "
+                " "
+                " "
+                " "
+              ];
+
+              charging = [
+                "  "
+                "  "
+                "  "
+                "  "
+                "  "
+              ];
+            };
+
+            states = {
+              warning = 30;
+              critical = 15;
+            };
+
+            tooltip = false;
+          };
         };
       };
     };

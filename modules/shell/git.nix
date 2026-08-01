@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  programs.git = {
+  hm.programs.git = {
     enable = true;
     settings = {
       core.askpass = "";
@@ -21,7 +21,7 @@
     };
   };
 
-  programs.gh = {
+  hm.programs.gh = {
     enable = true;
   };
 }

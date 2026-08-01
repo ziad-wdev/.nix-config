@@ -4,9 +4,12 @@
   pkgs,
   ...
 }: {
-  programs.zsh = {
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
+
+  hm.programs.zsh = {
     enable = true;
-    dotDir = "${config.xdg.configHome}/zsh";
+    dotDir = "${config.hm.xdg.configHome}/zsh";
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
@@ -23,14 +26,14 @@
       enable = true;
       theme = "robbyrussell";
     };
-  };
 
-  programs.zsh.initContent = ''
-    fastfetch
-    eval "$(direnv hook zsh)"
-    unset __HM_SESS_VARS_SOURCED
-    if [ -f "${config.home.profileDirectory}/etc/profile.d/hm-session-vars.sh" ]; then
-        . "${config.home.profileDirectory}/etc/profile.d/hm-session-vars.sh"
-    fi
-  '';
+    initContent = ''
+      fastfetch
+      eval "$(direnv hook zsh)"
+      unset __HM_SESS_VARS_SOURCED
+      if [ -f "${config.hm.home.profileDirectory}/etc/profile.d/hm-session-vars.sh" ]; then
+          . "${config.hm.home.profileDirectory}/etc/profile.d/hm-session-vars.sh"
+      fi
+    '';
+  };
 }
