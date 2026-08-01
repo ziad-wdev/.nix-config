@@ -5,10 +5,8 @@
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
 
-    nixos-hardware = {
-      url = "github:NixOS/nixos-hardware";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
+    nixos-hardware.inputs.nixpkgs.follows = "nixpkgs";
 
     # Tools
     import-tree.url = "github:denful/import-tree";
@@ -50,11 +48,6 @@
       specialArgs = sharedArgs;
 
       modules = [
-        inputs.nixos-hardware.nixosModules.common-pc-laptop
-        inputs.nixos-hardware.nixosModules.common-pc-ssd
-        inputs.nixos-hardware.nixosModules.common-cpu-intel
-        inputs.nixos-hardware.nixosModules.common-gpu-nvidia
-
         home-manager.nixosModules.home-manager
         {
           home-manager = {

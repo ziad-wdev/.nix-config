@@ -29,6 +29,11 @@
 
   # compatibility services
   services.envfs.enable = true;
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
+
   programs.nix-ld = {
     enable = true;
     libraries = with pkgs; [
@@ -36,10 +41,5 @@
       libsecret
       glib
     ];
-  };
-
-  programs.direnv = {
-    enable = true;
-    nix-direnv.enable = true;
   };
 }
