@@ -1,9 +1,5 @@
-{
-  stateVersion,
-  username,
-  ...
-}: {
-  system.stateVersion = stateVersion;
+{username, ...}: {
+  system.stateVersion = "26.05";
   users.users.${username} = {
     isNormalUser = true;
     description = "${username}";
@@ -20,8 +16,8 @@
     programs.home-manager.enable = true;
     home = {
       homeDirectory = "/home/${username}";
+      stateVersion = "26.05";
       inherit username;
-      inherit stateVersion;
     };
   };
 }

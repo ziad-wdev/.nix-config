@@ -40,15 +40,9 @@
     ...
   } @ inputs: let
     username = "ziad";
-    stateVersion = "26.05";
-    flakePath = "/home/${username}/.nix-config";
     sharedArgs = {
-      inherit
-        inputs
-        flakePath
-        stateVersion
-        username
-        ;
+      inherit inputs username;
+      flakePath = "/home/${username}/.nix-config";
     };
   in {
     nixosConfigurations.default = nixpkgs.lib.nixosSystem {
