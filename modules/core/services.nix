@@ -20,9 +20,10 @@
   };
 
   # essential services
-  services.upower.enable = true;
   services.fwupd.enable = true;
-  services.gvfs.enable = true;
+  services.upower.enable = true;
+
+  # security services
   security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.login.enableGnomeKeyring = true;
