@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
-    vulkan-tools
     protonup-ng
     lutris
   ];

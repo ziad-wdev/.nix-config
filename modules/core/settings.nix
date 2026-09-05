@@ -1,7 +1,4 @@
-{
-  flakePath,
-  ...
-}: {
+{flakePath, ...}: {
   time.timeZone = "Africa/Cairo";
   nix.settings = {
     use-xdg-base-directories = true;
