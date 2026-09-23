@@ -52,8 +52,8 @@ in {
           border: none;
           border-radius: 64px;
           margin: 8px;
-          margin-top: 365px;
-          margin-bottom: 365px;
+          margin-top: 260px;
+          margin-bottom: 260px;
           transition: all 0.3s ease;
         }
 
