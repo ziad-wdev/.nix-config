@@ -11,8 +11,15 @@
     loupe # Image viewer
 
     # Development tools
+    postman
     rendercv
     ffmpeg
+
+    davinci-resolve
+    (lib.hiPrio (writeShellScriptBin "davinci-resolve" ''
+      export OCL_ICD_VENDORS=nvidia.icd
+      exec nvidia-offload ${davinci-resolve}/bin/davinci-resolve "$@"
+    ''))
   ];
 
   # Enable Docker for containerization and NVIDIA container toolkit.
